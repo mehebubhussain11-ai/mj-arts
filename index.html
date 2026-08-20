@@ -5,14 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MJ ARTS — Creative Digital Studio</title>
   <meta name="description" content="MJ ARTS — Premium websites, branding, menu designs and creative digital solutions." />
+  <meta name="theme-color" content="#050505" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
     :root {
       --gold: #d4af37;
       --gold-light: #f5d76e;
@@ -21,6 +15,18 @@
       --card: #111111;
       --white: #f5f5f5;
       --gray: #a7a7a7;
+      --border: rgba(212, 175, 55, 0.14);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    html {
+      scroll-padding-top: 90px;
     }
 
     body {
@@ -28,6 +34,17 @@
       background: var(--black);
       color: var(--white);
       overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     section {
@@ -75,43 +92,48 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      padding: 18px 7%;
+      padding: 16px 7%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(5,5,5,.82);
+      background: rgba(5, 5, 5, 0.86);
       backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(212,175,55,.12);
+      border-bottom: 1px solid var(--border);
     }
 
     .logo {
       display: flex;
       align-items: center;
       gap: 12px;
-      text-decoration: none;
       color: var(--gold);
-      font-size: 25px;
+      font-size: 24px;
       font-weight: 900;
       letter-spacing: 2px;
     }
 
     .logo img {
-      width: 42px;
-      height: 42px;
+      width: 46px;
+      height: 46px;
       object-fit: cover;
       border-radius: 50%;
-      border: 1px solid rgba(212,175,55,.35);
+      border: 1px solid rgba(212, 175, 55, 0.35);
       background: #000;
       flex: 0 0 auto;
+      box-shadow: 0 0 18px rgba(212, 175, 55, 0.12);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
     }
 
     .logo-text small {
-      display: block;
       color: #777;
       font-size: 8px;
       letter-spacing: 5px;
+      margin-top: 4px;
       text-align: center;
-      margin-top: 2px;
     }
 
     nav ul {
@@ -123,13 +145,14 @@
 
     nav a {
       color: #ddd;
-      text-decoration: none;
       font-size: 14px;
       transition: .3s;
     }
 
-    nav a:hover {
+    nav a:hover,
+    nav a:focus-visible {
       color: var(--gold);
+      outline: none;
     }
 
     .nav-btn {
@@ -147,6 +170,12 @@
       background: transparent;
       border: 0;
       line-height: 1;
+    }
+
+    .menu:focus-visible,
+    .btn:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
     }
 
     .hero {
@@ -265,25 +294,45 @@
       to { transform: translateX(-50%); }
     }
 
-    .services {
+    .services,
+    .pricing,
+    .work {
       background: var(--dark);
     }
 
-    .service-grid {
+    .service-grid,
+    .work-grid,
+    .price-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
-    .service-card {
+    .service-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .work-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .price-grid {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: stretch;
+    }
+
+    .service-card,
+    .price-card {
       background: linear-gradient(145deg, #151515, #0a0a0a);
       border: 1px solid #222;
       padding: 35px;
-      min-height: 260px;
       border-radius: 20px;
       transition: .35s;
       position: relative;
       overflow: hidden;
+    }
+
+    .service-card {
+      min-height: 260px;
     }
 
     .service-card::after {
@@ -314,12 +363,14 @@
       margin-bottom: 25px;
     }
 
-    .service-card h3 {
+    .service-card h3,
+    .price-card h3 {
       margin-bottom: 13px;
       font-size: 22px;
     }
 
-    .service-card p {
+    .service-card p,
+    .process p {
       color: var(--gray);
       line-height: 1.7;
       font-size: 14px;
@@ -348,9 +399,13 @@
       line-height: .8;
     }
 
-    .about-box p {
+    .about-box p,
+    .about-text p {
       color: var(--gray);
-      line-height: 1.8;
+      line-height: 1.9;
+    }
+
+    .about-box p {
       margin-top: 30px;
     }
 
@@ -360,19 +415,7 @@
     }
 
     .about-text p {
-      color: var(--gray);
-      line-height: 1.9;
       margin-bottom: 18px;
-    }
-
-    .work {
-      background: var(--dark);
-    }
-
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
     }
 
     .work-card {
@@ -380,51 +423,49 @@
       border-radius: 20px;
       overflow: hidden;
       position: relative;
-      background:
-        linear-gradient(145deg, #242424, #090909);
       border: 1px solid #242424;
+      background: #111;
     }
 
-    .work-card:nth-child(2) {
-      background:
-        radial-gradient(circle at 70% 30%, rgba(212,175,55,.35), transparent 25%),
-        linear-gradient(145deg,#191919,#070707);
-    }
-
-    .work-card:nth-child(3) {
-      background:
-        linear-gradient(135deg, rgba(212,175,55,.2), transparent 45%),
-        #111;
-    }
-
-    .work-card::before {
-      content: "MJ";
-      position: absolute;
-      font-size: 150px;
-      font-weight: 900;
-      color: rgba(212,175,55,.06);
-      right: -10px;
-      bottom: -20px;
-    }
-
-    .work-info {
-      position: absolute;
-      bottom: 0;
-      left: 0;
+    .work-thumb {
+      height: 100%;
       width: 100%;
-      padding: 25px;
-      background: linear-gradient(transparent, rgba(0,0,0,.95));
+      position: relative;
+      overflow: hidden;
     }
 
-    .work-info span {
+    .work-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.05) saturate(.95);
+    }
+
+    .work-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(212,175,55,.12), transparent 35%);
+      pointer-events: none;
+    }
+
+    .work-label {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 18px 20px;
+      background: linear-gradient(transparent, rgba(0,0,0,.88));
+    }
+
+    .work-label span {
       color: var(--gold);
       font-size: 11px;
       letter-spacing: 3px;
     }
 
-    .work-info h3 {
-      margin-top: 8px;
-      font-size: 24px;
+    .work-label strong {
+      display: block;
+      color: #fff;
+      font-size: 20px;
+      margin-top: 6px;
     }
 
     .process-grid {
@@ -451,38 +492,10 @@
       font-size: 20px;
     }
 
-    .process h3 {
-      margin-bottom: 10px;
-    }
-
-    .process p {
-      color: var(--gray);
-      line-height: 1.6;
-      font-size: 14px;
-    }
-
-    .pricing {
-      background: var(--dark);
-    }
-
-    .price-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      align-items: stretch;
-    }
-
-    .price-card {
-      background: #0b0b0b;
-      border: 1px solid #242424;
-      border-radius: 22px;
-      padding: 35px;
-      position: relative;
-    }
-
     .price-card.featured {
       border-color: var(--gold);
       transform: scale(1.03);
+      background: linear-gradient(145deg, #171717, #090909);
     }
 
     .popular {
@@ -495,11 +508,6 @@
       border-radius: 20px;
       font-size: 10px;
       font-weight: bold;
-    }
-
-    .price-card h3 {
-      font-size: 24px;
-      margin-bottom: 15px;
     }
 
     .price {
@@ -586,14 +594,26 @@
       border-radius: 50%;
       display: grid;
       place-items: center;
-      text-decoration: none;
       color: var(--gold);
       transition: .3s;
     }
 
-    .socials a:hover {
+    .socials a:hover,
+    .socials a:focus-visible {
       background: var(--gold);
       color: #000;
+      outline: none;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: .8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     @media(max-width: 850px) {
@@ -623,17 +643,13 @@
 
       .service-grid,
       .work-grid,
-      .price-grid {
+      .price-grid,
+      .about-grid {
         grid-template-columns: 1fr;
       }
 
       .process-grid {
         grid-template-columns: 1fr 1fr;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
       }
 
       .price-card.featured {
@@ -676,22 +692,31 @@
       }
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: .8s ease;
-    }
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
 
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
+      .marquee-track {
+        animation: none;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .btn-primary:hover {
+        transform: none;
+        box-shadow: none;
+      }
     }
   </style>
 </head>
 <body>
-
   <nav>
-    <a href="#home" class="logo">
+    <a href="#home" class="logo" aria-label="MJ ARTS home">
       <img src="mjarts_logo.png" alt="MJ ARTS logo" />
       <span class="logo-text">
         MJ ARTS
@@ -714,13 +739,8 @@
   <section class="hero" id="home">
     <div class="container hero-content reveal">
       <div class="eyebrow">✦ MJ ARTS — DIGITAL CREATIVE STUDIO</div>
-      <h1>
-        WE CREATE<br />
-        <em>WHAT STANDS OUT.</em>
-      </h1>
-      <p>
-        Premium websites, powerful branding and creative digital experiences designed to make your business impossible to ignore.
-      </p>
+      <h1>WE CREATE<br /><em>WHAT STANDS OUT.</em></h1>
+      <p>Premium websites, powerful branding and creative digital experiences designed to make your business impossible to ignore.</p>
       <div class="buttons">
         <a href="#services" class="btn btn-primary">Explore Services →</a>
         <a href="#contact" class="btn btn-outline">Start a Project</a>
@@ -730,8 +750,7 @@
 
   <div class="marquee">
     <div class="marquee-track">
-      WEB DESIGN ✦ BRANDING ✦ MENU DESIGN ✦ DIGITAL ART ✦ CREATIVE SOLUTIONS ✦
-      WEB DESIGN ✦ BRANDING ✦ MENU DESIGN ✦ DIGITAL ART ✦ CREATIVE SOLUTIONS ✦
+      WEB DESIGN ✦ BRANDING ✦ MENU DESIGN ✦ DIGITAL ART ✦ CREATIVE SOLUTIONS ✦ WEB DESIGN ✦ BRANDING ✦ MENU DESIGN ✦ DIGITAL ART ✦ CREATIVE SOLUTIONS ✦
     </div>
   </div>
 
@@ -740,65 +759,39 @@
       <div class="section-title reveal">
         <span>What We Create</span>
         <h2>Our <span>Services</span></h2>
-        <p>
-          From a simple idea to a complete digital identity,
-          MJ ARTS turns concepts into experiences.
-        </p>
+        <p>From a simple idea to a complete digital identity, MJ ARTS turns concepts into experiences.</p>
       </div>
 
       <div class="service-grid">
         <div class="service-card reveal">
           <div class="icon">⌘</div>
           <h3>Website Design</h3>
-          <p>
-            Modern, responsive and premium websites designed
-            to give your business a strong digital presence.
-          </p>
+          <p>Modern, responsive and premium websites designed to give your business a strong digital presence.</p>
         </div>
-
         <div class="service-card reveal">
           <div class="icon">✦</div>
           <h3>Brand Identity</h3>
-          <p>
-            Logos, visual identity and creative direction
-            that help your brand become memorable.
-          </p>
+          <p>Logos, visual identity and creative direction that help your brand become memorable.</p>
         </div>
-
         <div class="service-card reveal">
           <div class="icon">▣</div>
           <h3>Menu Design</h3>
-          <p>
-            Elegant restaurant menus and promotional designs
-            created to make your products look irresistible.
-          </p>
+          <p>Elegant restaurant menus and promotional designs created to make your products look irresistible.</p>
         </div>
-
         <div class="service-card reveal">
           <div class="icon">◈</div>
           <h3>Social Media</h3>
-          <p>
-            Creative posts, promotional graphics and visual
-            content built for modern social platforms.
-          </p>
+          <p>Creative posts, promotional graphics and visual content built for modern social platforms.</p>
         </div>
-
         <div class="service-card reveal">
           <div class="icon">◎</div>
           <h3>Digital Posters</h3>
-          <p>
-            Eye-catching posters and advertisements for
-            businesses, events and personal projects.
-          </p>
+          <p>Eye-catching posters and advertisements for businesses, events and personal projects.</p>
         </div>
-
         <div class="service-card reveal">
           <div class="icon">↗</div>
           <h3>Custom Projects</h3>
-          <p>
-            Have something different in mind? Tell us your
-            idea and let's turn it into something real.
-          </p>
+          <p>Have something different in mind? Tell us your idea and let's turn it into something real.</p>
         </div>
       </div>
     </div>
@@ -808,32 +801,15 @@
     <div class="container about-grid">
       <div class="about-box reveal">
         <div class="big">MJ</div>
-        <p>
-          Creativity isn't decoration.
-          It's how people remember you.
-        </p>
+        <p>Creativity isn't decoration. It's how people remember you.</p>
       </div>
 
       <div class="about-text reveal">
         <div class="eyebrow">ABOUT MJ ARTS</div>
-        <h2>
-          Ideas deserve a
-          <span class="gold">beautiful form.</span>
-        </h2>
-
-        <p>
-          MJ ARTS is a creative digital studio focused on helping
-          businesses and individuals build a stronger visual presence.
-        </p>
-
-        <p>
-          We combine clean design, modern technology and creativity
-          to create digital work that looks professional and feels unique.
-        </p>
-
-        <a href="#contact" class="btn btn-outline">
-          Work With Us
-        </a>
+        <h2>Ideas deserve a <span class="gold">beautiful form.</span></h2>
+        <p>MJ ARTS is a creative digital studio focused on helping businesses and individuals build a stronger visual presence.</p>
+        <p>We combine clean design, modern technology and creativity to create digital work that looks professional and feels unique.</p>
+        <a href="#contact" class="btn btn-outline">Work With Us</a>
       </div>
     </div>
   </section>
@@ -843,30 +819,40 @@
       <div class="section-title reveal">
         <span>Selected Concepts</span>
         <h2>Creative <span>Work</span></h2>
-        <p>
-          A glimpse of the visual direction MJ ARTS can create.
-        </p>
+        <p>A glimpse of the visual direction MJ ARTS can create.</p>
       </div>
 
       <div class="work-grid">
         <div class="work-card reveal">
-          <div class="work-info">
-            <span>WEB DESIGN</span>
-            <h3>Luxury Business</h3>
+          <div class="work-thumb">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Luxury business website concept" />
+            <div class="work-overlay"></div>
+            <div class="work-label">
+              <span>WEB DESIGN</span>
+              <strong>Luxury Business</strong>
+            </div>
           </div>
         </div>
 
         <div class="work-card reveal">
-          <div class="work-info">
-            <span>BRANDING</span>
-            <h3>Golden Identity</h3>
+          <div class="work-thumb">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Golden brand identity concept" />
+            <div class="work-overlay"></div>
+            <div class="work-label">
+              <span>BRANDING</span>
+              <strong>Golden Identity</strong>
+            </div>
           </div>
         </div>
 
         <div class="work-card reveal">
-          <div class="work-info">
-            <span>MENU DESIGN</span>
-            <h3>Modern Restaurant</h3>
+          <div class="work-thumb">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" alt="Modern restaurant menu concept" />
+            <div class="work-overlay"></div>
+            <div class="work-label">
+              <span>MENU DESIGN</span>
+              <strong>Modern Restaurant</strong>
+            </div>
           </div>
         </div>
       </div>
@@ -886,19 +872,16 @@
           <h3>Discuss</h3>
           <p>We understand your idea, business and goals.</p>
         </div>
-
         <div class="process reveal">
           <div class="number">02</div>
           <h3>Design</h3>
           <p>We create a visual direction that fits your brand.</p>
         </div>
-
         <div class="process reveal">
           <div class="number">03</div>
           <h3>Build</h3>
           <p>Your project is developed and refined.</p>
         </div>
-
         <div class="process reveal">
           <div class="number">04</div>
           <h3>Launch</h3>
@@ -913,20 +896,13 @@
       <div class="section-title reveal">
         <span>Starting Packages</span>
         <h2>Choose Your <span>Level</span></h2>
-        <p>
-          Flexible packages for different business needs.
-          Final pricing depends on project requirements.
-        </p>
+        <p>Flexible packages for different business needs. Final pricing depends on project requirements.</p>
       </div>
 
       <div class="price-grid">
         <div class="price-card reveal">
           <h3>Starter</h3>
-          <div class="price">
-            ₹5K
-            <small>+</small>
-          </div>
-
+          <div class="price">₹5K <small>+</small></div>
           <ul class="features">
             <li>Professional landing page</li>
             <li>Mobile responsive design</li>
@@ -934,22 +910,13 @@
             <li>Contact / WhatsApp CTA</li>
             <li>Basic deployment</li>
           </ul>
-
-          <a href="#contact" class="btn btn-outline">
-            Choose Starter
-          </a>
+          <a href="#contact" class="btn btn-outline">Choose Starter</a>
         </div>
 
         <div class="price-card featured reveal">
           <div class="popular">POPULAR</div>
-
           <h3>Professional</h3>
-
-          <div class="price">
-            ₹10K
-            <small>+</small>
-          </div>
-
+          <div class="price">₹10K <small>+</small></div>
           <ul class="features">
             <li>Premium website design</li>
             <li>Multiple sections/pages</li>
@@ -958,20 +925,12 @@
             <li>Contact integration</li>
             <li>Deployment assistance</li>
           </ul>
-
-          <a href="#contact" class="btn btn-primary">
-            Choose Professional
-          </a>
+          <a href="#contact" class="btn btn-primary">Choose Professional</a>
         </div>
 
         <div class="price-card reveal">
           <h3>Premium</h3>
-
-          <div class="price">
-            ₹15K
-            <small>+</small>
-          </div>
-
+          <div class="price">₹15K <small>+</small></div>
           <ul class="features">
             <li>Fully customized website</li>
             <li>Advanced visual design</li>
@@ -980,10 +939,7 @@
             <li>Branding integration</li>
             <li>Priority project support</li>
           </ul>
-
-          <a href="#contact" class="btn btn-outline">
-            Choose Premium
-          </a>
+          <a href="#contact" class="btn btn-outline">Choose Premium</a>
         </div>
       </div>
     </div>
@@ -992,21 +948,9 @@
   <section class="cta" id="contact">
     <div class="container reveal">
       <div class="eyebrow">YOUR IDEA. OUR CREATIVITY.</div>
-      <h2>
-        LET'S BUILD<br />
-        <span class="gold">SOMETHING GREAT.</span>
-      </h2>
-
-      <p>
-        Have a business, project or crazy idea?
-        Let's turn it into something people remember.
-      </p>
-
-      <a
-        href="https://wa.me/918822477442"
-        class="btn btn-primary"
-        target="_blank"
-        rel="noopener noreferrer">
+      <h2>LET'S BUILD<br /><span class="gold">SOMETHING GREAT.</span></h2>
+      <p>Have a business, project or crazy idea? Let's turn it into something people remember.</p>
+      <a href="https://wa.me/918822477442" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
         Start a Conversation →
       </a>
     </div>
@@ -1015,17 +959,14 @@
   <footer>
     <div class="footer-grid">
       <div>
-        <a href="#home" class="logo">
+        <a href="#home" class="logo" aria-label="MJ ARTS home">
           <img src="mjarts_logo.png" alt="MJ ARTS logo" />
           <span class="logo-text">
             MJ ARTS
             <small>CREATIVE STUDIO</small>
           </span>
         </a>
-
-        <p style="margin-top:12px;">
-          Creating digital experiences that stand out.
-        </p>
+        <p style="margin-top:12px;">Creating digital experiences that stand out.</p>
       </div>
 
       <div class="socials">
@@ -1034,9 +975,7 @@
         <a href="#" aria-label="Email">@</a>
       </div>
 
-      <p>
-        © <span id="year"></span> MJ ARTS. All rights reserved.
-      </p>
+      <p>© <span id="year"></span> MJ ARTS. All rights reserved.</p>
     </div>
   </footer>
 
@@ -1058,28 +997,18 @@
       });
     });
 
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    const revealElements =
-      document.querySelectorAll(".reveal");
-
-    const revealObserver =
-      new IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("show");
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.12
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          revealObserver.unobserve(entry.target);
         }
-      );
+      });
+    }, { threshold: 0.12 });
 
-    revealElements.forEach(element => {
+    document.querySelectorAll(".reveal").forEach(element => {
       revealObserver.observe(element);
     });
   </script>
