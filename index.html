@@ -4,397 +4,445 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MJ Arts | Creative Design & Digital Identity</title>
+<title>MJ ARTS | Digital Identity</title>
+
+<meta name="description" content="MJ ARTS — We Turn Ideas Into Digital Identity.">
 
 <style>
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#050505;
-  color:#fff;
-  overflow-x:hidden;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#050505;
+    color:white;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
 }
 
 /* NAVBAR */
+
 nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:1000;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:18px 7%;
-  background:rgba(5,5,5,.82);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(212,168,74,.15);
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .logo{
-  font-size:25px;
-  font-weight:900;
-  letter-spacing:2px;
-  color:#fff;
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:3px;
 }
 
-.logo span{
-  color:#d4a84a;
+.logo span:first-child{
+    color:#d4af37;
 }
 
-.nav-links{
-  display:flex;
-  gap:30px;
+.logo span:last-child{
+    color:#ddd;
 }
 
-.nav-links a{
-  color:#ccc;
-  text-decoration:none;
-  font-size:14px;
-  transition:.3s;
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
 }
 
-.nav-links a:hover{
-  color:#d4a84a;
+nav ul li a{
+    font-size:14px;
+    color:#aaa;
+    transition:.3s;
 }
 
-.quote{
-  text-decoration:none;
-  color:#050505;
-  background:linear-gradient(135deg,#f3d27b,#b98528);
-  padding:11px 18px;
-  border-radius:8px;
-  font-weight:bold;
-  font-size:13px;
+nav ul li a:hover{
+    color:#d4af37;
 }
 
 /* HERO */
+
 .hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:130px 7% 80px;
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 50% 45%,rgba(212,168,74,.14),transparent 30%),
-    #050505;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:100px 20px 50px;
+    position:relative;
 }
 
-.hero:before{
-  content:"";
-  position:absolute;
-  width:500px;
-  height:500px;
-  border:1px solid rgba(212,168,74,.18);
-  border-radius:50%;
-  animation:rotate 18s linear infinite;
+.hero::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:rgba(212,175,55,.08);
+    filter:blur(100px);
 }
 
 .hero-content{
-  position:relative;
-  z-index:2;
-  max-width:900px;
-  animation:fadeUp 1s ease;
+    position:relative;
+    z-index:2;
 }
 
-.mini-logo{
-  width:110px;
-  height:110px;
-  margin:0 auto 28px;
-  border:2px solid #d4a84a;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:
-    0 0 25px rgba(212,168,74,.25),
-    inset 0 0 25px rgba(212,168,74,.08);
-  font-size:30px;
-  font-weight:900;
-  letter-spacing:-4px;
+.badge{
+    display:inline-block;
+    padding:8px 18px;
+    border:1px solid rgba(212,175,55,.5);
+    border-radius:30px;
+    color:#d4af37;
+    font-size:12px;
+    letter-spacing:2px;
+    margin-bottom:25px;
 }
 
-.mini-logo .m{
-  color:#eee;
+.hero h1{
+    font-size:clamp(45px,8vw,90px);
+    line-height:1;
+    letter-spacing:-4px;
+    margin-bottom:25px;
 }
 
-.mini-logo .j{
-  color:#d4a84a;
-}
-
-.tag{
-  color:#d4a84a;
-  font-weight:bold;
-  letter-spacing:5px;
-  font-size:13px;
-  margin-bottom:20px;
-}
-
-h1{
-  font-size:clamp(45px,8vw,88px);
-  line-height:1;
-  margin-bottom:25px;
-  letter-spacing:-3px;
-}
-
-h1 span{
-  background:linear-gradient(90deg,#fff,#d4a84a);
-  -webkit-background-clip:text;
-  color:transparent;
+.gold{
+    color:#d4af37;
 }
 
 .hero p{
-  max-width:650px;
-  margin:auto;
-  color:#aaa;
-  font-size:18px;
-  line-height:1.7;
+    max-width:650px;
+    margin:auto;
+    color:#999;
+    font-size:17px;
+    line-height:1.7;
 }
 
 .buttons{
-  margin-top:35px;
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  flex-wrap:wrap;
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
 }
 
 .btn{
-  padding:15px 25px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
-  transition:.3s;
+    padding:14px 27px;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.3s;
 }
 
-.primary{
-  color:#050505;
-  background:linear-gradient(135deg,#f3d27b,#b98528);
+.btn-main{
+    background:#d4af37;
+    color:#050505;
 }
 
-.secondary{
-  color:#fff;
-  border:1px solid #555;
+.btn-main:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 30px rgba(212,175,55,.3);
 }
 
-.btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 30px rgba(212,168,74,.2);
+.btn-outline{
+    border:1px solid #444;
+    color:white;
 }
 
-/* SERVICES */
+.btn-outline:hover{
+    border-color:#d4af37;
+    color:#d4af37;
+}
+
+/* SECTIONS */
+
 section{
-  padding:90px 7%;
+    padding:100px 7%;
 }
 
 .section-title{
-  text-align:center;
-  margin-bottom:50px;
+    text-align:center;
+    margin-bottom:60px;
 }
 
 .section-title small{
-  color:#d4a84a;
-  letter-spacing:4px;
-  font-weight:bold;
+    color:#d4af37;
+    letter-spacing:3px;
 }
 
 .section-title h2{
-  font-size:42px;
-  margin-top:12px;
+    font-size:42px;
+    margin-top:10px;
 }
 
-.services{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
+/* SERVICES */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
 }
 
 .card{
-  padding:30px;
-  background:linear-gradient(145deg,#111,#080808);
-  border:1px solid #252525;
-  border-radius:14px;
-  transition:.35s;
+    background:linear-gradient(145deg,#111,#080808);
+    border:1px solid #222;
+    border-radius:20px;
+    padding:35px;
+    transition:.4s;
 }
 
 .card:hover{
-  transform:translateY(-8px);
-  border-color:#d4a84a;
+    transform:translateY(-10px);
+    border-color:#d4af37;
+    box-shadow:0 15px 40px rgba(212,175,55,.1);
 }
 
-.card .icon{
-  font-size:35px;
-  margin-bottom:20px;
+.icon{
+    font-size:35px;
+    margin-bottom:20px;
 }
 
 .card h3{
-  margin-bottom:12px;
+    margin-bottom:12px;
 }
 
 .card p{
-  color:#999;
-  line-height:1.6;
+    color:#888;
+    line-height:1.7;
 }
 
 /* PORTFOLIO */
+
 .portfolio{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
 
-.project{
-  height:250px;
-  border-radius:14px;
-  border:1px solid #252525;
-  background:
-    radial-gradient(circle at 50% 40%,rgba(212,168,74,.2),transparent 35%),
-    #101010;
-  display:flex;
-  align-items:flex-end;
-  padding:25px;
-  transition:.35s;
+.work{
+    height:260px;
+    border-radius:20px;
+    border:1px solid #222;
+    background:linear-gradient(135deg,#181818,#080808);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+    transition:.4s;
 }
 
-.project:hover{
-  transform:scale(1.02);
-  border-color:#d4a84a;
+.work::after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border:1px solid rgba(212,175,55,.25);
+    border-radius:50%;
+    animation:spin 8s linear infinite;
 }
 
-.project h3{
-  font-size:22px;
+.work:hover{
+    transform:scale(1.03);
+    border-color:#d4af37;
+}
+
+.work h3{
+    z-index:2;
+    letter-spacing:3px;
+}
+
+@keyframes spin{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
 }
 
 /* ABOUT */
+
 .about{
-  max-width:850px;
-  margin:auto;
-  text-align:center;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about-box{
+    padding:40px;
+    border:1px solid #222;
+    border-radius:25px;
+    background:#0b0b0b;
+}
+
+.about h2{
+    font-size:45px;
+    margin-bottom:20px;
 }
 
 .about p{
-  color:#aaa;
-  font-size:18px;
-  line-height:1.8;
+    color:#999;
+    line-height:1.9;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-top:25px;
+}
+
+.stat{
+    padding:25px;
+    border:1px solid #222;
+    border-radius:15px;
+}
+
+.stat strong{
+    font-size:30px;
+    color:#d4af37;
+}
+
+/* PROCESS */
+
+.process{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.step{
+    text-align:center;
+    padding:30px 15px;
+}
+
+.number{
+    width:55px;
+    height:55px;
+    margin:auto auto 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border:1px solid #d4af37;
+    border-radius:50%;
+    color:#d4af37;
+    font-weight:bold;
 }
 
 /* CONTACT */
+
 .contact{
-  text-align:center;
-  background:#090909;
+    text-align:center;
+    background:linear-gradient(180deg,#050505,#0c0c0c);
 }
 
 .contact p{
-  color:#999;
-  margin:15px auto 30px;
+    color:#888;
+    max-width:600px;
+    margin:20px auto 30px;
+    line-height:1.7;
 }
 
+/* WHATSAPP */
+
 .whatsapp{
-  display:inline-block;
-  background:#25d366;
-  color:#fff;
-  text-decoration:none;
-  padding:15px 25px;
-  border-radius:8px;
-  font-weight:bold;
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#25D366;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:27px;
+    z-index:999;
+    box-shadow:0 5px 25px rgba(37,211,102,.3);
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.08)}
 }
 
 /* FOOTER */
+
 footer{
-  text-align:center;
-  padding:30px;
-  color:#666;
-  border-top:1px solid #222;
-}
-
-footer span{
-  color:#d4a84a;
-}
-
-/* ANIMATIONS */
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(30px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-@keyframes rotate{
-  from{transform:rotate(0deg);}
-  to{transform:rotate(360deg);}
+    padding:35px 7%;
+    text-align:center;
+    color:#555;
+    border-top:1px solid #151515;
 }
 
 /* MOBILE */
+
 @media(max-width:800px){
 
-  nav{
-    padding:16px 5%;
-  }
+    nav{
+        padding:16px 5%;
+    }
 
-  .nav-links{
-    display:none;
-  }
+    nav ul{
+        gap:12px;
+    }
 
-  .quote{
-    padding:9px 13px;
-  }
+    nav ul li a{
+        font-size:11px;
+    }
 
-  .hero{
-    padding-left:5%;
-    padding-right:5%;
-  }
+    .hero h1{
+        letter-spacing:-2px;
+    }
 
-  h1{
-    font-size:52px;
-  }
+    .cards,
+    .portfolio{
+        grid-template-columns:1fr;
+    }
 
-  .hero p{
-    font-size:16px;
-  }
+    .about{
+        grid-template-columns:1fr;
+    }
 
-  section{
-    padding:70px 5%;
-  }
+    .process{
+        grid-template-columns:1fr 1fr;
+    }
 
-  .services{
-    grid-template-columns:1fr 1fr;
-  }
+    section{
+        padding:75px 5%;
+    }
 
-  .portfolio{
-    grid-template-columns:1fr;
-  }
+    .section-title h2{
+        font-size:34px;
+    }
 }
 
 @media(max-width:500px){
 
-  .services{
-    grid-template-columns:1fr;
-  }
+    nav ul{
+        display:none;
+    }
 
-  h1{
-    font-size:45px;
-  }
+    .process{
+        grid-template-columns:1fr;
+    }
 
-  .mini-logo{
-    width:90px;
-    height:90px;
-  }
+    .hero p{
+        font-size:15px;
+    }
 }
 </style>
 </head>
@@ -402,185 +450,285 @@ footer span{
 <body>
 
 <!-- NAVIGATION -->
+
 <nav>
+    <div class="logo">
+        <span>MJ</span> <span>ARTS</span>
+    </div>
 
-  <div class="logo">
-    MJ <span>ARTS</span>
-  </div>
-
-  <div class="nav-links">
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </div>
-
-  <a class="quote" href="#contact">
-    GET A QUOTE
-  </a>
-
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 </nav>
 
 
 <!-- HERO -->
+
 <section class="hero" id="home">
 
-  <div class="hero-content">
+    <div class="hero-content">
 
-    <div class="mini-logo">
-      <span class="m">M</span><span class="j">J</span>
-    </div>
+        <div class="badge">
+            MJ ARTS • DIGITAL CREATIVE STUDIO
+        </div>
 
-    <div class="tag">
-      MJ ARTS • CREATIVE STUDIO
-    </div>
+        <h1>
+            We Turn Ideas<br>
+            Into <span class="gold">Digital Identity.</span>
+        </h1>
 
-    <h1>
-      We Turn Ideas Into
-      <span>Digital Identity.</span>
-    </h1>
+        <p>
+            Creative design, digital experiences and visual identity
+            built to make your brand impossible to ignore.
+        </p>
 
-    <p>
-      Websites, graphics, branding and creative digital experiences
-      designed to make your brand stand out.
-    </p>
+        <div class="buttons">
+            <a class="btn btn-main"
+               href="https://wa.me/918822477442"
+               target="_blank">
+               Start a Project
+            </a>
 
-    <div class="buttons">
-
-      <a href="#contact" class="btn primary">
-        START A PROJECT
-      </a>
-
-      <a href="#portfolio" class="btn secondary">
-        VIEW OUR WORK
-      </a>
+            <a class="btn btn-outline" href="#work">
+               Explore Work
+            </a>
+        </div>
 
     </div>
-
-  </div>
 
 </section>
 
 
 <!-- SERVICES -->
+
 <section id="services">
 
-  <div class="section-title">
-    <small>WHAT WE DO</small>
-    <h2>Our Services</h2>
-  </div>
-
-  <div class="services">
-
-    <div class="card">
-      <div class="icon">🌐</div>
-      <h3>Website Design</h3>
-      <p>
-        Modern, responsive websites designed to give your brand a powerful online presence.
-      </p>
+    <div class="section-title">
+        <small>WHAT WE DO</small>
+        <h2>Our Services</h2>
     </div>
 
-    <div class="card">
-      <div class="icon">🎨</div>
-      <h3>Graphic Design</h3>
-      <p>
-        Creative graphics that make your business look professional and memorable.
-      </p>
-    </div>
+    <div class="cards">
 
-    <div class="card">
-      <div class="icon">🍽️</div>
-      <h3>Menu Design</h3>
-      <p>
-        Attractive digital and printable menus designed around your brand.
-      </p>
-    </div>
+        <div class="card">
+            <div class="icon">✦</div>
+            <h3>Brand Identity</h3>
+            <p>
+                Logos, visual identity and branding that give
+                your business a unique personality.
+            </p>
+        </div>
 
-    <div class="card">
-      <div class="icon">✨</div>
-      <h3>Branding</h3>
-      <p>
-        Build a recognizable identity with logos, colors and visual design.
-      </p>
-    </div>
+        <div class="card">
+            <div class="icon">◈</div>
+            <h3>Web Design</h3>
+            <p>
+                Modern responsive websites designed to look
+                premium on phones, tablets and computers.
+            </p>
+        </div>
 
-  </div>
+        <div class="card">
+            <div class="icon">◇</div>
+            <h3>Creative Design</h3>
+            <p>
+                Posters, social media graphics and digital
+                artwork created to capture attention.
+            </p>
+        </div>
+
+    </div>
 
 </section>
 
 
 <!-- PORTFOLIO -->
-<section id="portfolio">
 
-  <div class="section-title">
-    <small>OUR WORK</small>
-    <h2>Selected Projects</h2>
-  </div>
+<section id="work">
 
-  <div class="portfolio">
-
-    <div class="project">
-      <h3>Website Design</h3>
+    <div class="section-title">
+        <small>SELECTED WORK</small>
+        <h2>Creative Portfolio</h2>
     </div>
 
-    <div class="project">
-      <h3>Brand Identity</h3>
-    </div>
+    <div class="portfolio">
 
-    <div class="project">
-      <h3>Creative Graphics</h3>
-    </div>
+        <div class="work">
+            <h3>BRANDING</h3>
+        </div>
 
-  </div>
+        <div class="work">
+            <h3>WEB DESIGN</h3>
+        </div>
+
+        <div class="work">
+            <h3>DIGITAL ART</h3>
+        </div>
+
+        <div class="work">
+            <h3>POSTERS</h3>
+        </div>
+
+        <div class="work">
+            <h3>SOCIAL MEDIA</h3>
+        </div>
+
+        <div class="work">
+            <h3>CREATIVE</h3>
+        </div>
+
+    </div>
 
 </section>
 
 
 <!-- ABOUT -->
+
 <section id="about">
 
-  <div class="about">
+    <div class="about">
 
-    <div class="section-title">
-      <small>ABOUT US</small>
-      <h2>Welcome to MJ Arts</h2>
+        <div>
+            <small class="gold">ABOUT MJ ARTS</small>
+
+            <h2>
+                Creativity With<br>
+                <span class="gold">Purpose.</span>
+            </h2>
+
+            <p>
+                MJ ARTS is built around one simple idea:
+                great design should not only look good —
+                it should create an identity.
+            </p>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <strong>01</strong>
+                    <p>Creative Vision</p>
+                </div>
+
+                <div class="stat">
+                    <strong>∞</strong>
+                    <p>Ideas</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="about-box">
+
+            <h3>Why MJ ARTS?</h3>
+
+            <p>
+                We combine creativity, technology and attention
+                to detail to create digital experiences that
+                feel modern, memorable and professional.
+            </p>
+
+            <br>
+
+            <p>
+                From the first idea to the final design,
+                every detail matters.
+            </p>
+
+        </div>
+
     </div>
 
-    <p>
-      MJ Arts is a creative digital studio focused on turning ideas
-      into memorable visual experiences. From websites and graphics
-      to branding and digital design, we create work that helps
-      businesses stand out.
-    </p>
+</section>
 
-  </div>
+
+<!-- PROCESS -->
+
+<section>
+
+    <div class="section-title">
+        <small>HOW IT WORKS</small>
+        <h2>Our Process</h2>
+    </div>
+
+    <div class="process">
+
+        <div class="step">
+            <div class="number">01</div>
+            <h3>Discover</h3>
+            <p>We understand your idea.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">02</div>
+            <h3>Design</h3>
+            <p>We create the visual direction.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">03</div>
+            <h3>Build</h3>
+            <p>We turn the concept into reality.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">04</div>
+            <h3>Launch</h3>
+            <p>Your digital identity goes live.</p>
+        </div>
+
+    </div>
 
 </section>
 
 
 <!-- CONTACT -->
+
 <section class="contact" id="contact">
 
-  <div class="section-title">
-    <small>LET'S CREATE</small>
-    <h2>Start Your Project</h2>
-  </div>
+    <div class="section-title">
 
-  <p>
-    Have an idea? Let's turn it into something people remember.
-  </p>
+        <small>LET'S CREATE</small>
 
-  <a class="whatsapp" href="https://wa.me/" target="_blank">
-    💬 CONTACT ON WHATSAPP
-  </a>
+        <h2>
+            Have An Idea?
+        </h2>
+
+    </div>
+
+    <p>
+        Let's turn your idea into something people remember.
+        Contact MJ ARTS and let's build something powerful.
+    </p>
+
+    <a class="btn btn-main"
+       href="https://wa.me/918822477442?text=Hello%20MJ%20ARTS!%20I%20want%20to%20discuss%20a%20project."
+       target="_blank">
+       Talk On WhatsApp
+    </a>
 
 </section>
 
 
+<!-- WHATSAPP FLOATING BUTTON -->
+
+<a class="whatsapp"
+   href="https://wa.me/918822477442"
+   target="_blank"
+   aria-label="WhatsApp">
+   ☎
+</a>
+
+
 <!-- FOOTER -->
+
 <footer>
-  © 2026 <span>MJ Arts</span>. All rights reserved.
+
+    © 2026 MJ ARTS. All Rights Reserved.
+
 </footer>
 
 </body>
