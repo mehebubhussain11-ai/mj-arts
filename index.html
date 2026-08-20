@@ -4,22 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MJ ARTS | Digital Identity</title>
+<title>MJ ARTS — Digital Creative Studio</title>
 
-<meta name="description" content="MJ ARTS — We Turn Ideas Into Digital Identity.">
+<meta name="description"
+content="MJ ARTS — We turn ideas into unforgettable digital identities.">
 
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+}
+
+html{
     scroll-behavior:smooth;
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Inter,Arial,sans-serif;
     background:#050505;
-    color:white;
+    color:#fff;
     overflow-x:hidden;
 }
 
@@ -28,392 +35,761 @@ a{
     color:inherit;
 }
 
-/* NAVBAR */
-
-nav{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:1000;
-    padding:18px 7%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:rgba(0,0,0,.75);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(255,255,255,.08);
+:root{
+    --gold:#d9b63f;
+    --gold2:#f3d76b;
+    --silver:#e8e8e8;
+    --muted:#8b8b8b;
+    --card:#0d0d0d;
+    --line:rgba(255,255,255,.09);
 }
 
-.logo{
-    font-size:25px;
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+        radial-gradient(circle at 15% 15%,rgba(217,182,63,.09),transparent 25%),
+        radial-gradient(circle at 85% 40%,rgba(255,255,255,.04),transparent 25%),
+        radial-gradient(circle at 50% 90%,rgba(217,182,63,.06),transparent 30%);
+    z-index:-2;
+}
+
+.noise{
+    position:fixed;
+    inset:0;
+    opacity:.035;
+    pointer-events:none;
+    z-index:9999;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.nav{
+    position:fixed;
+    top:16px;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(1150px,92%);
+    height:70px;
+    padding:0 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:rgba(10,10,10,.72);
+    border:1px solid var(--line);
+    border-radius:22px;
+    backdrop-filter:blur(18px);
+    z-index:1000;
+    box-shadow:0 15px 50px rgba(0,0,0,.35);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.logo-mark{
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    border:1px solid rgba(217,182,63,.45);
+    background:linear-gradient(145deg,#191919,#070707);
+    box-shadow:inset 0 0 20px rgba(217,182,63,.05);
+}
+
+.logo-mark svg{
+    width:30px;
+    height:30px;
+}
+
+.brand-name{
     font-weight:900;
     letter-spacing:3px;
+    font-size:16px;
 }
 
-.logo span:first-child{
-    color:#d4af37;
+.brand-name span{
+    color:var(--gold);
 }
 
-.logo span:last-child{
-    color:#ddd;
-}
-
-nav ul{
+.nav-links{
     display:flex;
+    gap:28px;
     list-style:none;
-    gap:30px;
 }
 
-nav ul li a{
-    font-size:14px;
+.nav-links a{
     color:#aaa;
+    font-size:13px;
     transition:.3s;
 }
 
-nav ul li a:hover{
-    color:#d4af37;
+.nav-links a:hover{
+    color:var(--gold2);
 }
 
-/* HERO */
+.nav-btn{
+    padding:11px 18px;
+    border-radius:30px;
+    border:1px solid rgba(217,182,63,.5);
+    color:var(--gold2);
+    font-size:12px;
+    font-weight:700;
+}
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
     min-height:100vh;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     text-align:center;
-    padding:100px 20px 50px;
+    padding:150px 20px 90px;
     position:relative;
 }
 
-.hero::before{
+.orb{
+    position:absolute;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    border:1px solid rgba(217,182,63,.12);
+    animation:rotate 18s linear infinite;
+}
+
+.orb::before,
+.orb::after{
     content:"";
     position:absolute;
-    width:500px;
-    height:500px;
     border-radius:50%;
-    background:rgba(212,175,55,.08);
-    filter:blur(100px);
+    border:1px solid rgba(255,255,255,.05);
+}
+
+.orb::before{
+    inset:45px;
+}
+
+.orb::after{
+    inset:95px;
+}
+
+@keyframes rotate{
+    to{transform:rotate(360deg)}
 }
 
 .hero-content{
     position:relative;
     z-index:2;
+    max-width:900px;
 }
 
-.badge{
-    display:inline-block;
-    padding:8px 18px;
-    border:1px solid rgba(212,175,55,.5);
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:9px 16px;
+    border:1px solid rgba(217,182,63,.35);
     border-radius:30px;
-    color:#d4af37;
-    font-size:12px;
+    color:var(--gold2);
+    font-size:11px;
+    font-weight:700;
     letter-spacing:2px;
-    margin-bottom:25px;
+    background:rgba(217,182,63,.04);
+    margin-bottom:27px;
+}
+
+.dot{
+    width:6px;
+    height:6px;
+    background:var(--gold2);
+    border-radius:50%;
+    box-shadow:0 0 15px var(--gold);
 }
 
 .hero h1{
-    font-size:clamp(45px,8vw,90px);
-    line-height:1;
-    letter-spacing:-4px;
-    margin-bottom:25px;
+    font-size:clamp(48px,8vw,92px);
+    line-height:.98;
+    letter-spacing:-5px;
+    margin-bottom:28px;
 }
 
-.gold{
-    color:#d4af37;
+.gradient-text{
+    background:linear-gradient(90deg,#fff,var(--gold2),#fff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    background-size:200%;
+    animation:shine 5s linear infinite;
+}
+
+@keyframes shine{
+    to{background-position:200% center}
 }
 
 .hero p{
     max-width:650px;
     margin:auto;
-    color:#999;
-    font-size:17px;
-    line-height:1.7;
+    color:#929292;
+    font-size:16px;
+    line-height:1.8;
 }
 
-.buttons{
-    margin-top:35px;
+.hero-buttons{
     display:flex;
     justify-content:center;
-    gap:15px;
+    gap:14px;
+    margin-top:35px;
     flex-wrap:wrap;
 }
 
 .btn{
-    padding:14px 27px;
-    border-radius:30px;
-    font-weight:bold;
-    transition:.3s;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:15px 25px;
+    border-radius:14px;
+    font-size:13px;
+    font-weight:800;
+    transition:.35s;
 }
 
-.btn-main{
-    background:#d4af37;
-    color:#050505;
+.btn-primary{
+    color:#090909;
+    background:linear-gradient(135deg,var(--gold2),var(--gold));
+    box-shadow:0 10px 35px rgba(217,182,63,.16);
 }
 
-.btn-main:hover{
-    transform:translateY(-4px);
-    box-shadow:0 10px 30px rgba(212,175,55,.3);
+.btn-primary:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 45px rgba(217,182,63,.28);
 }
 
-.btn-outline{
-    border:1px solid #444;
+.btn-secondary{
+    border:1px solid var(--line);
+    background:#0c0c0c;
     color:white;
 }
 
-.btn-outline:hover{
-    border-color:#d4af37;
-    color:#d4af37;
+.btn-secondary:hover{
+    border-color:var(--gold);
+    color:var(--gold2);
+    transform:translateY(-5px);
 }
 
-/* SECTIONS */
+/* =========================
+   MARQUEE
+========================= */
+
+.marquee{
+    overflow:hidden;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:18px 0;
+    background:#080808;
+}
+
+.marquee-track{
+    display:flex;
+    width:max-content;
+    animation:marquee 22s linear infinite;
+}
+
+.marquee span{
+    color:#777;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:4px;
+    margin:0 28px;
+}
+
+.marquee b{
+    color:var(--gold);
+}
+
+@keyframes marquee{
+    to{transform:translateX(-50%)}
+}
+
+/* =========================
+   SECTIONS
+========================= */
 
 section{
-    padding:100px 7%;
+    padding:110px 6%;
 }
 
-.section-title{
+.section-head{
+    max-width:750px;
+    margin-bottom:55px;
+}
+
+.section-head.center{
+    margin-left:auto;
+    margin-right:auto;
     text-align:center;
-    margin-bottom:60px;
 }
 
-.section-title small{
-    color:#d4af37;
+.section-label{
+    color:var(--gold2);
+    font-size:11px;
+    font-weight:800;
     letter-spacing:3px;
 }
 
-.section-title h2{
-    font-size:42px;
-    margin-top:10px;
+.section-head h2{
+    margin-top:13px;
+    font-size:clamp(35px,5vw,58px);
+    letter-spacing:-2px;
 }
 
-/* SERVICES */
+.section-head p{
+    margin-top:16px;
+    color:#858585;
+    line-height:1.8;
+}
 
-.cards{
+/* =========================
+   SERVICES
+========================= */
+
+.services{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:22px;
+    gap:18px;
 }
 
-.card{
-    background:linear-gradient(145deg,#111,#080808);
-    border:1px solid #222;
-    border-radius:20px;
-    padding:35px;
-    transition:.4s;
+.service{
+    position:relative;
+    min-height:270px;
+    padding:32px;
+    border:1px solid var(--line);
+    border-radius:25px;
+    background:
+        linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.01)),
+        #090909;
+    overflow:hidden;
+    transition:.45s;
 }
 
-.card:hover{
-    transform:translateY(-10px);
-    border-color:#d4af37;
-    box-shadow:0 15px 40px rgba(212,175,55,.1);
+.service::after{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    right:-65px;
+    bottom:-65px;
+    border-radius:50%;
+    border:1px solid rgba(217,182,63,.2);
+    transition:.5s;
 }
 
-.icon{
-    font-size:35px;
-    margin-bottom:20px;
+.service:hover{
+    transform:translateY(-9px);
+    border-color:rgba(217,182,63,.5);
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
 }
 
-.card h3{
+.service:hover::after{
+    transform:scale(1.6);
+}
+
+.service-number{
+    color:#555;
+    font-size:12px;
+    font-weight:800;
+}
+
+.service-icon{
+    width:52px;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:16px;
+    margin:28px 0 22px;
+    background:rgba(217,182,63,.07);
+    border:1px solid rgba(217,182,63,.22);
+    color:var(--gold2);
+    font-size:23px;
+}
+
+.service h3{
+    font-size:21px;
     margin-bottom:12px;
 }
 
-.card p{
-    color:#888;
-    line-height:1.7;
+.service p{
+    color:#777;
+    font-size:13px;
+    line-height:1.8;
 }
 
-/* PORTFOLIO */
+/* =========================
+   PORTFOLIO
+========================= */
 
 .portfolio{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+    grid-template-columns:1.3fr .7fr;
+    gap:18px;
 }
 
-.work{
-    height:260px;
-    border-radius:20px;
-    border:1px solid #222;
-    background:linear-gradient(135deg,#181818,#080808);
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.project{
     position:relative;
+    min-height:350px;
+    border-radius:25px;
     overflow:hidden;
-    transition:.4s;
+    border:1px solid var(--line);
+    background:#101010;
+    transition:.45s;
 }
 
-.work::after{
-    content:"";
+.project.tall{
+    min-height:520px;
+}
+
+.project:hover{
+    transform:translateY(-7px);
+    border-color:rgba(217,182,63,.45);
+}
+
+.project-art{
     position:absolute;
-    width:180px;
-    height:180px;
-    border:1px solid rgba(212,175,55,.25);
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.project-art::before{
+    content:"";
+    width:260px;
+    height:260px;
     border-radius:50%;
-    animation:spin 8s linear infinite;
+    border:1px solid rgba(217,182,63,.35);
+    box-shadow:
+        0 0 80px rgba(217,182,63,.08),
+        inset 0 0 60px rgba(255,255,255,.025);
 }
 
-.work:hover{
-    transform:scale(1.03);
-    border-color:#d4af37;
+.project:nth-child(2) .project-art::before{
+    border-radius:25px;
+    transform:rotate(20deg);
+    width:230px;
+    height:230px;
 }
 
-.work h3{
-    z-index:2;
-    letter-spacing:3px;
+.project:nth-child(3) .project-art::before{
+    width:300px;
+    height:170px;
+    border-radius:50%;
 }
 
-@keyframes spin{
-    from{transform:rotate(0deg)}
-    to{transform:rotate(360deg)}
+.project:nth-child(4) .project-art::before{
+    width:210px;
+    height:280px;
+    border-radius:110px;
 }
 
-/* ABOUT */
+.project-overlay{
+    position:absolute;
+    inset:auto 0 0 0;
+    padding:28px;
+    background:linear-gradient(transparent,rgba(0,0,0,.95));
+    padding-top:100px;
+}
 
-.about{
+.project-category{
+    color:var(--gold2);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.project h3{
+    margin-top:7px;
+    font-size:24px;
+}
+
+.project-arrow{
+    position:absolute;
+    right:25px;
+    bottom:25px;
+    width:43px;
+    height:43px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#fff;
+    color:#000;
+    transition:.3s;
+}
+
+.project:hover .project-arrow{
+    transform:rotate(45deg);
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:60px;
+    gap:50px;
     align-items:center;
 }
 
-.about-box{
-    padding:40px;
-    border:1px solid #222;
-    border-radius:25px;
-    background:#0b0b0b;
+.about-visual{
+    min-height:430px;
+    border-radius:30px;
+    border:1px solid var(--line);
+    background:
+        radial-gradient(circle at center,rgba(217,182,63,.12),transparent 35%),
+        #090909;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
 }
 
-.about h2{
-    font-size:45px;
-    margin-bottom:20px;
+.about-logo{
+    width:190px;
+    height:190px;
+    border-radius:50%;
+    border:1px solid rgba(217,182,63,.4);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:
+        0 0 80px rgba(217,182,63,.08),
+        inset 0 0 50px rgba(217,182,63,.04);
 }
 
-.about p{
-    color:#999;
+.about-logo svg{
+    width:125px;
+    height:125px;
+}
+
+.about-text h2{
+    font-size:clamp(35px,5vw,58px);
+    line-height:1;
+    letter-spacing:-3px;
+}
+
+.about-text p{
+    margin-top:22px;
+    color:#858585;
     line-height:1.9;
 }
 
 .stats{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-    margin-top:25px;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-top:30px;
 }
 
 .stat{
-    padding:25px;
-    border:1px solid #222;
-    border-radius:15px;
+    padding:20px;
+    border:1px solid var(--line);
+    border-radius:17px;
+    background:#0a0a0a;
 }
 
 .stat strong{
-    font-size:30px;
-    color:#d4af37;
+    font-size:25px;
+    color:var(--gold2);
 }
 
-/* PROCESS */
+.stat span{
+    display:block;
+    margin-top:6px;
+    color:#666;
+    font-size:11px;
+}
+
+/* =========================
+   PROCESS
+========================= */
 
 .process{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:18px;
+    gap:12px;
 }
 
 .step{
-    text-align:center;
-    padding:30px 15px;
+    padding:30px 20px;
+    border-top:1px solid var(--line);
+    transition:.35s;
 }
 
-.number{
-    width:55px;
-    height:55px;
-    margin:auto auto 20px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border:1px solid #d4af37;
-    border-radius:50%;
-    color:#d4af37;
-    font-weight:bold;
+.step:hover{
+    border-color:var(--gold);
 }
 
-/* CONTACT */
-
-.contact{
-    text-align:center;
-    background:linear-gradient(180deg,#050505,#0c0c0c);
+.step-num{
+    color:var(--gold2);
+    font-size:12px;
+    font-weight:800;
 }
 
-.contact p{
-    color:#888;
-    max-width:600px;
-    margin:20px auto 30px;
+.step h3{
+    margin:28px 0 10px;
+}
+
+.step p{
+    color:#777;
+    font-size:13px;
     line-height:1.7;
 }
 
-/* WHATSAPP */
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    margin:40px 6% 100px;
+    padding:80px 30px;
+    text-align:center;
+    border-radius:32px;
+    border:1px solid rgba(217,182,63,.2);
+    background:
+        radial-gradient(circle at center,rgba(217,182,63,.13),transparent 50%),
+        linear-gradient(145deg,#111,#080808);
+}
+
+.cta h2{
+    font-size:clamp(38px,6vw,70px);
+    letter-spacing:-3px;
+}
+
+.cta p{
+    max-width:560px;
+    margin:18px auto 30px;
+    color:#858585;
+    line-height:1.8;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:45px 6%;
+    border-top:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    color:#555;
+    font-size:12px;
+}
+
+.footer-brand{
+    color:#aaa;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.footer-brand span{
+    color:var(--gold);
+}
+
+/* =========================
+   WHATSAPP
+========================= */
 
 .whatsapp{
     position:fixed;
     right:22px;
     bottom:22px;
-    width:60px;
-    height:60px;
+    width:61px;
+    height:61px;
     border-radius:50%;
-    background:#25D366;
-    color:white;
     display:flex;
-    justify-content:center;
     align-items:center;
-    font-size:27px;
+    justify-content:center;
+    background:#25d366;
+    color:white;
+    font-size:25px;
     z-index:999;
-    box-shadow:0 5px 25px rgba(37,211,102,.3);
-    animation:pulse 2s infinite;
+    box-shadow:0 10px 35px rgba(37,211,102,.3);
+    transition:.3s;
 }
 
-@keyframes pulse{
-    0%,100%{transform:scale(1)}
-    50%{transform:scale(1.08)}
+.whatsapp:hover{
+    transform:scale(1.1);
 }
 
-/* FOOTER */
+/* =========================
+   MOBILE
+========================= */
 
-footer{
-    padding:35px 7%;
-    text-align:center;
-    color:#555;
-    border-top:1px solid #151515;
-}
+@media(max-width:850px){
 
-/* MOBILE */
-
-@media(max-width:800px){
-
-    nav{
-        padding:16px 5%;
+    .nav{
+        top:10px;
+        height:62px;
+        padding:0 15px;
     }
 
-    nav ul{
-        gap:12px;
+    .nav-links{
+        display:none;
     }
 
-    nav ul li a{
-        font-size:11px;
+    .nav-btn{
+        display:block;
+        padding:9px 13px;
+    }
+
+    .hero{
+        padding-top:130px;
     }
 
     .hero h1{
-        letter-spacing:-2px;
+        letter-spacing:-3px;
     }
 
-    .cards,
+    .orb{
+        width:300px;
+        height:300px;
+    }
+
+    .services{
+        grid-template-columns:1fr;
+    }
+
     .portfolio{
         grid-template-columns:1fr;
     }
 
-    .about{
+    .project,
+    .project.tall{
+        min-height:340px;
+    }
+
+    .about-grid{
         grid-template-columns:1fr;
     }
 
@@ -421,48 +797,109 @@ footer{
         grid-template-columns:1fr 1fr;
     }
 
-    section{
-        padding:75px 5%;
-    }
-
-    .section-title h2{
-        font-size:34px;
-    }
 }
 
-@media(max-width:500px){
+@media(max-width:520px){
 
-    nav ul{
-        display:none;
+    section{
+        padding:80px 5%;
+    }
+
+    .brand-name{
+        font-size:14px;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
     }
 
     .process{
         grid-template-columns:1fr;
     }
 
-    .hero p{
-        font-size:15px;
+    .cta{
+        margin-left:5%;
+        margin-right:5%;
     }
+
+    footer{
+        flex-direction:column;
+        gap:15px;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
 
+<div class="noise"></div>
+
 <!-- NAVIGATION -->
 
-<nav>
-    <div class="logo">
-        <span>MJ</span> <span>ARTS</span>
-    </div>
+<nav class="nav">
 
-    <ul>
+    <a href="#home" class="brand">
+
+        <div class="logo-mark">
+
+            <!-- MJ ARTS LOGO — NO CROWN -->
+
+            <svg viewBox="0 0 100 100" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <path d="M12 72V28L27 48L42 28V72"
+                      stroke="#D9B63F"
+                      stroke-width="8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"/>
+
+                <path d="M55 72L70 28L88 72M61 58H80"
+                      stroke="#E8E8E8"
+                      stroke-width="8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"/>
+
+            </svg>
+
+        </div>
+
+        <div class="brand-name">
+            <span>MJ</span> ARTS
+        </div>
+
+    </a>
+
+    <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#work">Work</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
     </ul>
+
+    <a class="nav-btn"
+       href="https://wa.me/918822477442"
+       target="_blank">
+       Let's Talk
+    </a>
+
 </nav>
 
 
@@ -470,32 +907,39 @@ footer{
 
 <section class="hero" id="home">
 
+    <div class="orb"></div>
+
     <div class="hero-content">
 
-        <div class="badge">
+        <div class="eyebrow">
+            <span class="dot"></span>
             MJ ARTS • DIGITAL CREATIVE STUDIO
         </div>
 
         <h1>
-            We Turn Ideas<br>
-            Into <span class="gold">Digital Identity.</span>
+            We Don't Just<br>
+            <span class="gradient-text">Design.</span>
+            We Create Identity.
         </h1>
 
         <p>
-            Creative design, digital experiences and visual identity
-            built to make your brand impossible to ignore.
+            We transform ideas into powerful visual experiences,
+            brands and digital identities that people remember.
         </p>
 
-        <div class="buttons">
-            <a class="btn btn-main"
-               href="https://wa.me/918822477442"
+        <div class="hero-buttons">
+
+            <a class="btn btn-primary"
+               href="https://wa.me/918822477442?text=Hello%20MJ%20ARTS!%20I%20want%20to%20start%20a%20project."
                target="_blank">
-               Start a Project
+               Start a Project ↗
             </a>
 
-            <a class="btn btn-outline" href="#work">
-               Explore Work
+            <a class="btn btn-secondary"
+               href="#work">
+               Explore Our Work ↓
             </a>
+
         </div>
 
     </div>
@@ -503,42 +947,96 @@ footer{
 </section>
 
 
+<!-- MARQUEE -->
+
+<div class="marquee">
+
+    <div class="marquee-track">
+
+        <span>BRANDING <b>✦</b></span>
+        <span>WEB DESIGN <b>✦</b></span>
+        <span>DIGITAL ART <b>✦</b></span>
+        <span>CREATIVE DESIGN <b>✦</b></span>
+        <span>VISUAL IDENTITY <b>✦</b></span>
+
+        <span>BRANDING <b>✦</b></span>
+        <span>WEB DESIGN <b>✦</b></span>
+        <span>DIGITAL ART <b>✦</b></span>
+        <span>CREATIVE DESIGN <b>✦</b></span>
+        <span>VISUAL IDENTITY <b>✦</b></span>
+
+    </div>
+
+</div>
+
+
 <!-- SERVICES -->
 
 <section id="services">
 
-    <div class="section-title">
-        <small>WHAT WE DO</small>
-        <h2>Our Services</h2>
+    <div class="section-head center">
+
+        <div class="section-label">WHAT WE CREATE</div>
+
+        <h2>
+            Built to make<br>
+            <span class="gradient-text">people look twice.</span>
+        </h2>
+
+        <p>
+            Every project gets its own personality.
+            No generic templates. No boring design.
+        </p>
+
     </div>
 
-    <div class="cards">
+    <div class="services">
 
-        <div class="card">
-            <div class="icon">✦</div>
+        <div class="service">
+
+            <div class="service-number">01 / 03</div>
+
+            <div class="service-icon">✦</div>
+
             <h3>Brand Identity</h3>
+
             <p>
-                Logos, visual identity and branding that give
-                your business a unique personality.
+                Logos, colors, typography and visual systems
+                that make your brand instantly recognizable.
             </p>
+
         </div>
 
-        <div class="card">
-            <div class="icon">◈</div>
-            <h3>Web Design</h3>
+
+        <div class="service">
+
+            <div class="service-number">02 / 03</div>
+
+            <div class="service-icon">◈</div>
+
+            <h3>Web Experiences</h3>
+
             <p>
                 Modern responsive websites designed to look
-                premium on phones, tablets and computers.
+                premium and feel effortless on every screen.
             </p>
+
         </div>
 
-        <div class="card">
-            <div class="icon">◇</div>
-            <h3>Creative Design</h3>
+
+        <div class="service">
+
+            <div class="service-number">03 / 03</div>
+
+            <div class="service-icon">◇</div>
+
+            <h3>Digital Art</h3>
+
             <p>
-                Posters, social media graphics and digital
-                artwork created to capture attention.
+                Posters, graphics, social content and visual
+                artwork created to grab attention.
             </p>
+
         </div>
 
     </div>
@@ -550,35 +1048,97 @@ footer{
 
 <section id="work">
 
-    <div class="section-title">
-        <small>SELECTED WORK</small>
-        <h2>Creative Portfolio</h2>
+    <div class="section-head">
+
+        <div class="section-label">SELECTED WORK</div>
+
+        <h2>
+            Ideas made<br>
+            <span class="gradient-text">visible.</span>
+        </h2>
+
+        <p>
+            A glimpse of what MJ ARTS can create.
+        </p>
+
     </div>
+
 
     <div class="portfolio">
 
-        <div class="work">
-            <h3>BRANDING</h3>
+        <div class="project tall">
+
+            <div class="project-art"></div>
+
+            <div class="project-overlay">
+
+                <div class="project-category">
+                    BRAND IDENTITY
+                </div>
+
+                <h3>Signature Identity</h3>
+
+            </div>
+
+            <div class="project-arrow">↗</div>
+
         </div>
 
-        <div class="work">
-            <h3>WEB DESIGN</h3>
+
+        <div class="project">
+
+            <div class="project-art"></div>
+
+            <div class="project-overlay">
+
+                <div class="project-category">
+                    WEB DESIGN
+                </div>
+
+                <h3>Digital Experience</h3>
+
+            </div>
+
+            <div class="project-arrow">↗</div>
+
         </div>
 
-        <div class="work">
-            <h3>DIGITAL ART</h3>
+
+        <div class="project">
+
+            <div class="project-art"></div>
+
+            <div class="project-overlay">
+
+                <div class="project-category">
+                    DIGITAL ART
+                </div>
+
+                <h3>Visual Concept</h3>
+
+            </div>
+
+            <div class="project-arrow">↗</div>
+
         </div>
 
-        <div class="work">
-            <h3>POSTERS</h3>
-        </div>
 
-        <div class="work">
-            <h3>SOCIAL MEDIA</h3>
-        </div>
+        <div class="project">
 
-        <div class="work">
-            <h3>CREATIVE</h3>
+            <div class="project-art"></div>
+
+            <div class="project-overlay">
+
+                <div class="project-category">
+                    CREATIVE DESIGN
+                </div>
+
+                <h3>Beyond Ordinary</h3>
+
+            </div>
+
+            <div class="project-arrow">↗</div>
+
         </div>
 
     </div>
@@ -590,53 +1150,71 @@ footer{
 
 <section id="about">
 
-    <div class="about">
+    <div class="about-grid">
 
-        <div>
-            <small class="gold">ABOUT MJ ARTS</small>
+        <div class="about-visual">
+
+            <div class="about-logo">
+
+                <svg viewBox="0 0 100 100"
+                     fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+
+                    <path d="M12 72V28L27 48L42 28V72"
+                          stroke="#D9B63F"
+                          stroke-width="8"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"/>
+
+                    <path d="M55 72L70 28L88 72M61 58H80"
+                          stroke="#E8E8E8"
+                          stroke-width="8"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"/>
+
+                </svg>
+
+            </div>
+
+        </div>
+
+
+        <div class="about-text">
+
+            <div class="section-label">
+                ABOUT MJ ARTS
+            </div>
 
             <h2>
-                Creativity With<br>
-                <span class="gold">Purpose.</span>
+                Your idea.<br>
+                Our <span class="gradient-text">craft.</span>
             </h2>
 
             <p>
-                MJ ARTS is built around one simple idea:
-                great design should not only look good —
-                it should create an identity.
+                MJ ARTS exists to turn ordinary ideas into
+                memorable digital experiences. We believe
+                design should have personality, purpose and
+                a reason to be remembered.
             </p>
 
             <div class="stats">
 
                 <div class="stat">
-                    <strong>01</strong>
-                    <p>Creative Vision</p>
+                    <strong>∞</strong>
+                    <span>CREATIVE IDEAS</span>
                 </div>
 
                 <div class="stat">
-                    <strong>∞</strong>
-                    <p>Ideas</p>
+                    <strong>01</strong>
+                    <span>UNIQUE IDENTITY</span>
+                </div>
+
+                <div class="stat">
+                    <strong>24/7</strong>
+                    <span>PASSION</span>
                 </div>
 
             </div>
-        </div>
-
-        <div class="about-box">
-
-            <h3>Why MJ ARTS?</h3>
-
-            <p>
-                We combine creativity, technology and attention
-                to detail to create digital experiences that
-                feel modern, memorable and professional.
-            </p>
-
-            <br>
-
-            <p>
-                From the first idea to the final design,
-                every detail matters.
-            </p>
 
         </div>
 
@@ -649,87 +1227,134 @@ footer{
 
 <section>
 
-    <div class="section-title">
-        <small>HOW IT WORKS</small>
-        <h2>Our Process</h2>
-    </div>
+    <div class="section-head center">
 
-    <div class="process">
-
-        <div class="step">
-            <div class="number">01</div>
-            <h3>Discover</h3>
-            <p>We understand your idea.</p>
+        <div class="section-label">
+            THE PROCESS
         </div>
-
-        <div class="step">
-            <div class="number">02</div>
-            <h3>Design</h3>
-            <p>We create the visual direction.</p>
-        </div>
-
-        <div class="step">
-            <div class="number">03</div>
-            <h3>Build</h3>
-            <p>We turn the concept into reality.</p>
-        </div>
-
-        <div class="step">
-            <div class="number">04</div>
-            <h3>Launch</h3>
-            <p>Your digital identity goes live.</p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section class="contact" id="contact">
-
-    <div class="section-title">
-
-        <small>LET'S CREATE</small>
 
         <h2>
-            Have An Idea?
+            From idea to<br>
+            <span class="gradient-text">impact.</span>
         </h2>
 
     </div>
 
-    <p>
-        Let's turn your idea into something people remember.
-        Contact MJ ARTS and let's build something powerful.
-    </p>
 
-    <a class="btn btn-main"
-       href="https://wa.me/918822477442?text=Hello%20MJ%20ARTS!%20I%20want%20to%20discuss%20a%20project."
-       target="_blank">
-       Talk On WhatsApp
-    </a>
+    <div class="process">
+
+        <div class="step">
+
+            <div class="step-num">01 — DISCOVER</div>
+
+            <h3>Understand</h3>
+
+            <p>
+                We understand the idea, audience and
+                direction behind your project.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-num">02 — CREATE</div>
+
+            <h3>Design</h3>
+
+            <p>
+                We turn the concept into a strong
+                visual direction.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-num">03 — BUILD</div>
+
+            <h3>Develop</h3>
+
+            <p>
+                We bring the design to life with
+                detail and interaction.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-num">04 — LAUNCH</div>
+
+            <h3>Deliver</h3>
+
+            <p>
+                Your finished digital identity is
+                ready to make an impact.
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- WHATSAPP FLOATING BUTTON -->
+<!-- CTA -->
 
-<a class="whatsapp"
-   href="https://wa.me/918822477442"
-   target="_blank"
-   aria-label="WhatsApp">
-   ☎
-</a>
+<div class="cta" id="contact">
+
+    <div class="section-label">
+        LET'S CREATE SOMETHING
+    </div>
+
+    <h2>
+        Have an idea?<br>
+        <span class="gradient-text">Let's make it real.</span>
+    </h2>
+
+    <p>
+        Tell us what you're imagining.
+        We'll turn it into something worth remembering.
+    </p>
+
+    <a class="btn btn-primary"
+       href="https://wa.me/918822477442?text=Hello%20MJ%20ARTS!%20I%20have%20an%20idea%20I'd%20like%20to%20discuss."
+       target="_blank">
+       Start the Conversation ↗
+    </a>
+
+</div>
 
 
 <!-- FOOTER -->
 
 <footer>
 
-    © 2026 MJ ARTS. All Rights Reserved.
+    <div class="footer-brand">
+        <span>MJ</span> ARTS
+    </div>
+
+    <div>
+        © 2026 MJ ARTS — All Rights Reserved.
+    </div>
 
 </footer>
+
+
+<!-- WHATSAPP -->
+
+<a class="whatsapp"
+   href="https://wa.me/918822477442"
+   target="_blank"
+   aria-label="Contact MJ ARTS on WhatsApp">
+
+    ☎
+
+</a>
 
 </body>
 </html>
