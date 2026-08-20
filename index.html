@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MJ ARTS — Creative Digital Studio</title>
-  <meta name="description" content="MJ ARTS — Premium websites, branding, menu designs and creative digital solutions.">
-
+  <meta name="description" content="MJ ARTS — Premium websites, branding, menu designs and creative digital solutions." />
   <style>
     * {
       margin: 0;
@@ -31,8 +29,6 @@
       color: var(--white);
       overflow-x: hidden;
     }
-
-    /* ---------- GENERAL ---------- */
 
     section {
       padding: 100px 7%;
@@ -73,8 +69,6 @@
       line-height: 1.7;
     }
 
-    /* ---------- NAVBAR ---------- */
-
     nav {
       position: fixed;
       top: 0;
@@ -91,13 +85,27 @@
     }
 
     .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--gold);
       font-size: 25px;
       font-weight: 900;
       letter-spacing: 2px;
-      color: var(--gold);
     }
 
-    .logo small {
+    .logo img {
+      width: 42px;
+      height: 42px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 1px solid rgba(212,175,55,.35);
+      background: #000;
+      flex: 0 0 auto;
+    }
+
+    .logo-text small {
       display: block;
       color: #777;
       font-size: 8px;
@@ -110,6 +118,7 @@
       display: flex;
       gap: 30px;
       list-style: none;
+      align-items: center;
     }
 
     nav a {
@@ -119,8 +128,10 @@
       transition: .3s;
     }
 
-    nav a:hover {
+    nav a:hover,
+    nav a:focus-visible {
       color: var(--gold);
+      outline: none;
     }
 
     .nav-btn {
@@ -135,9 +146,16 @@
       font-size: 28px;
       color: var(--gold);
       cursor: pointer;
+      background: transparent;
+      border: 0;
+      line-height: 1;
     }
 
-    /* ---------- HERO ---------- */
+    .menu:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+      border-radius: 8px;
+    }
 
     .hero {
       min-height: 100vh;
@@ -234,8 +252,6 @@
       color: #000;
     }
 
-    /* ---------- MARQUEE ---------- */
-
     .marquee {
       border-top: 1px solid #222;
       border-bottom: 1px solid #222;
@@ -256,8 +272,6 @@
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
     }
-
-    /* ---------- SERVICES ---------- */
 
     .services {
       background: var(--dark);
@@ -319,8 +333,6 @@
       font-size: 14px;
     }
 
-    /* ---------- ABOUT ---------- */
-
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -360,8 +372,6 @@
       line-height: 1.9;
       margin-bottom: 18px;
     }
-
-    /* ---------- WORK ---------- */
 
     .work {
       background: var(--dark);
@@ -425,8 +435,6 @@
       font-size: 24px;
     }
 
-    /* ---------- PROCESS ---------- */
-
     .process-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -460,8 +468,6 @@
       line-height: 1.6;
       font-size: 14px;
     }
-
-    /* ---------- PRICING ---------- */
 
     .pricing {
       background: var(--dark);
@@ -535,8 +541,6 @@
       margin-right: 10px;
     }
 
-    /* ---------- CTA ---------- */
-
     .cta {
       text-align: center;
       padding: 120px 7%;
@@ -557,8 +561,6 @@
       margin: 0 auto 30px;
       line-height: 1.8;
     }
-
-    /* ---------- FOOTER ---------- */
 
     footer {
       padding: 45px 7%;
@@ -597,15 +599,30 @@
       transition: .3s;
     }
 
-    .socials a:hover {
+    .socials a:hover,
+    .socials a:focus-visible {
       background: var(--gold);
       color: #000;
+      outline: none;
     }
 
-    /* ---------- MOBILE ---------- */
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+      transition: .8s ease;
+    }
+
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .js .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     @media(max-width: 850px) {
-
       nav ul {
         position: absolute;
         top: 75px;
@@ -663,7 +680,6 @@
     }
 
     @media(max-width: 500px) {
-
       .process-grid {
         grid-template-columns: 1fr;
       }
@@ -686,32 +702,40 @@
       }
     }
 
-    /* ---------- SCROLL REVEAL ---------- */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: .8s ease;
-    }
+      .marquee-track {
+        animation: none;
+      }
 
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
+      .js .reveal,
+      .js .reveal.show {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .btn-primary:hover {
+        transform: none;
+        box-shadow: none;
+      }
     }
   </style>
 </head>
-
 <body>
-
-  <!-- NAVIGATION -->
-
   <nav>
-    <a href="#home" class="logo">
-      MJ ARTS
-      <small>CREATIVE STUDIO</small>
+    <a href="#home" class="logo" aria-label="MJ ARTS home">
+      <img src="mjarts_logo.png" alt="MJ ARTS logo" />
+      <span class="logo-text">
+        MJ ARTS
+        <small>CREATIVE STUDIO</small>
+      </span>
     </a>
 
-    <div class="menu" onclick="toggleMenu()">☰</div>
+    <button class="menu" id="menuToggle" aria-expanded="false" aria-controls="navLinks" type="button">☰</button>
 
     <ul id="navLinks">
       <li><a href="#home">Home</a></li>
@@ -723,42 +747,22 @@
     </ul>
   </nav>
 
-
-  <!-- HERO -->
-
   <section class="hero" id="home">
-
     <div class="container hero-content reveal">
-
-      <div class="eyebrow">
-        ✦ MJ ARTS — DIGITAL CREATIVE STUDIO
-      </div>
-
+      <div class="eyebrow">✦ MJ ARTS — DIGITAL CREATIVE STUDIO</div>
       <h1>
-        WE CREATE<br>
+        WE CREATE<br />
         <em>WHAT STANDS OUT.</em>
       </h1>
-
       <p>
-        Premium websites, powerful branding and creative digital
-        experiences designed to make your business impossible to ignore.
+        Premium websites, powerful branding and creative digital experiences designed to make your business impossible to ignore.
       </p>
-
       <div class="buttons">
-        <a href="#services" class="btn btn-primary">
-          Explore Services →
-        </a>
-
-        <a href="#contact" class="btn btn-outline">
-          Start a Project
-        </a>
+        <a href="#services" class="btn btn-primary">Explore Services →</a>
+        <a href="#contact" class="btn btn-outline">Start a Project</a>
       </div>
-
     </div>
   </section>
-
-
-  <!-- MARQUEE -->
 
   <div class="marquee">
     <div class="marquee-track">
@@ -767,236 +771,85 @@
     </div>
   </div>
 
-
-  <!-- SERVICES -->
-
   <section class="services" id="services">
-
     <div class="container">
-
       <div class="section-title reveal">
         <span>What We Create</span>
         <h2>Our <span>Services</span></h2>
-        <p>
-          From a simple idea to a complete digital identity,
-          MJ ARTS turns concepts into experiences.
-        </p>
+        <p>From a simple idea to a complete digital identity, MJ ARTS turns concepts into experiences.</p>
       </div>
 
       <div class="service-grid">
-
-        <div class="service-card reveal">
-          <div class="icon">⌘</div>
-          <h3>Website Design</h3>
-          <p>
-            Modern, responsive and premium websites designed
-            to give your business a strong digital presence.
-          </p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="icon">✦</div>
-          <h3>Brand Identity</h3>
-          <p>
-            Logos, visual identity and creative direction
-            that help your brand become memorable.
-          </p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="icon">▣</div>
-          <h3>Menu Design</h3>
-          <p>
-            Elegant restaurant menus and promotional designs
-            created to make your products look irresistible.
-          </p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="icon">◈</div>
-          <h3>Social Media</h3>
-          <p>
-            Creative posts, promotional graphics and visual
-            content built for modern social platforms.
-          </p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="icon">◎</div>
-          <h3>Digital Posters</h3>
-          <p>
-            Eye-catching posters and advertisements for
-            businesses, events and personal projects.
-          </p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="icon">↗</div>
-          <h3>Custom Projects</h3>
-          <p>
-            Have something different in mind? Tell us your
-            idea and let's turn it into something real.
-          </p>
-        </div>
-
+        <div class="service-card reveal"><div class="icon">⌘</div><h3>Website Design</h3><p>Modern, responsive and premium websites designed to give your business a strong digital presence.</p></div>
+        <div class="service-card reveal"><div class="icon">✦</div><h3>Brand Identity</h3><p>Logos, visual identity and creative direction that help your brand become memorable.</p></div>
+        <div class="service-card reveal"><div class="icon">▣</div><h3>Menu Design</h3><p>Elegant restaurant menus and promotional designs created to make your products look irresistible.</p></div>
+        <div class="service-card reveal"><div class="icon">◈</div><h3>Social Media</h3><p>Creative posts, promotional graphics and visual content built for modern social platforms.</p></div>
+        <div class="service-card reveal"><div class="icon">◎</div><h3>Digital Posters</h3><p>Eye-catching posters and advertisements for businesses, events and personal projects.</p></div>
+        <div class="service-card reveal"><div class="icon">↗</div><h3>Custom Projects</h3><p>Have something different in mind? Tell us your idea and let's turn it into something real.</p></div>
       </div>
     </div>
   </section>
-
-
-  <!-- ABOUT -->
 
   <section id="about">
-
     <div class="container about-grid">
-
       <div class="about-box reveal">
         <div class="big">MJ</div>
-        <p>
-          Creativity isn't decoration.
-          It's how people remember you.
-        </p>
+        <p>Creativity isn't decoration. It's how people remember you.</p>
       </div>
-
       <div class="about-text reveal">
-
         <div class="eyebrow">ABOUT MJ ARTS</div>
-
-        <h2>
-          Ideas deserve a
-          <span class="gold">beautiful form.</span>
-        </h2>
-
-        <p>
-          MJ ARTS is a creative digital studio focused on helping
-          businesses and individuals build a stronger visual presence.
-        </p>
-
-        <p>
-          We combine clean design, modern technology and creativity
-          to create digital work that looks professional and feels unique.
-        </p>
-
-        <a href="#contact" class="btn btn-outline">
-          Work With Us
-        </a>
-
+        <h2>Ideas deserve a <span class="gold">beautiful form.</span></h2>
+        <p>MJ ARTS is a creative digital studio focused on helping businesses and individuals build a stronger visual presence.</p>
+        <p>We combine clean design, modern technology and creativity to create digital work that looks professional and feels unique.</p>
+        <a href="#contact" class="btn btn-outline">Work With Us</a>
       </div>
-
     </div>
   </section>
 
-
-  <!-- WORK -->
-
   <section class="work" id="work">
-
     <div class="container">
-
       <div class="section-title reveal">
         <span>Selected Concepts</span>
         <h2>Creative <span>Work</span></h2>
-        <p>
-          A glimpse of the visual direction MJ ARTS can create.
-        </p>
+        <p>A glimpse of the visual direction MJ ARTS can create.</p>
       </div>
 
       <div class="work-grid">
-
-        <div class="work-card reveal">
-          <div class="work-info">
-            <span>WEB DESIGN</span>
-            <h3>Luxury Business</h3>
-          </div>
-        </div>
-
-        <div class="work-card reveal">
-          <div class="work-info">
-            <span>BRANDING</span>
-            <h3>Golden Identity</h3>
-          </div>
-        </div>
-
-        <div class="work-card reveal">
-          <div class="work-info">
-            <span>MENU DESIGN</span>
-            <h3>Modern Restaurant</h3>
-          </div>
-        </div>
-
+        <div class="work-card reveal"><div class="work-info"><span>WEB DESIGN</span><h3>Luxury Business</h3></div></div>
+        <div class="work-card reveal"><div class="work-info"><span>BRANDING</span><h3>Golden Identity</h3></div></div>
+        <div class="work-card reveal"><div class="work-info"><span>MENU DESIGN</span><h3>Modern Restaurant</h3></div></div>
       </div>
     </div>
   </section>
 
-
-  <!-- PROCESS -->
-
   <section>
-
     <div class="container">
-
       <div class="section-title reveal">
         <span>Simple Process</span>
         <h2>From Idea To <span>Impact</span></h2>
       </div>
 
       <div class="process-grid">
-
-        <div class="process reveal">
-          <div class="number">01</div>
-          <h3>Discuss</h3>
-          <p>We understand your idea, business and goals.</p>
-        </div>
-
-        <div class="process reveal">
-          <div class="number">02</div>
-          <h3>Design</h3>
-          <p>We create a visual direction that fits your brand.</p>
-        </div>
-
-        <div class="process reveal">
-          <div class="number">03</div>
-          <h3>Build</h3>
-          <p>Your project is developed and refined.</p>
-        </div>
-
-        <div class="process reveal">
-          <div class="number">04</div>
-          <h3>Launch</h3>
-          <p>Your finished project goes out into the world.</p>
-        </div>
-
+        <div class="process reveal"><div class="number">01</div><h3>Discuss</h3><p>We understand your idea, business and goals.</p></div>
+        <div class="process reveal"><div class="number">02</div><h3>Design</h3><p>We create a visual direction that fits your brand.</p></div>
+        <div class="process reveal"><div class="number">03</div><h3>Build</h3><p>Your project is developed and refined.</p></div>
+        <div class="process reveal"><div class="number">04</div><h3>Launch</h3><p>Your finished project goes out into the world.</p></div>
       </div>
     </div>
   </section>
 
-
-  <!-- PRICING -->
-
   <section class="pricing" id="pricing">
-
     <div class="container">
-
       <div class="section-title reveal">
         <span>Starting Packages</span>
         <h2>Choose Your <span>Level</span></h2>
-        <p>
-          Flexible packages for different business needs.
-          Final pricing depends on project requirements.
-        </p>
+        <p>Flexible packages for different business needs. Final pricing depends on project requirements.</p>
       </div>
 
       <div class="price-grid">
-
         <div class="price-card reveal">
-
           <h3>Starter</h3>
-
-          <div class="price">
-            ₹5K
-            <small>+</small>
-          </div>
-
+          <div class="price">₹5K <small>+</small></div>
           <ul class="features">
             <li>Professional landing page</li>
             <li>Mobile responsive design</li>
@@ -1004,25 +857,13 @@
             <li>Contact / WhatsApp CTA</li>
             <li>Basic deployment</li>
           </ul>
-
-          <a href="#contact" class="btn btn-outline">
-            Choose Starter
-          </a>
-
+          <a href="#contact" class="btn btn-outline">Choose Starter</a>
         </div>
 
-
         <div class="price-card featured reveal">
-
           <div class="popular">POPULAR</div>
-
           <h3>Professional</h3>
-
-          <div class="price">
-            ₹10K
-            <small>+</small>
-          </div>
-
+          <div class="price">₹10K <small>+</small></div>
           <ul class="features">
             <li>Premium website design</li>
             <li>Multiple sections/pages</li>
@@ -1031,23 +872,12 @@
             <li>Contact integration</li>
             <li>Deployment assistance</li>
           </ul>
-
-          <a href="#contact" class="btn btn-primary">
-            Choose Professional
-          </a>
-
+          <a href="#contact" class="btn btn-primary">Choose Professional</a>
         </div>
 
-
         <div class="price-card reveal">
-
           <h3>Premium</h3>
-
-          <div class="price">
-            ₹15K
-            <small>+</small>
-          </div>
-
+          <div class="price">₹15K <small>+</small></div>
           <ul class="features">
             <li>Fully customized website</li>
             <li>Advanced visual design</li>
@@ -1056,143 +886,80 @@
             <li>Branding integration</li>
             <li>Priority project support</li>
           </ul>
-
-          <a href="#contact" class="btn btn-outline">
-            Choose Premium
-          </a>
-
+          <a href="#contact" class="btn btn-outline">Choose Premium</a>
         </div>
-
       </div>
     </div>
   </section>
 
-
-  <!-- CTA -->
-
   <section class="cta" id="contact">
-
     <div class="container reveal">
-
       <div class="eyebrow">YOUR IDEA. OUR CREATIVITY.</div>
-
-      <h2>
-        LET'S BUILD<br>
-        <span class="gold">SOMETHING GREAT.</span>
-      </h2>
-
-      <p>
-        Have a business, project or crazy idea?
-        Let's turn it into something people remember.
-      </p>
-
-      <!-- Replace this number with your WhatsApp number -->
-      <a
-        href="https://wa.me/91XXXXXXXXXX"
-        class="btn btn-primary"
-        target="_blank">
-        Start a Conversation →
-      </a>
-
+      <h2>LET'S BUILD<br /><span class="gold">SOMETHING GREAT.</span></h2>
+      <p>Have a business, project or crazy idea? Let's turn it into something people remember.</p>
+      <a href="https://wa.me/918822477442" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Start a Conversation →</a>
     </div>
   </section>
 
-
-  <!-- FOOTER -->
-
   <footer>
-
     <div class="footer-grid">
-
       <div>
-        <div class="logo">
-          MJ ARTS
-          <small>CREATIVE STUDIO</small>
-        </div>
-
-        <p style="margin-top:12px;">
-          Creating digital experiences that stand out.
-        </p>
+        <a href="#home" class="logo" aria-label="MJ ARTS home">
+          <img src="mjarts_logo.png" alt="MJ ARTS logo" />
+          <span class="logo-text">
+            MJ ARTS
+            <small>CREATIVE STUDIO</small>
+          </span>
+        </a>
+        <p style="margin-top:12px;">Creating digital experiences that stand out.</p>
       </div>
 
       <div class="socials">
-
         <a href="#" aria-label="Instagram">IG</a>
-
         <a href="#" aria-label="Facebook">FB</a>
-
         <a href="#" aria-label="Email">@</a>
-
       </div>
 
-      <p>
-        © <span id="year"></span> MJ ARTS. All rights reserved.
-      </p>
-
+      <p>© <span id="year"></span> MJ ARTS. All rights reserved.</p>
     </div>
-
   </footer>
 
-
-  <!-- JAVASCRIPT -->
-
   <script>
+    document.documentElement.classList.add("js");
 
-    /* Mobile menu */
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
 
     function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("active");
+      const isOpen = navLinks.classList.toggle("active");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
     }
 
-
-    /* Close menu after clicking a link */
+    menuToggle.addEventListener("click", toggleMenu);
 
     document.querySelectorAll("#navLinks a").forEach(link => {
       link.addEventListener("click", () => {
-        document.getElementById("navLinks").classList.remove("active");
+        navLinks.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
       });
     });
 
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    /* Automatic year */
+    const revealElements = document.querySelectorAll(".reveal");
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
 
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-
-    /* Scroll reveal */
-
-    const revealElements =
-      document.querySelectorAll(".reveal");
-
-    const revealObserver =
-      new IntersectionObserver(
-        (entries) => {
-
-          entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-              entry.target.classList.add("show");
-
-              revealObserver.unobserve(entry.target);
-
-            }
-
-          });
-
-        },
-        {
-          threshold: 0.12
-        }
-      );
-
-
-    revealElements.forEach(element => {
-      revealObserver.observe(element);
-    });
-
+    revealElements.forEach(element => revealObserver.observe(element));
   </script>
-
 </body>
 </html>
