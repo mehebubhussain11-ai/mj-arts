@@ -1,1656 +1,1198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>MJ ARTS — Design • Create • Inspire</title>
-
-<meta name="description"
-content="MJ ARTS creates premium websites, digital art, brand identities, menus, posters and creative digital experiences.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
-    --black:#030303;
-    --dark:#080808;
-    --card:#0d0d0d;
-    --gold:#d6b44c;
-    --gold2:#f4d979;
-    --white:#f7f7f4;
-    --muted:#858585;
-    --line:rgba(214,180,76,.30);
-    --green:#20d66b;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:
-        radial-gradient(circle at 50% 0%,rgba(214,180,76,.08),transparent 28%),
-        #030303;
-    color:var(--white);
-    font-family:Inter,Arial,sans-serif;
-    overflow-x:hidden;
-}
-
-/* subtle texture */
-
-body:before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:100;
-    opacity:.035;
-    background-image:
-        radial-gradient(#fff 1px,transparent 1px);
-    background-size:6px 6px;
-}
-
-/* ================= NAV ================= */
-
-.nav-wrap{
-    position:fixed;
-    top:16px;
-    left:50%;
-    transform:translateX(-50%);
-    width:min(94%,1200px);
-    z-index:50;
-}
-
-nav{
-    height:76px;
-    padding:10px 16px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:28px;
-
-    background:rgba(7,7,7,.88);
-    backdrop-filter:blur(20px);
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.55),
-        inset 0 1px rgba(255,255,255,.04);
-}
-
-.brand{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    text-decoration:none;
-    color:white;
-}
-
-.brand-logo{
-    width:54px;
-    height:54px;
-    border-radius:17px;
-    overflow:hidden;
-    border:1px solid var(--line);
-    background:#050505;
-}
-
-.brand-logo img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.brand-text{
-    font-size:20px;
-    font-weight:800;
-    letter-spacing:5px;
-}
-
-.brand-text span{
-    color:var(--gold2);
-}
-
-.nav-links{
-    display:flex;
-    gap:28px;
-}
-
-.nav-links a{
-    color:#999;
-    text-decoration:none;
-    font-size:13px;
-    transition:.3s;
-}
-
-.nav-links a:hover{
-    color:var(--gold2);
-}
-
-.nav-button{
-    color:var(--gold2);
-    border:1px solid var(--gold);
-    padding:14px 24px;
-    border-radius:30px;
-    text-decoration:none;
-    font-size:13px;
-    font-weight:700;
-    transition:.3s;
-}
-
-.nav-button:hover{
-    background:var(--gold);
-    color:#000;
-}
-
-/* ================= HERO ================= */
-
-.hero{
-    min-height:100vh;
-    padding:150px 6% 90px;
-    display:flex;
-    align-items:center;
-}
-
-.hero-inner{
-    width:min(1180px,100%);
-    margin:auto;
-
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:70px;
-    align-items:center;
-}
-
-.eyebrow{
-    color:var(--gold2);
-    font-size:12px;
-    font-weight:800;
-    letter-spacing:5px;
-    margin-bottom:25px;
-}
-
-.hero h1{
-    font-family:"Playfair Display",serif;
-    font-size:clamp(65px,9vw,115px);
-    line-height:.88;
-    letter-spacing:-6px;
-}
-
-.hero h1 span{
-    color:var(--gold2);
-}
-
-.hero-description{
-    margin-top:30px;
-    max-width:560px;
-    color:#888;
-    line-height:1.9;
-    font-size:16px;
-}
-
-.hero-actions{
-    display:flex;
-    gap:14px;
-    margin-top:35px;
-    flex-wrap:wrap;
-}
-
-.primary,
-.secondary{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    padding:16px 28px;
-    border-radius:40px;
-    text-decoration:none;
-    font-size:14px;
-    font-weight:700;
-    transition:.3s;
-}
-
-.primary{
-    background:var(--gold2);
-    color:#050505;
-}
-
-.secondary{
-    border:1px solid rgba(255,255,255,.2);
-    color:white;
-}
-
-.primary:hover{
-    transform:translateY(-4px);
-    box-shadow:0 15px 40px rgba(214,180,76,.2);
-}
-
-.secondary:hover{
-    border-color:var(--gold);
-    color:var(--gold2);
-}
-
-/* ================= HERO LOGO ================= */
-
-.hero-logo{
-    position:relative;
-    width:min(520px,100%);
-    aspect-ratio:1;
-    margin:auto;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(circle,
-        rgba(214,180,76,.12),
-        rgba(0,0,0,.8) 58%,
-        #020202 78%);
-
-    border:1px solid rgba(214,180,76,.45);
-
-    box-shadow:
-        0 0 0 14px rgba(214,180,76,.025),
-        0 0 100px rgba(214,180,76,.09);
-}
-
-.hero-logo:before{
-    content:"";
-    position:absolute;
-    inset:25px;
-    border:1px solid rgba(255,255,255,.09);
-    border-radius:50%;
-}
-
-.hero-logo img{
-    position:relative;
-    z-index:2;
-    width:91%;
-    height:91%;
-    object-fit:contain;
-    filter:drop-shadow(0 25px 45px rgba(0,0,0,.8));
-}
-
-.hero-orbit{
-    position:absolute;
-    width:18px;
-    height:18px;
-    border-radius:50%;
-    background:var(--gold2);
-    box-shadow:0 0 30px var(--gold);
-    top:8%;
-    right:17%;
-}
-
-/* ================= COMMON ================= */
-
-section{
-    padding:110px 6%;
-}
-
-.section-inner{
-    width:min(1180px,100%);
-    margin:auto;
-}
-
-.section-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:end;
-    margin-bottom:45px;
-}
-
-.section-label{
-    color:var(--gold2);
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:4px;
-    margin-bottom:15px;
-}
-
-.section-title{
-    font-family:"Playfair Display",serif;
-    font-size:clamp(45px,6vw,75px);
-    line-height:1;
-}
-
-.section-number{
-    color:#555;
-    letter-spacing:3px;
-    font-size:13px;
-}
-
-/* ================= SERVICES ================= */
-
-.services{
-    background:
-        linear-gradient(
-            180deg,
-            transparent,
-            rgba(214,180,76,.025),
-            transparent
-        );
-}
-
-.service-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:22px;
-}
-
-.service-card{
-    position:relative;
-    min-height:480px;
-    padding:35px;
-    overflow:hidden;
-
-    border-radius:35px;
-    border:1px solid rgba(255,255,255,.11);
-
-    background:
-        radial-gradient(
-            circle at 80% 20%,
-            rgba(214,180,76,.09),
-            transparent 35%
-        ),
-        #090909;
-
-    transition:.45s;
-}
-
-.service-card:hover{
-    transform:translateY(-8px);
-    border-color:var(--gold);
-    box-shadow:0 25px 70px rgba(0,0,0,.5);
-}
-
-.service-card.featured{
-    border-color:rgba(214,180,76,.55);
-}
-
-/* VISUAL CONTENT */
-
-.visual{
-    position:absolute;
-    left:50%;
-    top:42%;
-    transform:translate(-50%,-50%);
-    width:72%;
-    height:55%;
-
-    border:1px solid rgba(214,180,76,.35);
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    overflow:hidden;
-}
-
-.visual:after{
-    content:"";
-    position:absolute;
-    inset:15%;
-    border:1px solid rgba(255,255,255,.07);
-    border-radius:50%;
-}
-
-.visual-square{
-    border-radius:35px;
-    transform:translate(-50%,-50%) rotate(12deg);
-}
-
-.visual-text{
-    position:relative;
-    z-index:3;
-    text-align:center;
-    font-family:"Playfair Display",serif;
-    font-size:clamp(30px,5vw,55px);
-    line-height:.9;
-}
-
-.visual-text span{
-    display:block;
-    color:var(--gold2);
-}
-
-.visual-code{
-    font-family:monospace;
-    font-size:14px;
-    line-height:2;
-    color:#777;
-    transform:rotate(-8deg);
-}
-
-.visual-code strong{
-    color:var(--gold2);
-}
-
-.visual-brand{
-    font-size:50px;
-    font-weight:800;
-    letter-spacing:5px;
-}
-
-.visual-brand span{
-    color:var(--gold2);
-}
-
-.visual-menu{
-    width:80%;
-    height:65%;
-    padding:25px;
-    border:1px solid rgba(214,180,76,.35);
-    transform:rotate(-5deg);
-}
-
-.visual-menu h4{
-    color:var(--gold2);
-    letter-spacing:3px;
-    margin-bottom:15px;
-}
-
-.menu-line{
-    height:7px;
-    background:#333;
-    margin:10px 0;
-    border-radius:10px;
-}
-
-.menu-line.short{
-    width:55%;
-}
-
-.card-content{
-    position:absolute;
-    left:35px;
-    right:35px;
-    bottom:35px;
-    z-index:5;
-}
-
-.card-number{
-    color:#666;
-    font-size:11px;
-    letter-spacing:3px;
-    margin-bottom:12px;
-}
-
-.service-category{
-    color:var(--gold2);
-    font-size:10px;
-    letter-spacing:4px;
-    font-weight:800;
-    margin-bottom:10px;
-}
-
-.service-card h3{
-    font-family:"Playfair Display",serif;
-    font-size:34px;
-}
-
-.arrow{
-    position:absolute;
-    right:30px;
-    bottom:30px;
-
-    width:64px;
-    height:64px;
-    border-radius:50%;
-
-    background:#fff;
-    color:#000;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:25px;
-    z-index:7;
-    transition:.3s;
-}
-
-.service-card:hover .arrow{
-    transform:rotate(45deg);
-}
-
-/* ================= ABOUT ================= */
-
-.about-grid{
-    display:grid;
-    grid-template-columns:.9fr 1.1fr;
-    gap:80px;
-    align-items:center;
-}
-
-.about-logo{
-    width:100%;
-    max-width:470px;
-    aspect-ratio:1;
-    margin:auto;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border:1px solid var(--line);
-    border-radius:40px;
-    background:#070707;
-
-    overflow:hidden;
-}
-
-.about-logo img{
-    width:94%;
-    height:94%;
-    object-fit:contain;
-}
-
-.about-copy h2{
-    font-family:"Playfair Display",serif;
-    font-size:clamp(45px,5vw,72px);
-    line-height:1.03;
-    margin-bottom:25px;
-}
-
-.about-copy h2 span{
-    color:var(--gold2);
-}
-
-.about-copy p{
-    color:#858585;
-    line-height:1.9;
-    margin-bottom:17px;
-}
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-    margin-top:40px;
-}
-
-.stat{
-    padding-top:20px;
-    border-top:1px solid rgba(255,255,255,.12);
-}
-
-.stat strong{
-    display:block;
-    color:var(--gold2);
-    font-family:"Playfair Display",serif;
-    font-size:35px;
-}
-
-.stat span{
-    color:#666;
-    font-size:10px;
-    letter-spacing:2px;
-}
-
-/* ================= PROCESS ================= */
-
-.process{
-    padding-top:50px;
-}
-
-.process-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.process-card{
-    min-height:330px;
-    padding:32px;
-    border-radius:30px;
-    border:1px solid rgba(255,255,255,.1);
-    background:#090909;
-    transition:.4s;
-}
-
-.process-card:hover{
-    transform:translateY(-6px);
-    border-color:var(--gold);
-}
-
-.process-number{
-    color:var(--gold2);
-    font-size:11px;
-    letter-spacing:3px;
-}
-
-.process-icon{
-    width:62px;
-    height:62px;
-    margin:50px 0 25px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border:1px solid var(--line);
-    border-radius:18px;
-
-    color:var(--gold2);
-    font-size:25px;
-}
-
-.process-card h3{
-    font-size:24px;
-    margin-bottom:12px;
-}
-
-.process-card p{
-    color:#777;
-    line-height:1.7;
-    font-size:14px;
-}
-
-/* ================= SHOWCASE ================= */
-
-.showcase{
-    padding-top:50px;
-}
-
-.showcase-grid{
-    display:grid;
-    grid-template-columns:1.3fr .7fr;
-    gap:20px;
-}
-
-.showcase-card{
-    min-height:400px;
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:35px;
-    background:
-        radial-gradient(circle at 50% 40%,rgba(214,180,76,.12),transparent 45%),
-        #080808;
-    position:relative;
-    overflow:hidden;
-    padding:35px;
-}
-
-.showcase-card.small{
-    min-height:190px;
-}
-
-.showcase-card h3{
-    position:absolute;
-    left:35px;
-    bottom:30px;
-    font-family:"Playfair Display",serif;
-    font-size:32px;
-}
-
-.showcase-card p{
-    color:#777;
-    max-width:400px;
-    line-height:1.7;
-}
-
-.poster{
-    position:absolute;
-    width:240px;
-    height:300px;
-    left:50%;
-    top:48%;
-    transform:translate(-50%,-50%) rotate(-7deg);
-
-    border:1px solid var(--gold);
-    background:#050505;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-
-    box-shadow:25px 25px 70px rgba(0,0,0,.8);
-}
-
-.poster strong{
-    font-family:"Playfair Display",serif;
-    font-size:45px;
-}
-
-.poster span{
-    color:var(--gold2);
-    letter-spacing:4px;
-    margin-top:10px;
-}
-
-/* ================= CTA ================= */
-
-.cta{
-    padding-bottom:130px;
-}
-
-.cta-box{
-    position:relative;
-    overflow:hidden;
-
-    padding:90px 40px;
-
-    border:1px solid var(--gold);
-    border-radius:42px;
-
-    text-align:center;
-
-    background:
-        radial-gradient(circle,
-        rgba(214,180,76,.13),
-        transparent 55%),
-        #080808;
-}
-
-.cta-ring{
-    position:absolute;
-    width:500px;
-    height:500px;
-    border:1px solid rgba(214,180,76,.12);
-    border-radius:50%;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-}
-
-.cta-content{
-    position:relative;
-    z-index:2;
-}
-
-.cta h2{
-    font-family:"Playfair Display",serif;
-    font-size:clamp(45px,7vw,85px);
-    line-height:1;
-    margin-bottom:25px;
-}
-
-.cta h2 span{
-    color:var(--gold2);
-}
-
-.cta p{
-    color:#858585;
-    max-width:560px;
-    margin:0 auto 35px;
-    line-height:1.8;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-    border-top:1px solid rgba(255,255,255,.08);
-    padding:45px 6%;
-}
-
-.footer-inner{
-    width:min(1180px,100%);
-    margin:auto;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:30px;
-}
-
-.footer-brand{
-    font-weight:800;
-    letter-spacing:4px;
-}
-
-.footer-brand span{
-    color:var(--gold2);
-}
-
-.footer-copy{
-    color:#555;
-    font-size:12px;
-}
-
-/* ================= WHATSAPP ================= */
-
-.whatsapp{
-    position:fixed;
-    right:24px;
-    bottom:24px;
-    z-index:60;
-
-    width:66px;
-    height:66px;
-
-    border-radius:50%;
-    background:var(--green);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    box-shadow:0 10px 40px rgba(32,214,107,.3);
-
-    transition:.3s;
-}
-
-.whatsapp:hover{
-    transform:scale(1.1);
-}
-
-.whatsapp svg{
-    width:31px;
-    fill:white;
-}
-
-/* ================= ANIMATION ================= */
-
-.reveal{
-    opacity:0;
-    transform:translateY(30px);
-    transition:opacity .8s ease,transform .8s ease;
-}
-
-.reveal.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:850px){
-
-    .nav-wrap{
-        top:9px;
-        width:94%;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MJ ARTS — Creative Digital Studio</title>
+  <meta name="description" content="MJ ARTS — Premium websites, branding, menu designs and creative digital solutions.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
-    nav{
-        height:68px;
-        border-radius:23px;
+    :root {
+      --gold: #d4af37;
+      --gold-light: #f5d76e;
+      --black: #050505;
+      --dark: #0b0b0b;
+      --card: #111111;
+      --white: #f5f5f5;
+      --gray: #a7a7a7;
     }
 
-    .brand-logo{
-        width:48px;
-        height:48px;
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
     }
 
-    .brand-text{
-        font-size:16px;
-        letter-spacing:3px;
+    /* ---------- GENERAL ---------- */
+
+    section {
+      padding: 100px 7%;
+      position: relative;
     }
 
-    .nav-links{
-        display:none;
+    .container {
+      max-width: 1200px;
+      margin: auto;
     }
 
-    .nav-button{
-        padding:12px 17px;
-        font-size:12px;
+    .gold {
+      color: var(--gold);
     }
 
-    .hero{
-        padding:125px 6% 70px;
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
     }
 
-    .hero-inner{
-        grid-template-columns:1fr;
-        gap:55px;
+    .section-title span {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 13px;
+      font-weight: bold;
     }
 
-    .hero-logo{
-        width:min(390px,92vw);
-        order:-1;
+    .section-title h2 {
+      font-size: clamp(35px, 6vw, 60px);
+      margin-top: 12px;
     }
 
-    .hero h1{
-        font-size:clamp(60px,17vw,90px);
+    .section-title p {
+      color: var(--gray);
+      max-width: 650px;
+      margin: 15px auto 0;
+      line-height: 1.7;
     }
 
-    .service-grid{
-        grid-template-columns:1fr;
+    /* ---------- NAVBAR ---------- */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(5,5,5,.82);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(212,175,55,.12);
     }
 
-    .about-grid{
-        grid-template-columns:1fr;
-        gap:50px;
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--gold);
     }
 
-    .process-grid{
-        grid-template-columns:1fr;
+    .logo small {
+      display: block;
+      color: #777;
+      font-size: 8px;
+      letter-spacing: 5px;
+      text-align: center;
+      margin-top: 2px;
     }
 
-    .showcase-grid{
-        grid-template-columns:1fr;
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
     }
 
-    .showcase-card{
-        min-height:360px;
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      font-size: 14px;
+      transition: .3s;
     }
 
-    .section-top{
-        display:block;
+    nav a:hover {
+      color: var(--gold);
     }
 
-    .section-number{
-        margin-top:20px;
+    .nav-btn {
+      border: 1px solid var(--gold);
+      padding: 10px 18px;
+      border-radius: 30px;
+      color: var(--gold);
     }
 
-    section{
-        padding:80px 6%;
+    .menu {
+      display: none;
+      font-size: 28px;
+      color: var(--gold);
+      cursor: pointer;
     }
 
-    .footer-inner{
-        flex-direction:column;
-        text-align:center;
-    }
-}
+    /* ---------- HERO ---------- */
 
-@media(max-width:480px){
-
-    .brand-text{
-        font-size:14px;
-        letter-spacing:2px;
-    }
-
-    .nav-button{
-        padding:10px 13px;
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(212,175,55,.14), transparent 30%),
+        radial-gradient(circle at 10% 80%, rgba(212,175,55,.08), transparent 30%),
+        var(--black);
     }
 
-    .hero-description{
-        font-size:14px;
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border: 1px solid rgba(212,175,55,.15);
+      border-radius: 50%;
+      right: -150px;
+      top: 120px;
+      box-shadow:
+        0 0 0 50px rgba(212,175,55,.025),
+        0 0 0 100px rgba(212,175,55,.015);
     }
 
-    .hero-actions{
-        flex-direction:column;
+    .hero-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 2;
     }
 
-    .primary,
-    .secondary{
-        width:100%;
+    .eyebrow {
+      color: var(--gold);
+      letter-spacing: 5px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 20px;
     }
 
-    .service-card{
-        min-height:430px;
-        padding:25px;
+    .hero h1 {
+      font-size: clamp(50px, 9vw, 100px);
+      line-height: .95;
+      letter-spacing: -4px;
+      margin-bottom: 28px;
     }
 
-    .card-content{
-        left:25px;
-        bottom:25px;
+    .hero h1 em {
+      font-style: normal;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--gold);
     }
 
-    .service-card h3{
-        font-size:28px;
+    .hero p {
+      max-width: 620px;
+      color: var(--gray);
+      line-height: 1.8;
+      font-size: 17px;
+      margin-bottom: 35px;
     }
 
-    .arrow{
-        width:56px;
-        height:56px;
-        right:23px;
-        bottom:23px;
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
-    .stats strong{
-        font-size:27px;
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 15px 27px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: .3s;
     }
 
-    .stats span{
-        font-size:8px;
+    .btn-primary {
+      color: #000;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
     }
 
-    .whatsapp{
-        width:58px;
-        height:58px;
-        right:18px;
-        bottom:18px;
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 35px rgba(212,175,55,.2);
     }
-}
 
-</style>
+    .btn-outline {
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: #000;
+    }
+
+    /* ---------- MARQUEE ---------- */
+
+    .marquee {
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 18px 0;
+      color: var(--gold);
+      letter-spacing: 5px;
+      font-size: 12px;
+    }
+
+    .marquee-track {
+      display: inline-block;
+      animation: move 22s linear infinite;
+    }
+
+    @keyframes move {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ---------- SERVICES ---------- */
+
+    .services {
+      background: var(--dark);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: linear-gradient(145deg, #151515, #0a0a0a);
+      border: 1px solid #222;
+      padding: 35px;
+      min-height: 260px;
+      border-radius: 20px;
+      transition: .35s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(212,175,55,.06);
+      right: -50px;
+      bottom: -50px;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(212,175,55,.5);
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: rgba(212,175,55,.1);
+      color: var(--gold);
+      font-size: 23px;
+      margin-bottom: 25px;
+    }
+
+    .service-card h3 {
+      margin-bottom: 13px;
+      font-size: 22px;
+    }
+
+    .service-card p {
+      color: var(--gray);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    /* ---------- ABOUT ---------- */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-box {
+      border: 1px solid #292929;
+      padding: 50px;
+      border-radius: 25px;
+      background:
+        linear-gradient(145deg, rgba(212,175,55,.08), transparent),
+        #0d0d0d;
+    }
+
+    .about-box .big {
+      font-size: 90px;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: .8;
+    }
+
+    .about-box p {
+      color: var(--gray);
+      line-height: 1.8;
+      margin-top: 30px;
+    }
+
+    .about-text h2 {
+      font-size: clamp(35px, 5vw, 60px);
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      color: var(--gray);
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+    /* ---------- WORK ---------- */
+
+    .work {
+      background: var(--dark);
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .work-card {
+      height: 330px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(145deg, #242424, #090909);
+      border: 1px solid #242424;
+    }
+
+    .work-card:nth-child(2) {
+      background:
+        radial-gradient(circle at 70% 30%, rgba(212,175,55,.35), transparent 25%),
+        linear-gradient(145deg,#191919,#070707);
+    }
+
+    .work-card:nth-child(3) {
+      background:
+        linear-gradient(135deg, rgba(212,175,55,.2), transparent 45%),
+        #111;
+    }
+
+    .work-card::before {
+      content: "MJ";
+      position: absolute;
+      font-size: 150px;
+      font-weight: 900;
+      color: rgba(212,175,55,.06);
+      right: -10px;
+      bottom: -20px;
+    }
+
+    .work-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 25px;
+      background: linear-gradient(transparent, rgba(0,0,0,.95));
+    }
+
+    .work-info span {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 3px;
+    }
+
+    .work-info h3 {
+      margin-top: 8px;
+      font-size: 24px;
+    }
+
+    /* ---------- PROCESS ---------- */
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .process {
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    .number {
+      width: 65px;
+      height: 65px;
+      margin: 0 auto 22px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      color: var(--gold);
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .process h3 {
+      margin-bottom: 10px;
+    }
+
+    .process p {
+      color: var(--gray);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    /* ---------- PRICING ---------- */
+
+    .pricing {
+      background: var(--dark);
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .price-card {
+      background: #0b0b0b;
+      border: 1px solid #242424;
+      border-radius: 22px;
+      padding: 35px;
+      position: relative;
+    }
+
+    .price-card.featured {
+      border-color: var(--gold);
+      transform: scale(1.03);
+    }
+
+    .popular {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: var(--gold);
+      color: #000;
+      padding: 6px 11px;
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: bold;
+    }
+
+    .price-card h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      font-size: 43px;
+      color: var(--gold);
+      font-weight: 900;
+      margin-bottom: 25px;
+    }
+
+    .price small {
+      font-size: 13px;
+      color: #777;
+      font-weight: normal;
+    }
+
+    .features {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+
+    .features li {
+      color: #bbb;
+      padding: 10px 0;
+      border-bottom: 1px solid #1b1b1b;
+      font-size: 14px;
+    }
+
+    .features li::before {
+      content: "✦";
+      color: var(--gold);
+      margin-right: 10px;
+    }
+
+    /* ---------- CTA ---------- */
+
+    .cta {
+      text-align: center;
+      padding: 120px 7%;
+      background:
+        radial-gradient(circle, rgba(212,175,55,.12), transparent 35%),
+        #050505;
+    }
+
+    .cta h2 {
+      font-size: clamp(40px, 7vw, 80px);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto 30px;
+      line-height: 1.8;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+      padding: 45px 7%;
+      border-top: 1px solid #222;
+      background: #030303;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: center;
+    }
+
+    footer p {
+      color: #666;
+      font-size: 13px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 12px;
+    }
+
+    .socials a {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #333;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+      color: var(--gold);
+      transition: .3s;
+    }
+
+    .socials a:hover {
+      background: var(--gold);
+      color: #000;
+    }
+
+    /* ---------- MOBILE ---------- */
+
+    @media(max-width: 850px) {
+
+      nav ul {
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: #080808;
+        flex-direction: column;
+        align-items: center;
+        padding: 25px;
+        display: none;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      .nav-btn {
+        display: none;
+      }
+
+      .service-grid,
+      .work-grid,
+      .price-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .price-card.featured {
+        transform: none;
+      }
+
+      .hero {
+        min-height: 90vh;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      section {
+        padding: 75px 6%;
+      }
+    }
+
+    @media(max-width: 500px) {
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-box {
+        padding: 35px;
+      }
+
+      .about-box .big {
+        font-size: 70px;
+      }
+
+      .footer-grid {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+    }
+
+    /* ---------- SCROLL REVEAL ---------- */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: .8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- ================= NAV ================= -->
+  <!-- NAVIGATION -->
+
+  <nav>
+    <a href="#home" class="logo">
+      MJ ARTS
+      <small>CREATIVE STUDIO</small>
+    </a>
+
+    <div class="menu" onclick="toggleMenu()">☰</div>
+
+    <ul id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact" class="nav-btn">Let's Talk</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="container hero-content reveal">
+
+      <div class="eyebrow">
+        ✦ MJ ARTS — DIGITAL CREATIVE STUDIO
+      </div>
+
+      <h1>
+        WE CREATE<br>
+        <em>WHAT STANDS OUT.</em>
+      </h1>
+
+      <p>
+        Premium websites, powerful branding and creative digital
+        experiences designed to make your business impossible to ignore.
+      </p>
+
+      <div class="buttons">
+        <a href="#services" class="btn btn-primary">
+          Explore Services →
+        </a>
+
+        <a href="#contact" class="btn btn-outline">
+          Start a Project
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- MARQUEE -->
+
+  <div class="marquee">
+    <div class="marquee-track">
+      WEB DESIGN ✦ BRANDING ✦ MENU DESIGN ✦ DIGITAL ART ✦ CREATIVE SOLUTIONS ✦
+      WEB DESIGN ✦ BRANDING ✦ MENU DESIGN ✦ DIGITAL ART ✦ CREATIVE SOLUTIONS ✦
+    </div>
+  </div>
+
+
+  <!-- SERVICES -->
+
+  <section class="services" id="services">
+
+    <div class="container">
+
+      <div class="section-title reveal">
+        <span>What We Create</span>
+        <h2>Our <span>Services</span></h2>
+        <p>
+          From a simple idea to a complete digital identity,
+          MJ ARTS turns concepts into experiences.
+        </p>
+      </div>
+
+      <div class="service-grid">
+
+        <div class="service-card reveal">
+          <div class="icon">⌘</div>
+          <h3>Website Design</h3>
+          <p>
+            Modern, responsive and premium websites designed
+            to give your business a strong digital presence.
+          </p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="icon">✦</div>
+          <h3>Brand Identity</h3>
+          <p>
+            Logos, visual identity and creative direction
+            that help your brand become memorable.
+          </p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="icon">▣</div>
+          <h3>Menu Design</h3>
+          <p>
+            Elegant restaurant menus and promotional designs
+            created to make your products look irresistible.
+          </p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="icon">◈</div>
+          <h3>Social Media</h3>
+          <p>
+            Creative posts, promotional graphics and visual
+            content built for modern social platforms.
+          </p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="icon">◎</div>
+          <h3>Digital Posters</h3>
+          <p>
+            Eye-catching posters and advertisements for
+            businesses, events and personal projects.
+          </p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="icon">↗</div>
+          <h3>Custom Projects</h3>
+          <p>
+            Have something different in mind? Tell us your
+            idea and let's turn it into something real.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="container about-grid">
+
+      <div class="about-box reveal">
+        <div class="big">MJ</div>
+        <p>
+          Creativity isn't decoration.
+          It's how people remember you.
+        </p>
+      </div>
+
+      <div class="about-text reveal">
+
+        <div class="eyebrow">ABOUT MJ ARTS</div>
+
+        <h2>
+          Ideas deserve a
+          <span class="gold">beautiful form.</span>
+        </h2>
+
+        <p>
+          MJ ARTS is a creative digital studio focused on helping
+          businesses and individuals build a stronger visual presence.
+        </p>
+
+        <p>
+          We combine clean design, modern technology and creativity
+          to create digital work that looks professional and feels unique.
+        </p>
+
+        <a href="#contact" class="btn btn-outline">
+          Work With Us
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- WORK -->
+
+  <section class="work" id="work">
+
+    <div class="container">
+
+      <div class="section-title reveal">
+        <span>Selected Concepts</span>
+        <h2>Creative <span>Work</span></h2>
+        <p>
+          A glimpse of the visual direction MJ ARTS can create.
+        </p>
+      </div>
+
+      <div class="work-grid">
+
+        <div class="work-card reveal">
+          <div class="work-info">
+            <span>WEB DESIGN</span>
+            <h3>Luxury Business</h3>
+          </div>
+        </div>
+
+        <div class="work-card reveal">
+          <div class="work-info">
+            <span>BRANDING</span>
+            <h3>Golden Identity</h3>
+          </div>
+        </div>
 
-<div class="nav-wrap">
-<nav>
+        <div class="work-card reveal">
+          <div class="work-info">
+            <span>MENU DESIGN</span>
+            <h3>Modern Restaurant</h3>
+          </div>
+        </div>
 
-<a href="#home" class="brand">
+      </div>
+    </div>
+  </section>
 
-<div class="brand-logo">
-<img src="mj-arts-logo.png" alt="MJ ARTS">
-</div>
+
+  <!-- PROCESS -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-title reveal">
+        <span>Simple Process</span>
+        <h2>From Idea To <span>Impact</span></h2>
+      </div>
 
-<div class="brand-text">
-<span>MJ</span> ARTS
-</div>
+      <div class="process-grid">
 
-</a>
+        <div class="process reveal">
+          <div class="number">01</div>
+          <h3>Discuss</h3>
+          <p>We understand your idea, business and goals.</p>
+        </div>
 
-<div class="nav-links">
-<a href="#services">Services</a>
-<a href="#about">About</a>
-<a href="#process">Process</a>
-<a href="#contact">Contact</a>
-</div>
+        <div class="process reveal">
+          <div class="number">02</div>
+          <h3>Design</h3>
+          <p>We create a visual direction that fits your brand.</p>
+        </div>
 
-<a href="#contact" class="nav-button">
-Let's Talk
-</a>
+        <div class="process reveal">
+          <div class="number">03</div>
+          <h3>Build</h3>
+          <p>Your project is developed and refined.</p>
+        </div>
 
-</nav>
-</div>
+        <div class="process reveal">
+          <div class="number">04</div>
+          <h3>Launch</h3>
+          <p>Your finished project goes out into the world.</p>
+        </div>
 
+      </div>
+    </div>
+  </section>
 
-<!-- ================= HERO ================= -->
 
-<main id="home">
+  <!-- PRICING -->
 
-<section class="hero">
+  <section class="pricing" id="pricing">
 
-<div class="hero-inner">
+    <div class="container">
 
-<div class="reveal">
+      <div class="section-title reveal">
+        <span>Starting Packages</span>
+        <h2>Choose Your <span>Level</span></h2>
+        <p>
+          Flexible packages for different business needs.
+          Final pricing depends on project requirements.
+        </p>
+      </div>
 
-<div class="eyebrow">
-DESIGN • CREATE • INSPIRE
-</div>
+      <div class="price-grid">
 
-<h1>
-Ideas<br>
-<span>Made</span><br>
-Visible.
-</h1>
+        <div class="price-card reveal">
 
-<p class="hero-description">
-MJ ARTS creates premium websites, visual identities,
-digital artwork, posters, menus and creative experiences
-designed to make your brand impossible to ignore.
-</p>
+          <h3>Starter</h3>
 
-<div class="hero-actions">
+          <div class="price">
+            ₹5K
+            <small>+</small>
+          </div>
 
-<a href="#services" class="primary">
-Explore Services
-</a>
+          <ul class="features">
+            <li>Professional landing page</li>
+            <li>Mobile responsive design</li>
+            <li>Basic business sections</li>
+            <li>Contact / WhatsApp CTA</li>
+            <li>Basic deployment</li>
+          </ul>
 
-<a href="#contact" class="secondary">
-Start a Project →
-</a>
+          <a href="#contact" class="btn btn-outline">
+            Choose Starter
+          </a>
 
-</div>
+        </div>
 
-</div>
 
+        <div class="price-card featured reveal">
 
-<div class="hero-logo reveal">
+          <div class="popular">POPULAR</div>
 
-<div class="hero-orbit"></div>
+          <h3>Professional</h3>
 
-<img src="mj-arts-logo.png" alt="MJ ARTS Logo">
+          <div class="price">
+            ₹10K
+            <small>+</small>
+          </div>
 
-</div>
+          <ul class="features">
+            <li>Premium website design</li>
+            <li>Multiple sections/pages</li>
+            <li>Custom animations</li>
+            <li>Portfolio / services</li>
+            <li>Contact integration</li>
+            <li>Deployment assistance</li>
+          </ul>
 
-</div>
+          <a href="#contact" class="btn btn-primary">
+            Choose Professional
+          </a>
 
-</section>
+        </div>
 
 
-<!-- ================= SERVICES ================= -->
+        <div class="price-card reveal">
 
-<section class="services" id="services">
+          <h3>Premium</h3>
 
-<div class="section-inner">
+          <div class="price">
+            ₹15K
+            <small>+</small>
+          </div>
 
-<div class="section-top reveal">
+          <ul class="features">
+            <li>Fully customized website</li>
+            <li>Advanced visual design</li>
+            <li>Custom sections & features</li>
+            <li>Advanced interactions</li>
+            <li>Branding integration</li>
+            <li>Priority project support</li>
+          </ul>
 
-<div>
+          <a href="#contact" class="btn btn-outline">
+            Choose Premium
+          </a>
 
-<div class="section-label">
-WHAT WE CREATE
-</div>
+        </div>
 
-<h2 class="section-title">
-Beyond<br>
-Ordinary.
-</h2>
+      </div>
+    </div>
+  </section>
 
-</div>
 
-<div class="section-number">
-01 / 04
-</div>
+  <!-- CTA -->
 
-</div>
+  <section class="cta" id="contact">
 
+    <div class="container reveal">
 
-<div class="service-grid">
+      <div class="eyebrow">YOUR IDEA. OUR CREATIVITY.</div>
 
+      <h2>
+        LET'S BUILD<br>
+        <span class="gold">SOMETHING GREAT.</span>
+      </h2>
 
-<!-- DIGITAL ART -->
+      <p>
+        Have a business, project or crazy idea?
+        Let's turn it into something people remember.
+      </p>
 
-<div class="service-card reveal">
+      <!-- Replace this number with your WhatsApp number -->
+      <a
+        href="https://wa.me/91XXXXXXXXXX"
+        class="btn btn-primary"
+        target="_blank">
+        Start a Conversation →
+      </a>
 
-<div class="visual">
+    </div>
+  </section>
 
-<div class="visual-text">
-IDEAS
-<span>VISUALIZED</span>
-</div>
 
-</div>
+  <!-- FOOTER -->
 
-<div class="card-content">
+  <footer>
 
-<div class="card-number">01</div>
+    <div class="footer-grid">
 
-<div class="service-category">
-DIGITAL ART
-</div>
+      <div>
+        <div class="logo">
+          MJ ARTS
+          <small>CREATIVE STUDIO</small>
+        </div>
 
-<h3>
-Visual Concept
-</h3>
+        <p style="margin-top:12px;">
+          Creating digital experiences that stand out.
+        </p>
+      </div>
 
-</div>
+      <div class="socials">
 
-<div class="arrow">↗</div>
+        <a href="#" aria-label="Instagram">IG</a>
 
-</div>
+        <a href="#" aria-label="Facebook">FB</a>
 
+        <a href="#" aria-label="Email">@</a>
 
-<!-- WEB DESIGN -->
+      </div>
 
-<div class="service-card featured reveal">
+      <p>
+        © <span id="year"></span> MJ ARTS. All rights reserved.
+      </p>
 
-<div class="visual visual-square">
+    </div>
 
-<div class="visual-code">
+  </footer>
 
-<strong>&lt;MJ&gt;</strong><br>
-design()<br>
-create()<br>
-launch()<br>
-<br>
-<span style="color:#f4d979">
-beautiful websites
-</span>
 
-</div>
+  <!-- JAVASCRIPT -->
 
-</div>
+  <script>
 
-<div class="card-content">
+    /* Mobile menu */
 
-<div class="card-number">02</div>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
 
-<div class="service-category">
-WEB DESIGN
-</div>
 
-<h3>
-Digital Experience
-</h3>
+    /* Close menu after clicking a link */
 
-</div>
+    document.querySelectorAll("#navLinks a").forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("active");
+      });
+    });
 
-<div class="arrow">→</div>
 
-</div>
+    /* Automatic year */
 
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
 
-<!-- BRANDING -->
 
-<div class="service-card reveal">
+    /* Scroll reveal */
 
-<div class="visual">
+    const revealElements =
+      document.querySelectorAll(".reveal");
 
-<div class="visual-brand">
-<span>MJ</span><br>
-ARTS
-</div>
+    const revealObserver =
+      new IntersectionObserver(
+        (entries) => {
 
-</div>
+          entries.forEach(entry => {
 
-<div class="card-content">
+            if (entry.isIntersecting) {
 
-<div class="card-number">03</div>
+              entry.target.classList.add("show");
 
-<div class="service-category">
-BRAND IDENTITY
-</div>
+              revealObserver.unobserve(entry.target);
 
-<h3>
-Signature Identity
-</h3>
+            }
 
-</div>
+          });
 
-<div class="arrow">↗</div>
+        },
+        {
+          threshold: 0.12
+        }
+      );
 
-</div>
 
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
 
-<!-- MENU / SOCIAL -->
-
-<div class="service-card reveal">
-
-<div class="visual visual-square">
-
-<div class="visual-menu">
-
-<h4>YOUR BRAND</h4>
-
-<div class="menu-line"></div>
-<div class="menu-line short"></div>
-<div class="menu-line"></div>
-<div class="menu-line short"></div>
-<div class="menu-line"></div>
-
-</div>
-
-</div>
-
-<div class="card-content">
-
-<div class="card-number">04</div>
-
-<div class="service-category">
-SOCIAL • MENU • POSTER
-</div>
-
-<h3>
-Creative Content
-</h3>
-
-</div>
-
-<div class="arrow">→</div>
-
-</div>
-
-
-</div>
-</div>
-</section>
-
-
-<!-- ================= ABOUT ================= -->
-
-<section id="about">
-
-<div class="section-inner">
-
-<div class="about-grid">
-
-<div class="about-logo reveal">
-
-<img src="mj-arts-logo.png" alt="MJ ARTS">
-
-</div>
-
-
-<div class="about-copy reveal">
-
-<div class="section-label">
-ABOUT MJ ARTS
-</div>
-
-<h2>
-We turn ideas into
-<span>impact.</span>
-</h2>
-
-<p>
-MJ ARTS is a creative digital studio focused on turning
-simple ideas into memorable visual experiences.
-</p>
-
-<p>
-From websites and brand identities to menus, posters,
-social media graphics and digital artwork — every project
-is designed with purpose, detail and personality.
-</p>
-
-<div class="stats">
-
-<div class="stat">
-<strong>01</strong>
-<span>VISION</span>
-</div>
-
-<div class="stat">
-<strong>02</strong>
-<span>DESIGN</span>
-</div>
-
-<div class="stat">
-<strong>03</strong>
-<span>CREATE</span>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= SHOWCASE ================= -->
-
-<section class="showcase">
-
-<div class="section-inner">
-
-<div class="section-top reveal">
-
-<div>
-
-<div class="section-label">
-THE MJ STANDARD
-</div>
-
-<h2 class="section-title">
-Built to<br>
-stand out.
-</h2>
-
-</div>
-
-<div class="section-number">
-02 / 04
-</div>
-
-</div>
-
-
-<div class="showcase-grid">
-
-<div class="showcase-card reveal">
-
-<div class="poster">
-
-<strong>MJ</strong>
-
-<span>ARTS</span>
-
-</div>
-
-<h3>
-Visual Identity
-</h3>
-
-</div>
-
-
-<div>
-
-<div class="showcase-card small reveal">
-
-<div class="section-label">
-WEB
-</div>
-
-<p>
-Responsive digital experiences
-built for phones, tablets and desktops.
-</p>
-
-<h3>
-Websites
-</h3>
-
-</div>
-
-
-<div class="showcase-card small reveal" style="margin-top:20px">
-
-<div class="section-label">
-DESIGN
-</div>
-
-<p>
-Menus, posters, social graphics
-and branded visual content.
-</p>
-
-<h3>
-Creative
-</h3>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= PROCESS ================= -->
-
-<section class="process" id="process">
-
-<div class="section-inner">
-
-<div class="section-top reveal">
-
-<div>
-
-<div class="section-label">
-OUR PROCESS
-</div>
-
-<h2 class="section-title">
-Simple.<br>
-Effective.
-</h2>
-
-</div>
-
-<div class="section-number">
-03 / 04
-</div>
-
-</div>
-
-
-<div class="process-grid">
-
-
-<div class="process-card reveal">
-
-<div class="process-number">
-01 — DISCOVER
-</div>
-
-<div class="process-icon">
-◇
-</div>
-
-<h3>
-Understand
-</h3>
-
-<p>
-We understand your idea, audience,
-style and goals before creating anything.
-</p>
-
-</div>
-
-
-<div class="process-card reveal">
-
-<div class="process-number">
-02 — DESIGN
-</div>
-
-<div class="process-icon">
-✦
-</div>
-
-<h3>
-Create
-</h3>
-
-<p>
-We transform the concept into a polished
-visual experience built around your goals.
-</p>
-
-</div>
-
-
-<div class="process-card reveal">
-
-<div class="process-number">
-03 — DELIVER
-</div>
-
-<div class="process-icon">
-↗
-</div>
-
-<h3>
-Launch
-</h3>
-
-<p>
-After refining everything, we deliver a
-finished product ready to represent you.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= CONTACT ================= -->
-
-<section class="cta" id="contact">
-
-<div class="section-inner">
-
-<div class="cta-box reveal">
-
-<div class="cta-ring"></div>
-
-<div class="cta-content">
-
-<div class="section-label">
-HAVE AN IDEA?
-</div>
-
-<h2>
-Let's make it<br>
-<span>real.</span>
-</h2>
-
-<p>
-Have a website, logo, poster, menu,
-brand identity or creative project in mind?
-Let's build something people remember.
-</p>
-
-<a href="mailto:YOUR_EMAIL@example.com" class="primary">
-Let's Talk →
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-</main>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-<div class="footer-inner">
-
-<div class="footer-brand">
-<span>MJ</span> ARTS
-</div>
-
-<div class="footer-copy">
-© 2026 MJ ARTS. All rights reserved.
-</div>
-
-<div>
-MJ ARTS — Design • Create • Inspire
-</div>
-
-</div>
-
-</footer>
-
-
-<!-- ================= WHATSAPP ================= -->
-
-<a
-class="whatsapp"
-href="#contact"
-aria-label="Contact MJ ARTS">
-
-<svg viewBox="0 0 24 24">
-
-<path d="M20.52 3.48A11.78 11.78 0 0 0 12.06 0C5.55 0 .25 5.3.25 11.82c0 2.08.54 4.11 1.57 5.9L.16 24l6.42-1.68a11.8 11.8 0 0 0 5.47 1.39h.01c6.51 0 11.81-5.3 11.81-11.82 0-3.15-1.23-6.11-3.35-8.41zM12.06 21.67h-.01a9.83 9.83 0 0 1-5.01-1.37l-.36-.21-3.81 1 1.02-3.71-.23-.38a9.82 9.82 0 0 1-1.5-5.18c0-5.42 4.41-9.83 9.84-9.83 2.62 0 5.08 1.02 6.93 2.87a9.77 9.77 0 0 1 2.88 6.96c0 5.43-4.41 9.85-9.84 9.85zm5.4-7.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.51-1.78-1.69-2.08-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.21 5.08 4.5.71.31 1.26.5 1.69.64.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/>
-
-</svg>
-
-</a>
-
-
-<script>
-
-const reveals=document.querySelectorAll(".reveal");
-
-const observer=new IntersectionObserver(
-(entries)=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("show");
-}
-});
-},
-{
-threshold:.12
-});
-
-reveals.forEach(el=>observer.observe(el));
-
-</script>
+  </script>
 
 </body>
 </html>
