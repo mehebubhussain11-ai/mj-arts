@@ -1,8 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>MJ ARTS — Creative Studio</title>
 
@@ -12,15 +14,23 @@ content="MJ ARTS creates premium websites, branding, menu designs, digital art a
 <meta name="theme-color" content="#050505">
 
 <style>
+
+/* =====================================================
+   ROOT
+===================================================== */
+
 :root{
   --gold:#d4af37;
   --gold-light:#f5d76e;
   --gold-dark:#a67c00;
+
   --black:#050505;
   --dark:#0b0b0b;
   --card:#111;
+
   --white:#f7f7f7;
   --muted:#999;
+
   --line:rgba(212,175,55,.18);
 }
 
@@ -70,9 +80,9 @@ section{
   color:var(--gold);
 }
 
-/* =====================================
+/* =====================================================
    NAVIGATION
-===================================== */
+===================================================== */
 
 nav{
   position:fixed;
@@ -87,7 +97,7 @@ nav{
   align-items:center;
   justify-content:space-between;
 
-  background:rgba(5,5,5,.86);
+  background:rgba(5,5,5,.88);
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
 
@@ -162,14 +172,16 @@ nav li a:hover{
   cursor:pointer;
 }
 
-/* =====================================
+/* =====================================================
    HERO
-===================================== */
+===================================================== */
 
 .hero{
   min-height:100vh;
+
   display:flex;
   align-items:center;
+
   position:relative;
   overflow:hidden;
 
@@ -189,6 +201,7 @@ nav li a:hover{
 
 .hero::before{
   content:"";
+
   position:absolute;
 
   width:480px;
@@ -209,11 +222,13 @@ nav li a:hover{
   content:"MJ";
 
   position:absolute;
+
   right:4%;
   bottom:3%;
 
   font-size:clamp(120px,20vw,280px);
   font-weight:900;
+
   letter-spacing:-20px;
 
   color:rgba(212,175,55,.025);
@@ -227,30 +242,42 @@ nav li a:hover{
 
 .eyebrow{
   color:var(--gold);
+
   font-size:11px;
   font-weight:700;
+
   letter-spacing:4px;
+
   margin-bottom:20px;
 }
 
 .hero h1{
   font-size:clamp(48px,9vw,100px);
+
   line-height:.94;
+
   letter-spacing:-4px;
+
   margin-bottom:28px;
 }
 
 .hero h1 em{
   font-style:normal;
+
   color:transparent;
+
   -webkit-text-stroke:1px var(--gold);
 }
 
 .hero p{
   max-width:650px;
+
   color:var(--muted);
+
   font-size:17px;
+
   line-height:1.8;
+
   margin-bottom:34px;
 }
 
@@ -262,6 +289,7 @@ nav li a:hover{
 
 .btn{
   display:inline-flex;
+
   align-items:center;
   justify-content:center;
 
@@ -271,30 +299,37 @@ nav li a:hover{
 
   font-weight:700;
 
-  transition:
-    transform .3s,
-    box-shadow .3s,
-    background .3s,
-    color .3s;
+  transition:.3s;
+
+  cursor:pointer;
 }
 
 .btn-primary{
   color:#000;
-  background:linear-gradient(
-    135deg,
-    var(--gold-light),
-    var(--gold)
-  );
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--gold-light),
+      var(--gold)
+    );
+
+  border:0;
 }
 
 .btn-primary:hover{
   transform:translateY(-3px);
-  box-shadow:0 12px 35px rgba(212,175,55,.22);
+
+  box-shadow:
+    0 12px 35px rgba(212,175,55,.22);
 }
 
 .btn-outline{
   color:var(--gold);
+
   border:1px solid var(--gold);
+
+  background:transparent;
 }
 
 .btn-outline:hover{
@@ -302,12 +337,13 @@ nav li a:hover{
   color:#000;
 }
 
-/* =====================================
+/* =====================================================
    MARQUEE
-===================================== */
+===================================================== */
 
 .marquee{
   overflow:hidden;
+
   white-space:nowrap;
 
   border-top:1px solid #202020;
@@ -318,22 +354,30 @@ nav li a:hover{
   color:var(--gold);
 
   letter-spacing:4px;
+
   font-size:10px;
 }
 
 .marquee-track{
   display:inline-block;
-  animation:marquee 25s linear infinite;
+
+  animation:
+    marquee 25s linear infinite;
 }
 
 @keyframes marquee{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
+  from{
+    transform:translateX(0);
+  }
+
+  to{
+    transform:translateX(-50%);
+  }
 }
 
-/* =====================================
+/* =====================================================
    SECTION TITLES
-===================================== */
+===================================================== */
 
 .section-title{
   text-align:center;
@@ -351,14 +395,17 @@ nav li a:hover{
 
 .section-title p{
   max-width:650px;
+
   margin:17px auto 0;
+
   color:var(--muted);
+
   line-height:1.8;
 }
 
-/* =====================================
+/* =====================================================
    SERVICES
-===================================== */
+===================================================== */
 
 .dark-section{
   background:var(--dark);
@@ -366,7 +413,10 @@ nav li a:hover{
 
 .service-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(3,1fr);
+
   gap:20px;
 }
 
@@ -376,11 +426,13 @@ nav li a:hover{
   padding:32px;
 
   position:relative;
+
   overflow:hidden;
 
   display:block;
 
   border:1px solid #242424;
+
   border-radius:22px;
 
   background:
@@ -390,10 +442,7 @@ nav li a:hover{
       #090909
     );
 
-  transition:
-    transform .35s,
-    border-color .35s,
-    box-shadow .35s;
+  transition:.35s;
 }
 
 .service-card::after{
@@ -425,10 +474,13 @@ nav li a:hover{
   color:var(--gold);
 
   font-size:8px;
+
   font-weight:700;
+
   letter-spacing:2px;
 
   opacity:0;
+
   transform:translateX(8px);
 
   transition:.3s;
@@ -439,7 +491,8 @@ nav li a:hover{
 .service-card:hover{
   transform:translateY(-8px);
 
-  border-color:rgba(212,175,55,.65);
+  border-color:
+    rgba(212,175,55,.65);
 
   box-shadow:
     0 18px 45px rgba(0,0,0,.35);
@@ -452,15 +505,6 @@ nav li a:hover{
 
 .service-card:hover::after{
   transform:scale(1.25);
-}
-
-.service-card:active{
-  transform:scale(.98);
-}
-
-.service-card:focus-visible{
-  outline:2px solid var(--gold);
-  outline-offset:4px;
 }
 
 .icon{
@@ -476,7 +520,8 @@ nav li a:hover{
 
   color:var(--gold);
 
-  background:rgba(212,175,55,.09);
+  background:
+    rgba(212,175,55,.09);
 
   font-size:22px;
 }
@@ -488,18 +533,24 @@ nav li a:hover{
 
 .service-card p{
   color:var(--muted);
+
   font-size:14px;
+
   line-height:1.75;
 }
 
-/* =====================================
+/* =====================================================
    ABOUT
-===================================== */
+===================================================== */
 
 .about-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap:70px;
+
   align-items:center;
 }
 
@@ -509,13 +560,17 @@ nav li a:hover{
   padding:45px;
 
   display:flex;
+
   flex-direction:column;
+
   justify-content:center;
 
   position:relative;
+
   overflow:hidden;
 
   border:1px solid #292929;
+
   border-radius:26px;
 
   background:
@@ -531,9 +586,9 @@ nav li a:hover{
     );
 }
 
-/* Painter emblem in about section */
 .about-art{
   width:min(270px,80%);
+
   margin-bottom:25px;
 }
 
@@ -544,23 +599,30 @@ nav li a:hover{
 
 .about-copy h2{
   font-size:clamp(38px,5vw,60px);
+
   line-height:1;
+
   margin-bottom:22px;
 }
 
 .about-copy p{
   color:var(--muted);
+
   line-height:1.85;
+
   margin-bottom:18px;
 }
 
-/* =====================================
+/* =====================================================
    WORK
-===================================== */
+===================================================== */
 
 .work-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(3,1fr);
+
   gap:20px;
 }
 
@@ -570,9 +632,11 @@ nav li a:hover{
   display:block;
 
   position:relative;
+
   overflow:hidden;
 
   border-radius:20px;
+
   border:1px solid #242424;
 
   background:#111;
@@ -582,7 +646,9 @@ nav li a:hover{
 
 .work-card:hover{
   transform:translateY(-6px);
-  border-color:rgba(212,175,55,.5);
+
+  border-color:
+    rgba(212,175,55,.5);
 }
 
 .work-card img{
@@ -600,6 +666,7 @@ nav li a:hover{
 
 .work-overlay{
   position:absolute;
+
   inset:0;
 
   background:
@@ -624,6 +691,7 @@ nav li a:hover{
   color:var(--gold);
 
   font-size:9px;
+
   letter-spacing:3px;
 }
 
@@ -634,22 +702,28 @@ nav li a:hover{
 
 .work-hint{
   color:#aaa;
+
   font-size:11px;
+
   margin-top:5px;
 }
 
-/* =====================================
+/* =====================================================
    PROCESS
-===================================== */
+===================================================== */
 
 .process-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+
+  grid-template-columns:
+    repeat(4,1fr);
+
   gap:20px;
 }
 
 .process{
   text-align:center;
+
   padding:20px 12px;
 }
 
@@ -663,6 +737,7 @@ nav li a:hover{
   place-items:center;
 
   border:1px solid var(--gold);
+
   border-radius:50%;
 
   color:var(--gold);
@@ -676,17 +751,22 @@ nav li a:hover{
 
 .process p{
   color:var(--muted);
+
   font-size:14px;
+
   line-height:1.7;
 }
 
-/* =====================================
+/* =====================================================
    PRICING
-===================================== */
+===================================================== */
 
 .price-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(3,1fr);
+
   gap:20px;
 }
 
@@ -696,6 +776,7 @@ nav li a:hover{
   padding:35px;
 
   border:1px solid #252525;
+
   border-radius:22px;
 
   background:
@@ -710,16 +791,21 @@ nav li a:hover{
 
 .price-card:hover{
   transform:translateY(-6px);
-  border-color:rgba(212,175,55,.45);
+
+  border-color:
+    rgba(212,175,55,.45);
 }
 
 .price-card.featured{
   border-color:var(--gold);
+
   transform:scale(1.03);
 }
 
 .price-card.featured:hover{
-  transform:scale(1.03) translateY(-6px);
+  transform:
+    scale(1.03)
+    translateY(-6px);
 }
 
 .popular{
@@ -737,6 +823,7 @@ nav li a:hover{
   color:#000;
 
   font-size:9px;
+
   font-weight:bold;
 }
 
@@ -747,19 +834,25 @@ nav li a:hover{
 
 .price{
   color:var(--gold);
+
   font-size:43px;
+
   font-weight:900;
+
   margin-bottom:24px;
 }
 
 .price small{
   color:#777;
+
   font-size:12px;
+
   font-weight:normal;
 }
 
 .features{
   list-style:none;
+
   margin-bottom:28px;
 }
 
@@ -775,20 +868,97 @@ nav li a:hover{
 
 .features li::before{
   content:"✦";
+
   color:var(--gold);
+
   margin-right:9px;
 }
 
-/* =====================================
+/* =====================================================
+   REVIEWS
+===================================================== */
+
+.review-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:20px;
+}
+
+.review-card{
+  padding:28px;
+
+  border:1px solid #252525;
+
+  border-radius:20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #141414,
+      #090909
+    );
+
+  transition:.35s;
+}
+
+.review-card:hover{
+  transform:translateY(-5px);
+
+  border-color:
+    rgba(212,175,55,.4);
+}
+
+.stars{
+  color:var(--gold);
+
+  letter-spacing:3px;
+
+  margin-bottom:15px;
+}
+
+.review-card p{
+  color:#aaa;
+
+  font-size:14px;
+
+  line-height:1.8;
+
+  margin-bottom:18px;
+}
+
+.review-author{
+  color:#eee;
+
+  font-weight:bold;
+
+  font-size:13px;
+}
+
+.review-role{
+  color:#666;
+
+  font-size:11px;
+
+  margin-top:3px;
+}
+
+/* =====================================================
    CONTACT
-===================================== */
+===================================================== */
 
 .contact-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(3,1fr);
+
   gap:20px;
 
   max-width:1000px;
+
   margin:0 auto;
 }
 
@@ -798,6 +968,7 @@ nav li a:hover{
   padding:28px;
 
   border:1px solid #282828;
+
   border-radius:20px;
 
   background:#0d0d0d;
@@ -807,7 +978,9 @@ nav li a:hover{
 
 .contact-card:hover{
   transform:translateY(-6px);
-  border-color:rgba(212,175,55,.55);
+
+  border-color:
+    rgba(212,175,55,.55);
 }
 
 .contact-icon{
@@ -821,7 +994,8 @@ nav li a:hover{
 
   border-radius:14px;
 
-  background:rgba(212,175,55,.09);
+  background:
+    rgba(212,175,55,.09);
 
   color:var(--gold);
 
@@ -830,19 +1004,23 @@ nav li a:hover{
 
 .contact-card small{
   display:block;
+
   color:#777;
+
   margin-bottom:5px;
 }
 
 .contact-card strong{
   color:#eee;
+
   font-size:14px;
+
   word-break:break-word;
 }
 
-/* =====================================
+/* =====================================================
    CTA
-===================================== */
+===================================================== */
 
 .cta{
   text-align:center;
@@ -858,26 +1036,33 @@ nav li a:hover{
 
 .cta h2{
   font-size:clamp(42px,7vw,80px);
+
   line-height:.98;
+
   margin-bottom:22px;
 }
 
 .cta p{
   max-width:600px;
+
   margin:0 auto 30px;
+
   color:var(--muted);
 }
 
 .cta-buttons{
   display:flex;
+
   justify-content:center;
+
   gap:14px;
+
   flex-wrap:wrap;
 }
 
-/* =====================================
+/* =====================================================
    FOOTER
-===================================== */
+===================================================== */
 
 footer{
   padding:45px 0;
@@ -891,6 +1076,7 @@ footer{
   display:flex;
 
   align-items:center;
+
   justify-content:space-between;
 
   gap:30px;
@@ -898,12 +1084,15 @@ footer{
 
 .footer-copy{
   color:#666;
+
   font-size:13px;
+
   margin-top:10px;
 }
 
 .socials{
   display:flex;
+
   gap:10px;
 }
 
@@ -912,14 +1101,17 @@ footer{
   height:40px;
 
   display:grid;
+
   place-items:center;
 
   border:1px solid #333;
+
   border-radius:50%;
 
   color:var(--gold);
 
   font-size:10px;
+
   font-weight:bold;
 
   transition:.3s;
@@ -927,15 +1119,288 @@ footer{
 
 .socials a:hover{
   background:var(--gold);
+
   color:#000;
 }
 
-/* =====================================
+/* =====================================================
+   ORDER MODAL
+===================================================== */
+
+.modal{
+  position:fixed;
+
+  inset:0;
+
+  z-index:5000;
+
+  display:none;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:20px;
+
+  background:
+    rgba(0,0,0,.82);
+
+  backdrop-filter:blur(12px);
+}
+
+.modal.active{
+  display:flex;
+}
+
+.modal-box{
+  width:min(560px,100%);
+
+  max-height:90vh;
+
+  overflow-y:auto;
+
+  padding:32px;
+
+  border:1px solid
+    rgba(212,175,55,.45);
+
+  border-radius:25px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #151515,
+      #080808
+    );
+
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.65);
+
+  position:relative;
+}
+
+.modal-close{
+  position:absolute;
+
+  top:17px;
+  right:19px;
+
+  width:38px;
+  height:38px;
+
+  border:1px solid #333;
+
+  border-radius:50%;
+
+  background:#0c0c0c;
+
+  color:var(--gold);
+
+  cursor:pointer;
+
+  font-size:18px;
+}
+
+.modal-title{
+  color:var(--gold);
+
+  font-size:11px;
+
+  letter-spacing:3px;
+
+  font-weight:bold;
+
+  margin-bottom:8px;
+}
+
+.modal-box h2{
+  font-size:34px;
+
+  margin-bottom:8px;
+}
+
+.modal-description{
+  color:#888;
+
+  font-size:13px;
+
+  margin-bottom:25px;
+}
+
+.order-summary{
+  padding:18px;
+
+  margin-bottom:22px;
+
+  border:1px solid var(--line);
+
+  border-radius:17px;
+
+  background:
+    rgba(212,175,55,.045);
+}
+
+.order-summary-row{
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:15px;
+
+  padding:7px 0;
+
+  color:#aaa;
+
+  font-size:13px;
+}
+
+.order-summary-row strong{
+  color:#fff;
+}
+
+.order-total{
+  border-top:1px solid #292929;
+
+  margin-top:8px;
+
+  padding-top:12px;
+}
+
+.order-total strong{
+  color:var(--gold);
+
+  font-size:20px;
+}
+
+.order-form label{
+  display:block;
+
+  margin:15px 0 7px;
+
+  color:#bbb;
+
+  font-size:12px;
+
+  font-weight:bold;
+}
+
+.order-form input,
+.order-form textarea,
+.order-form select{
+  width:100%;
+
+  padding:13px 14px;
+
+  border:1px solid #292929;
+
+  border-radius:12px;
+
+  outline:none;
+
+  background:#090909;
+
+  color:#fff;
+
+  font:inherit;
+
+  font-size:14px;
+
+  transition:.25s;
+}
+
+.order-form input:focus,
+.order-form textarea:focus,
+.order-form select:focus{
+  border-color:var(--gold);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(212,175,55,.08);
+}
+
+.order-form textarea{
+  min-height:90px;
+
+  resize:vertical;
+}
+
+.payment-box{
+  margin-top:20px;
+
+  padding:18px;
+
+  border:1px dashed
+    rgba(212,175,55,.4);
+
+  border-radius:16px;
+
+  background:
+    rgba(212,175,55,.04);
+}
+
+.payment-box h3{
+  color:var(--gold);
+
+  font-size:15px;
+
+  margin-bottom:7px;
+}
+
+.payment-box p{
+  color:#999;
+
+  font-size:12px;
+
+  line-height:1.7;
+}
+
+.payment-upi{
+  display:block;
+
+  margin:12px 0;
+
+  padding:11px;
+
+  border-radius:10px;
+
+  background:#050505;
+
+  color:#fff;
+
+  text-align:center;
+
+  font-weight:bold;
+}
+
+.order-submit{
+  width:100%;
+
+  margin-top:20px;
+
+  border:0;
+
+  cursor:pointer;
+}
+
+.order-note{
+  margin-top:12px;
+
+  color:#666;
+
+  text-align:center;
+
+  font-size:10px;
+
+  line-height:1.6;
+}
+
+/* =====================================================
    REVEAL
-===================================== */
+===================================================== */
 
 .reveal{
   opacity:0;
+
   transform:translateY(28px);
 
   transition:
@@ -945,12 +1410,13 @@ footer{
 
 .reveal.show{
   opacity:1;
+
   transform:translateY(0);
 }
 
-/* =====================================
+/* =====================================================
    MOBILE
-===================================== */
+===================================================== */
 
 @media(max-width:850px){
 
@@ -994,7 +1460,8 @@ footer{
   .service-grid,
   .work-grid,
   .price-grid,
-  .about-grid{
+  .about-grid,
+  .review-grid{
     grid-template-columns:1fr;
   }
 
@@ -1050,6 +1517,7 @@ footer{
   .buttons,
   .cta-buttons{
     flex-direction:column;
+
     align-items:stretch;
   }
 
@@ -1063,12 +1531,18 @@ footer{
 
   .about-visual{
     min-height:330px;
+
     padding:30px;
   }
 
   .footer-grid{
     flex-direction:column;
+
     text-align:center;
+  }
+
+  .modal-box{
+    padding:25px;
   }
 }
 
@@ -1082,1387 +1556,1969 @@ footer{
   *::before,
   *::after{
     animation:none!important;
+
     transition:none!important;
   }
 
   .reveal{
     opacity:1;
+
     transform:none;
   }
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- =====================================
+
+<!-- =====================================================
      NAVIGATION
-===================================== -->
+===================================================== -->
 
 <nav>
 
-  <a href="#home" class="brand" aria-label="MJ ARTS Home">
+<a href="#home" class="brand" aria-label="MJ ARTS Home">
 
-    <!-- PAINTER-STYLE MJ ARTS LOGO
-         Palette + brush, no crown, no person -->
-    <svg
-      class="brand-mark"
-      viewBox="0 0 100 100"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true">
+<svg
+class="brand-mark"
+viewBox="0 0 100 100"
+xmlns="http://www.w3.org/2000/svg"
+aria-hidden="true">
 
-      <defs>
+<defs>
 
-        <linearGradient
-          id="painterGold"
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1">
+<linearGradient
+id="goldLogo"
+x1="0"
+y1="0"
+x2="1"
+y2="1">
 
-          <stop offset="0%" stop-color="#f5d76e"/>
-          <stop offset="50%" stop-color="#d4af37"/>
-          <stop offset="100%" stop-color="#a67c00"/>
+<stop offset="0%" stop-color="#f5d76e"/>
+<stop offset="50%" stop-color="#d4af37"/>
+<stop offset="100%" stop-color="#a67c00"/>
 
-        </linearGradient>
+</linearGradient>
 
-      </defs>
+</defs>
 
-      <!-- Painter palette -->
+<path
+d="M50 8
+C25 8 9 25 9 47
+C9 69 25 86 47 88
+C56 89 61 83 60 76
+C59 70 63 66 70 66
+C83 66 91 57 91 46
+C91 24 73 8 50 8Z"
+fill="#080808"
+stroke="url(#goldLogo)"
+stroke-width="3"/>
 
-      <path
-        d="M50 8
-           C25 8 9 25 9 47
-           C9 69 25 86 47 88
-           C56 89 61 83 60 76
-           C59 70 63 66 70 66
-           C83 66 91 57 91 46
-           C91 24 73 8 50 8Z"
-        fill="#080808"
-        stroke="url(#painterGold)"
-        stroke-width="3"/>
+<ellipse
+cx="70"
+cy="48"
+rx="7"
+ry="5"
+fill="#050505"
+stroke="#d4af37"
+stroke-width="2"/>
 
-      <!-- Palette thumb hole -->
+<circle cx="31" cy="35" r="5" fill="#d4af37"/>
+<circle cx="47" cy="27" r="4" fill="#f5d76e"/>
+<circle cx="59" cy="38" r="4" fill="#a67c00"/>
+<circle cx="35" cy="54" r="4" fill="#f5d76e"/>
 
-      <ellipse
-        cx="70"
-        cy="48"
-        rx="7"
-        ry="5"
-        fill="#050505"
-        stroke="#d4af37"
-        stroke-width="2"/>
+<path
+d="M43 72 L75 32"
+stroke="#d4af37"
+stroke-width="5"
+stroke-linecap="round"/>
 
-      <!-- Paint dabs -->
+<path
+d="M72 34 L79 25"
+stroke="#f5d76e"
+stroke-width="7"
+stroke-linecap="round"/>
 
-      <circle cx="31" cy="35" r="5"
-              fill="#d4af37"/>
+<path
+d="M40 75
+C34 78 31 83 34 85
+C39 88 45 82 47 76Z"
+fill="#d4af37"/>
 
-      <circle cx="47" cy="27" r="4"
-              fill="#f5d76e"/>
+</svg>
 
-      <circle cx="59" cy="38" r="4"
-              fill="#a67c00"/>
+<span>
 
-      <circle cx="35" cy="54" r="4"
-              fill="#f5d76e"/>
+<span class="brand-name">
+MJ ARTS
+</span>
 
-      <!-- Brush -->
+<span class="brand-sub">
+CREATIVE STUDIO
+</span>
 
-      <path
-        d="M43 72 L75 32"
-        stroke="#d4af37"
-        stroke-width="5"
-        stroke-linecap="round"/>
+</span>
 
-      <path
-        d="M72 34 L79 25"
-        stroke="#f5d76e"
-        stroke-width="7"
-        stroke-linecap="round"/>
-
-      <path
-        d="M40 75
-           C34 78 31 83 34 85
-           C39 88 45 82 47 76Z"
-        fill="#d4af37"/>
-
-    </svg>
-
-    <span>
-      <span class="brand-name">MJ ARTS</span>
-      <span class="brand-sub">CREATIVE STUDIO</span>
-    </span>
-
-  </a>
+</a>
 
 
-  <button
-    class="menu"
-    id="menuToggle"
-    type="button"
-    aria-label="Open navigation"
-    aria-expanded="false">
+<button
+class="menu"
+id="menuToggle"
+type="button"
+aria-label="Open navigation"
+aria-expanded="false">
 
-    ☰
+☰
 
-  </button>
+</button>
 
 
-  <ul id="navLinks">
+<ul id="navLinks">
 
-    <li><a href="#home">Home</a></li>
+<li>
+<a href="#home">Home</a>
+</li>
 
-    <li><a href="#services">Services</a></li>
+<li>
+<a href="#services">Services</a>
+</li>
 
-    <li><a href="#work">Work</a></li>
+<li>
+<a href="#work">Work</a>
+</li>
 
-    <li><a href="#about">About</a></li>
+<li>
+<a href="#about">About</a>
+</li>
 
-    <li><a href="#pricing">Pricing</a></li>
+<li>
+<a href="#pricing">Pricing</a>
+</li>
 
-    <li>
-      <a class="nav-cta" href="#contact">
-        Let's Talk
-      </a>
-    </li>
+<li>
+<a href="#reviews">Reviews</a>
+</li>
 
-  </ul>
+<li>
+<a class="nav-cta" href="#contact">
+Let's Talk
+</a>
+</li>
+
+</ul>
 
 </nav>
 
 
-<!-- =====================================
+<!-- =====================================================
      HERO
-===================================== -->
+===================================================== -->
 
 <section class="hero" id="home">
 
-  <div class="container hero-content reveal">
+<div class="container hero-content reveal">
 
-    <div class="eyebrow">
-      ✦ MJ ARTS — CREATIVE DIGITAL STUDIO
-    </div>
+<div class="eyebrow">
+✦ MJ ARTS — CREATIVE DIGITAL STUDIO
+</div>
 
-    <h1>
-      WE CREATE<br>
-      <em>WHAT STANDS OUT.</em>
-    </h1>
+<h1>
+WE CREATE<br>
+<em>WHAT STANDS OUT.</em>
+</h1>
 
-    <p>
-      Premium websites, powerful branding, artistic designs
-      and creative digital experiences built to make your
-      business impossible to ignore.
-    </p>
+<p>
+Premium websites, powerful branding, artistic designs
+and creative digital experiences built to make your
+business impossible to ignore.
+</p>
 
-    <div class="buttons">
+<div class="buttons">
 
-      <a href="#services" class="btn btn-primary">
-        Explore Services →
-      </a>
+<a
+href="#services"
+class="btn btn-primary">
 
-      <a
-        href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27d%20like%20to%20start%20a%20project."
-        class="btn btn-outline"
-        target="_blank"
-        rel="noopener noreferrer">
+Explore Services →
 
-        Start a Project
+</a>
 
-      </a>
+<a
+href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27d%20like%20to%20start%20a%20project."
+class="btn btn-outline"
+target="_blank"
+rel="noopener noreferrer">
 
-    </div>
+Start a Project
 
-  </div>
+</a>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =====================================
+<!-- =====================================================
      MARQUEE
-===================================== -->
+===================================================== -->
 
 <div class="marquee">
 
-  <div class="marquee-track">
+<div class="marquee-track">
 
-    WEB DESIGN ✦ BRANDING ✦ MENU DESIGN ✦
-    DIGITAL ART ✦ POSTERS ✦ CREATIVE SOLUTIONS ✦
+WEB DESIGN ✦ BRANDING ✦ MENU DESIGN ✦
+DIGITAL ART ✦ POSTERS ✦ CREATIVE SOLUTIONS ✦
 
-    WEB DESIGN ✦ BRANDING ✦ MENU DESIGN ✦
-    DIGITAL ART ✦ POSTERS ✦ CREATIVE SOLUTIONS ✦
+WEB DESIGN ✦ BRANDING ✦ MENU DESIGN ✦
+DIGITAL ART ✦ POSTERS ✦ CREATIVE SOLUTIONS ✦
 
-  </div>
+</div>
 
 </div>
 
 
-<!-- =====================================
+<!-- =====================================================
      SERVICES
-===================================== -->
+===================================================== -->
 
-<section class="dark-section" id="services">
+<section
+class="dark-section"
+id="services">
 
-  <div class="container">
+<div class="container">
 
-    <div class="section-title reveal">
+<div class="section-title reveal">
 
-      <div class="eyebrow">
-        WHAT WE CREATE
-      </div>
+<div class="eyebrow">
+WHAT WE CREATE
+</div>
 
-      <h2>
-        Our <span class="gold">Services</span>
-      </h2>
+<h2>
+Our <span class="gold">Services</span>
+</h2>
 
-      <p>
-        Tap any service to discuss it directly with MJ ARTS.
-      </p>
+<p>
+Tap any service to discuss it directly with MJ ARTS.
+</p>
 
-    </div>
-
-
-    <div class="service-grid">
-
-
-      <!-- WEBSITE -->
-
-      <a
-        class="service-card reveal"
-        href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20Website%20Design."
-        target="_blank"
-        rel="noopener noreferrer">
-
-        <div class="icon">⌘</div>
-
-        <h3>
-          Website Design
-        </h3>
-
-        <p>
-          Modern, responsive and premium websites designed
-          to give your business a powerful digital presence.
-        </p>
-
-      </a>
+</div>
 
 
-      <!-- BRANDING -->
-
-      <a
-        class="service-card reveal"
-        href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20Brand%20Identity."
-        target="_blank"
-        rel="noopener noreferrer">
-
-        <div class="icon">✦</div>
-
-        <h3>
-          Brand Identity
-        </h3>
-
-        <p>
-          Logos, visual identity and creative direction
-          that make your brand memorable.
-        </p>
-
-      </a>
+<div class="service-grid">
 
 
-      <!-- MENU -->
+<a
+class="service-card reveal"
+href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20Website%20Design."
+target="_blank"
+rel="noopener noreferrer">
 
-      <a
-        class="service-card reveal"
-        href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20Menu%20Design."
-        target="_blank"
-        rel="noopener noreferrer">
+<div class="icon">⌘</div>
 
-        <div class="icon">▣</div>
+<h3>
+Website Design
+</h3>
 
-        <h3>
-          Menu Design
-        </h3>
+<p>
+Modern, responsive and premium websites designed
+to give your business a powerful digital presence.
+</p>
 
-        <p>
-          Elegant restaurant menus and promotional designs
-          created to make your products look irresistible.
-        </p>
-
-      </a>
+</a>
 
 
-      <!-- SOCIAL MEDIA -->
+<a
+class="service-card reveal"
+href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20Brand%20Identity."
+target="_blank"
+rel="noopener noreferrer">
 
-      <a
-        class="service-card reveal"
-        href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20Social%20Media%20Design."
-        target="_blank"
-        rel="noopener noreferrer">
+<div class="icon">✦</div>
 
-        <div class="icon">◈</div>
+<h3>
+Brand Identity
+</h3>
 
-        <h3>
-          Social Media
-        </h3>
+<p>
+Logos, visual identity and creative direction
+that make your brand memorable.
+</p>
 
-        <p>
-          Creative posts, promotional graphics and visual
-          content built for modern social platforms.
-        </p>
-
-      </a>
+</a>
 
 
-      <!-- POSTERS -->
+<a
+class="service-card reveal"
+href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20Menu%20Design."
+target="_blank"
+rel="noopener noreferrer">
 
-      <a
-        class="service-card reveal"
-        href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20Digital%20Poster%20Design."
-        target="_blank"
-        rel="noopener noreferrer">
+<div class="icon">▣</div>
 
-        <div class="icon">◎</div>
+<h3>
+Menu Design
+</h3>
 
-        <h3>
-          Digital Posters
-        </h3>
+<p>
+Elegant restaurant menus and promotional designs
+created to make your products look irresistible.
+</p>
 
-        <p>
-          Eye-catching posters and advertisements for
-          businesses, events and personal projects.
-        </p>
-
-      </a>
+</a>
 
 
-      <!-- CUSTOM -->
+<a
+class="service-card reveal"
+href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20Social%20Media%20Design."
+target="_blank"
+rel="noopener noreferrer">
 
-      <a
-        class="service-card reveal"
-        href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27d%20like%20to%20discuss%20a%20Custom%20Project."
-        target="_blank"
-        rel="noopener noreferrer">
+<div class="icon">◈</div>
 
-        <div class="icon">↗</div>
+<h3>
+Social Media
+</h3>
 
-        <h3>
-          Custom Projects
-        </h3>
+<p>
+Creative posts, promotional graphics and visual
+content built for modern social platforms.
+</p>
 
-        <p>
-          Have something different in mind?
-          Tell us your idea and let's build it.
-        </p>
+</a>
 
-      </a>
 
-    </div>
+<a
+class="service-card reveal"
+href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20Digital%20Poster%20Design."
+target="_blank"
+rel="noopener noreferrer">
 
-  </div>
+<div class="icon">◎</div>
+
+<h3>
+Digital Posters
+</h3>
+
+<p>
+Eye-catching posters and advertisements for
+businesses, events and personal projects.
+</p>
+
+</a>
+
+
+<a
+class="service-card reveal"
+href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27d%20like%20to%20discuss%20a%20Custom%20Project."
+target="_blank"
+rel="noopener noreferrer">
+
+<div class="icon">↗</div>
+
+<h3>
+Custom Projects
+</h3>
+
+<p>
+Have something different in mind?
+Tell us your idea and let's build it.
+</p>
+
+</a>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =====================================
+<!-- =====================================================
      ABOUT
-===================================== -->
+===================================================== -->
 
 <section id="about">
 
-  <div class="container about-grid">
+<div class="container about-grid">
+
+<div class="about-visual reveal">
+
+<svg
+class="about-art"
+viewBox="0 0 100 100"
+xmlns="http://www.w3.org/2000/svg"
+aria-label="MJ ARTS painter logo">
+
+<path
+d="M50 8
+C25 8 9 25 9 47
+C9 69 25 86 47 88
+C56 89 61 83 60 76
+C59 70 63 66 70 66
+C83 66 91 57 91 46
+C91 24 73 8 50 8Z"
+fill="#080808"
+stroke="#d4af37"
+stroke-width="3"/>
+
+<ellipse
+cx="70"
+cy="48"
+rx="7"
+ry="5"
+fill="#050505"
+stroke="#d4af37"
+stroke-width="2"/>
+
+<circle cx="31" cy="35" r="5" fill="#d4af37"/>
+<circle cx="47" cy="27" r="4" fill="#f5d76e"/>
+<circle cx="59" cy="38" r="4" fill="#a67c00"/>
+<circle cx="35" cy="54" r="4" fill="#f5d76e"/>
+
+<path
+d="M43 72 L75 32"
+stroke="#d4af37"
+stroke-width="5"
+stroke-linecap="round"/>
+
+<path
+d="M72 34 L79 25"
+stroke="#f5d76e"
+stroke-width="7"
+stroke-linecap="round"/>
+
+<path
+d="M40 75
+C34 78 31 83 34 85
+C39 88 45 82 47 76Z"
+fill="#d4af37"/>
+
+</svg>
+
+<p>
+Creativity isn't decoration.
+It's how people remember you.
+</p>
+
+</div>
 
 
-    <div class="about-visual reveal">
+<div class="about-copy reveal">
 
-      <!-- Painter logo again -->
+<div class="eyebrow">
+ABOUT MJ ARTS
+</div>
 
-      <svg
-        class="about-art"
-        viewBox="0 0 100 100"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-label="MJ ARTS painter logo">
+<h2>
+Ideas deserve a
+<span class="gold">
+beautiful form.
+</span>
+</h2>
 
-        <defs>
+<p>
+MJ ARTS is a creative digital studio focused on helping
+businesses and individuals build a stronger visual presence.
+</p>
 
-          <linearGradient
-            id="aboutGold"
-            x1="0"
-            y1="0"
-            x2="1"
-            y2="1">
+<p>
+We combine design, technology and artistic creativity
+to create digital work that looks professional and
+feels genuinely unique.
+</p>
 
-            <stop offset="0%" stop-color="#f5d76e"/>
-            <stop offset="50%" stop-color="#d4af37"/>
-            <stop offset="100%" stop-color="#a67c00"/>
+<a
+href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27d%20like%20to%20work%20with%20you."
+class="btn btn-outline"
+target="_blank"
+rel="noopener noreferrer">
 
-          </linearGradient>
+Work With Us
 
-        </defs>
+</a>
 
-        <path
-          d="M50 8
-             C25 8 9 25 9 47
-             C9 69 25 86 47 88
-             C56 89 61 83 60 76
-             C59 70 63 66 70 66
-             C83 66 91 57 91 46
-             C91 24 73 8 50 8Z"
-          fill="#080808"
-          stroke="url(#aboutGold)"
-          stroke-width="3"/>
+</div>
 
-        <ellipse
-          cx="70"
-          cy="48"
-          rx="7"
-          ry="5"
-          fill="#050505"
-          stroke="#d4af37"
-          stroke-width="2"/>
-
-        <circle cx="31" cy="35" r="5"
-                fill="#d4af37"/>
-
-        <circle cx="47" cy="27" r="4"
-                fill="#f5d76e"/>
-
-        <circle cx="59" cy="38" r="4"
-                fill="#a67c00"/>
-
-        <circle cx="35" cy="54" r="4"
-                fill="#f5d76e"/>
-
-        <path
-          d="M43 72 L75 32"
-          stroke="#d4af37"
-          stroke-width="5"
-          stroke-linecap="round"/>
-
-        <path
-          d="M72 34 L79 25"
-          stroke="#f5d76e"
-          stroke-width="7"
-          stroke-linecap="round"/>
-
-        <path
-          d="M40 75
-             C34 78 31 83 34 85
-             C39 88 45 82 47 76Z"
-          fill="#d4af37"/>
-
-      </svg>
-
-
-      <p>
-        Creativity isn't decoration.
-        It's how people remember you.
-      </p>
-
-    </div>
-
-
-    <div class="about-copy reveal">
-
-      <div class="eyebrow">
-        ABOUT MJ ARTS
-      </div>
-
-      <h2>
-        Ideas deserve a
-        <span class="gold">
-          beautiful form.
-        </span>
-      </h2>
-
-      <p>
-        MJ ARTS is a creative digital studio focused on helping
-        businesses and individuals build a stronger visual presence.
-      </p>
-
-      <p>
-        We combine design, technology and artistic creativity
-        to create digital work that looks professional and
-        feels genuinely unique.
-      </p>
-
-      <a
-        href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27d%20like%20to%20work%20with%20you."
-        class="btn btn-outline"
-        target="_blank"
-        rel="noopener noreferrer">
-
-        Work With Us
-
-      </a>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 
-<!-- =====================================
+<!-- =====================================================
      WORK
-===================================== -->
+===================================================== -->
 
-<section class="dark-section" id="work">
+<section
+class="dark-section"
+id="work">
 
-  <div class="container">
+<div class="container">
 
-    <div class="section-title reveal">
+<div class="section-title reveal">
 
-      <div class="eyebrow">
-        CREATIVE DIRECTION
-      </div>
+<div class="eyebrow">
+CREATIVE DIRECTION
+</div>
 
-      <h2>
-        Creative <span class="gold">Work</span>
-      </h2>
+<h2>
+Creative <span class="gold">Work</span>
+</h2>
 
-      <p>
-        A glimpse of the visual direction MJ ARTS can create.
-      </p>
+<p>
+A glimpse of the visual direction MJ ARTS can create.
+</p>
 
-    </div>
-
-
-    <div class="work-grid">
-
-
-      <a
-        class="work-card reveal"
-        href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20a%20premium%20website."
-        target="_blank"
-        rel="noopener noreferrer">
-
-        <img
-          src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85"
-          alt="Modern business workspace"
-          loading="lazy">
-
-        <div class="work-overlay"></div>
-
-        <div class="work-info">
-
-          <span>
-            WEB DESIGN
-          </span>
-
-          <h3>
-            Luxury Business
-          </h3>
-
-          <div class="work-hint">
-            Tap to discuss →
-          </div>
-
-        </div>
-
-      </a>
+</div>
 
 
-      <a
-        class="work-card reveal"
-        href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20branding."
-        target="_blank"
-        rel="noopener noreferrer">
-
-        <img
-          src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85"
-          alt="Digital creative workspace"
-          loading="lazy">
-
-        <div class="work-overlay"></div>
-
-        <div class="work-info">
-
-          <span>
-            BRANDING
-          </span>
-
-          <h3>
-            Golden Identity
-          </h3>
-
-          <div class="work-hint">
-            Tap to discuss →
-          </div>
-
-        </div>
-
-      </a>
+<div class="work-grid">
 
 
-      <a
-        class="work-card reveal"
-        href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20menu%20design."
-        target="_blank"
-        rel="noopener noreferrer">
+<a
+class="work-card reveal"
+href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20a%20premium%20website."
+target="_blank"
+rel="noopener noreferrer">
 
-        <img
-          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85"
-          alt="Modern restaurant"
-          loading="lazy">
+<img
+src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85"
+alt="Modern business workspace"
+loading="lazy">
 
-        <div class="work-overlay"></div>
+<div class="work-overlay"></div>
 
-        <div class="work-info">
+<div class="work-info">
 
-          <span>
-            MENU DESIGN
-          </span>
+<span>
+WEB DESIGN
+</span>
 
-          <h3>
-            Modern Restaurant
-          </h3>
+<h3>
+Luxury Business
+</h3>
 
-          <div class="work-hint">
-            Tap to discuss →
-          </div>
+<div class="work-hint">
+Tap to discuss →
+</div>
 
-        </div>
+</div>
 
-      </a>
+</a>
 
-    </div>
 
-  </div>
+<a
+class="work-card reveal"
+href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20branding."
+target="_blank"
+rel="noopener noreferrer">
+
+<img
+src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85"
+alt="Digital creative workspace"
+loading="lazy">
+
+<div class="work-overlay"></div>
+
+<div class="work-info">
+
+<span>
+BRANDING
+</span>
+
+<h3>
+Golden Identity
+</h3>
+
+<div class="work-hint">
+Tap to discuss →
+</div>
+
+</div>
+
+</a>
+
+
+<a
+class="work-card reveal"
+href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20menu%20design."
+target="_blank"
+rel="noopener noreferrer">
+
+<img
+src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85"
+alt="Modern restaurant"
+loading="lazy">
+
+<div class="work-overlay"></div>
+
+<div class="work-info">
+
+<span>
+MENU DESIGN
+</span>
+
+<h3>
+Modern Restaurant
+</h3>
+
+<div class="work-hint">
+Tap to discuss →
+</div>
+
+</div>
+
+</a>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =====================================
+<!-- =====================================================
      PROCESS
-===================================== -->
+===================================================== -->
 
 <section>
 
-  <div class="container">
+<div class="container">
 
-    <div class="section-title reveal">
+<div class="section-title reveal">
 
-      <div class="eyebrow">
-        SIMPLE PROCESS
-      </div>
+<div class="eyebrow">
+SIMPLE PROCESS
+</div>
 
-      <h2>
-        From Idea To
-        <span class="gold">
-          Impact
-        </span>
-      </h2>
+<h2>
+From Idea To
+<span class="gold">
+Impact
+</span>
+</h2>
 
-    </div>
-
-
-    <div class="process-grid">
+</div>
 
 
-      <div class="process reveal">
-
-        <div class="number">
-          01
-        </div>
-
-        <h3>
-          Discuss
-        </h3>
-
-        <p>
-          We understand your idea,
-          business and goals.
-        </p>
-
-      </div>
+<div class="process-grid">
 
 
-      <div class="process reveal">
+<div class="process reveal">
 
-        <div class="number">
-          02
-        </div>
+<div class="number">
+01
+</div>
 
-        <h3>
-          Design
-        </h3>
+<h3>
+Discuss
+</h3>
 
-        <p>
-          We create a visual direction
-          that fits your brand.
-        </p>
+<p>
+We understand your idea,
+business and goals.
+</p>
 
-      </div>
-
-
-      <div class="process reveal">
-
-        <div class="number">
-          03
-        </div>
-
-        <h3>
-          Build
-        </h3>
-
-        <p>
-          Your project is developed
-          and refined.
-        </p>
-
-      </div>
+</div>
 
 
-      <div class="process reveal">
+<div class="process reveal">
 
-        <div class="number">
-          04
-        </div>
+<div class="number">
+02
+</div>
 
-        <h3>
-          Launch
-        </h3>
+<h3>
+Design
+</h3>
 
-        <p>
-          Your finished project goes
-          out into the world.
-        </p>
+<p>
+We create a visual direction
+that fits your brand.
+</p>
 
-      </div>
+</div>
 
-    </div>
 
-  </div>
+<div class="process reveal">
+
+<div class="number">
+03
+</div>
+
+<h3>
+Build
+</h3>
+
+<p>
+Your project is developed
+and refined.
+</p>
+
+</div>
+
+
+<div class="process reveal">
+
+<div class="number">
+04
+</div>
+
+<h3>
+Launch
+</h3>
+
+<p>
+Your finished project goes
+out into the world.
+</p>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =====================================
+<!-- =====================================================
      PRICING
-===================================== -->
+===================================================== -->
 
-<section class="dark-section" id="pricing">
+<section
+class="dark-section"
+id="pricing">
 
-  <div class="container">
+<div class="container">
 
-    <div class="section-title reveal">
+<div class="section-title reveal">
 
-      <div class="eyebrow">
-        STARTING PACKAGES
-      </div>
+<div class="eyebrow">
+STARTING PACKAGES
+</div>
 
-      <h2>
-        Choose Your
-        <span class="gold">
-          Level
-        </span>
-      </h2>
+<h2>
+Choose Your
+<span class="gold">
+Level
+</span>
+</h2>
 
-      <p>
-        Flexible packages for different business needs.
-        Final pricing depends on project requirements.
-      </p>
+<p>
+Choose a package and submit your project details.
+Final pricing depends on project requirements.
+</p>
 
-    </div>
-
-
-    <div class="price-grid">
-
-
-      <div class="price-card reveal">
-
-        <h3>
-          Starter
-        </h3>
-
-        <div class="price">
-          ₹5K <small>+</small>
-        </div>
-
-        <ul class="features">
-
-          <li>
-            Professional landing page
-          </li>
-
-          <li>
-            Mobile responsive design
-          </li>
-
-          <li>
-            Basic business sections
-          </li>
-
-          <li>
-            Contact / WhatsApp CTA
-          </li>
-
-          <li>
-            Basic deployment
-          </li>
-
-        </ul>
-
-        <a
-          href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20the%20Starter%20package."
-          class="btn btn-outline"
-          target="_blank"
-          rel="noopener noreferrer">
-
-          Choose Starter
-
-        </a>
-
-      </div>
+</div>
 
 
-      <div class="price-card featured reveal">
-
-        <div class="popular">
-          POPULAR
-        </div>
-
-        <h3>
-          Professional
-        </h3>
-
-        <div class="price">
-          ₹10K <small>+</small>
-        </div>
-
-        <ul class="features">
-
-          <li>
-            Premium website design
-          </li>
-
-          <li>
-            Multiple sections/pages
-          </li>
-
-          <li>
-            Custom animations
-          </li>
-
-          <li>
-            Portfolio / services
-          </li>
-
-          <li>
-            Contact integration
-          </li>
-
-          <li>
-            Deployment assistance
-          </li>
-
-        </ul>
-
-        <a
-          href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20the%20Professional%20package."
-          class="btn btn-primary"
-          target="_blank"
-          rel="noopener noreferrer">
-
-          Choose Professional
-
-        </a>
-
-      </div>
+<div class="price-grid">
 
 
-      <div class="price-card reveal">
+<!-- STARTER -->
 
-        <h3>
-          Premium
-        </h3>
+<div class="price-card reveal">
 
-        <div class="price">
-          ₹15K <small>+</small>
-        </div>
+<h3>
+Starter
+</h3>
 
-        <ul class="features">
+<div class="price">
+₹5K <small>+</small>
+</div>
 
-          <li>
-            Fully customized website
-          </li>
+<ul class="features">
 
-          <li>
-            Advanced visual design
-          </li>
+<li>
+Professional landing page
+</li>
 
-          <li>
-            Custom sections & features
-          </li>
+<li>
+Mobile responsive design
+</li>
 
-          <li>
-            Advanced interactions
-          </li>
+<li>
+Basic business sections
+</li>
 
-          <li>
-            Branding integration
-          </li>
+<li>
+Contact / WhatsApp CTA
+</li>
 
-          <li>
-            Priority project support
-          </li>
+<li>
+Basic deployment
+</li>
 
-        </ul>
+</ul>
 
-        <a
-          href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20the%20Premium%20package."
-          class="btn btn-outline"
-          target="_blank"
-          rel="noopener noreferrer">
+<button
+class="btn btn-outline order-btn"
+data-package="Starter"
+data-price="5000">
 
-          Choose Premium
+Choose Starter
 
-        </a>
+</button>
 
-      </div>
+</div>
 
-    </div>
 
-  </div>
+<!-- PROFESSIONAL -->
+
+<div class="price-card featured reveal">
+
+<div class="popular">
+POPULAR
+</div>
+
+<h3>
+Professional
+</h3>
+
+<div class="price">
+₹10K <small>+</small>
+</div>
+
+<ul class="features">
+
+<li>
+Premium website design
+</li>
+
+<li>
+Multiple sections/pages
+</li>
+
+<li>
+Custom animations
+</li>
+
+<li>
+Portfolio / services
+</li>
+
+<li>
+Contact integration
+</li>
+
+<li>
+Deployment assistance
+</li>
+
+</ul>
+
+<button
+class="btn btn-primary order-btn"
+data-package="Professional"
+data-price="10000">
+
+Choose Professional
+
+</button>
+
+</div>
+
+
+<!-- PREMIUM -->
+
+<div class="price-card reveal">
+
+<h3>
+Premium
+</h3>
+
+<div class="price">
+₹15K <small>+</small>
+</div>
+
+<ul class="features">
+
+<li>
+Fully customized website
+</li>
+
+<li>
+Advanced visual design
+</li>
+
+<li>
+Custom sections & features
+</li>
+
+<li>
+Advanced interactions
+</li>
+
+<li>
+Branding integration
+</li>
+
+<li>
+Priority project support
+</li>
+
+</ul>
+
+<button
+class="btn btn-outline order-btn"
+data-package="Premium"
+data-price="15000">
+
+Choose Premium
+
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =====================================
+<!-- =====================================================
+     REVIEWS
+===================================================== -->
+
+<section id="reviews">
+
+<div class="container">
+
+<div class="section-title reveal">
+
+<div class="eyebrow">
+CLIENT EXPERIENCE
+</div>
+
+<h2>
+What Clients
+<span class="gold">Say</span>
+</h2>
+
+<p>
+Real feedback from people who have worked with MJ ARTS.
+</p>
+
+</div>
+
+
+<div class="review-grid">
+
+
+<!-- IMPORTANT:
+     Replace these with REAL CLIENT REVIEWS
+-->
+
+<div class="review-card reveal">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+“MJ ARTS helped turn our idea into something that
+actually looked professional. The design felt clean,
+modern and unique.”
+</p>
+
+<div class="review-author">
+Your Client Name
+</div>
+
+<div class="review-role">
+Business Owner
+</div>
+
+</div>
+
+
+<div class="review-card reveal">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+“The attention to detail was excellent. Everything
+felt much more premium than what we originally had.”
+</p>
+
+<div class="review-author">
+Your Client Name
+</div>
+
+<div class="review-role">
+Brand Client
+</div>
+
+</div>
+
+
+<div class="review-card reveal">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+“Creative, responsive and easy to work with. The final
+result was exactly the kind of visual identity we wanted.”
+</p>
+
+<div class="review-author">
+Your Client Name
+</div>
+
+<div class="review-role">
+Project Client
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
      CONTACT
-===================================== -->
+===================================================== -->
 
 <section id="contact">
 
-  <div class="container">
+<div class="container">
 
-    <div class="section-title reveal">
+<div class="section-title reveal">
 
-      <div class="eyebrow">
-        LET'S CONNECT
-      </div>
+<div class="eyebrow">
+LET'S CONNECT
+</div>
 
-      <h2>
-        Ready To Build
-        <span class="gold">
-          Something?
-        </span>
-      </h2>
+<h2>
+Ready To Build
+<span class="gold">
+Something?
+</span>
+</h2>
 
-      <p>
-        Tell us what you're imagining.
-        We'll turn the idea into something people remember.
-      </p>
+<p>
+Tell us what you're imagining.
+We'll turn the idea into something people remember.
+</p>
 
-    </div>
-
-
-    <div class="contact-grid">
+</div>
 
 
-      <!-- WHATSAPP -->
-
-      <a
-        class="contact-card reveal"
-        href="https://wa.me/918822477442"
-        target="_blank"
-        rel="noopener noreferrer">
-
-        <div class="contact-icon">
-          WA
-        </div>
-
-        <small>
-          WhatsApp
-        </small>
-
-        <strong>
-          +91 88224 77442
-        </strong>
-
-      </a>
+<div class="contact-grid">
 
 
-      <!-- INSTAGRAM -->
+<a
+class="contact-card reveal"
+href="https://wa.me/918822477442"
+target="_blank"
+rel="noopener noreferrer">
 
-      <a
-        class="contact-card reveal"
-        href="https://www.instagram.com/m_j_theartist/"
-        target="_blank"
-        rel="noopener noreferrer">
+<div class="contact-icon">
+WA
+</div>
 
-        <div class="contact-icon">
-          IG
-        </div>
+<small>
+WhatsApp
+</small>
 
-        <small>
-          Instagram
-        </small>
+<strong>
++91 88224 77442
+</strong>
 
-        <strong>
-          @m_j_theartist
-        </strong>
-
-      </a>
+</a>
 
 
-      <!-- EMAIL -->
+<a
+class="contact-card reveal"
+href="https://www.instagram.com/m_j_theartist/"
+target="_blank"
+rel="noopener noreferrer">
 
-      <a
-        class="contact-card reveal"
-        href="mailto:mjthecustomizer@gmail.com">
+<div class="contact-icon">
+IG
+</div>
 
-        <div class="contact-icon">
-          @
-        </div>
+<small>
+Instagram
+</small>
 
-        <small>
-          Email
-        </small>
+<strong>
+@m_j_theartist
+</strong>
 
-        <strong>
-          mjthecustomizer@gmail.com
-        </strong>
+</a>
 
-      </a>
 
-    </div>
+<a
+class="contact-card reveal"
+href="mailto:mjthecustomizer@gmail.com">
 
-  </div>
+<div class="contact-icon">
+@
+</div>
+
+<small>
+Email
+</small>
+
+<strong>
+mjthecustomizer@gmail.com
+</strong>
+
+</a>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =====================================
+<!-- =====================================================
      FINAL CTA
-===================================== -->
+===================================================== -->
 
 <section class="cta">
 
-  <div class="container reveal">
+<div class="container reveal">
 
-    <div class="eyebrow">
-      YOUR IDEA. OUR CREATIVITY.
-    </div>
+<div class="eyebrow">
+YOUR IDEA. OUR CREATIVITY.
+</div>
 
-    <h2>
-      LET'S BUILD<br>
+<h2>
+LET'S BUILD<br>
 
-      <span class="gold">
-        SOMETHING GREAT.
-      </span>
-    </h2>
+<span class="gold">
+SOMETHING GREAT.
+</span>
 
-    <p>
-      Have a business, project or crazy idea?
-      Let's turn it into something people remember.
-    </p>
+</h2>
 
+<p>
+Have a business, project or crazy idea?
+Let's turn it into something people remember.
+</p>
 
-    <div class="cta-buttons">
+<div class="cta-buttons">
 
-      <a
-        href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27d%20like%20to%20start%20a%20project."
-        class="btn btn-primary"
-        target="_blank"
-        rel="noopener noreferrer">
+<a
+href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27d%20like%20to%20start%20a%20project."
+class="btn btn-primary"
+target="_blank"
+rel="noopener noreferrer">
 
-        WhatsApp MJ ARTS →
+WhatsApp MJ ARTS →
 
-      </a>
+</a>
 
+<a
+href="https://www.instagram.com/m_j_theartist/"
+class="btn btn-outline"
+target="_blank"
+rel="noopener noreferrer">
 
-      <a
-        href="https://www.instagram.com/m_j_theartist/"
-        class="btn btn-outline"
-        target="_blank"
-        rel="noopener noreferrer">
+Instagram
 
-        Instagram
+</a>
 
-      </a>
+</div>
 
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 
-<!-- =====================================
+<!-- =====================================================
      FOOTER
-===================================== -->
+===================================================== -->
 
 <footer>
 
-  <div class="container footer-grid">
+<div class="container footer-grid">
 
 
-    <div>
+<div>
 
-      <a href="#home" class="brand">
+<a href="#home" class="brand">
 
-        <svg
-          class="brand-mark"
-          viewBox="0 0 100 100"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true">
+<svg
+class="brand-mark"
+viewBox="0 0 100 100"
+xmlns="http://www.w3.org/2000/svg"
+aria-hidden="true">
 
-          <path
-            d="M50 8
-               C25 8 9 25 9 47
-               C9 69 25 86 47 88
-               C56 89 61 83 60 76
-               C59 70 63 66 70 66
-               C83 66 91 57 91 46
-               C91 24 73 8 50 8Z"
-            fill="#080808"
-            stroke="#d4af37"
-            stroke-width="3"/>
+<path
+d="M50 8
+C25 8 9 25 9 47
+C9 69 25 86 47 88
+C56 89 61 83 60 76
+C59 70 63 66 70 66
+C83 66 91 57 91 46
+C91 24 73 8 50 8Z"
+fill="#080808"
+stroke="#d4af37"
+stroke-width="3"/>
 
-          <ellipse
-            cx="70"
-            cy="48"
-            rx="7"
-            ry="5"
-            fill="#050505"
-            stroke="#d4af37"
-            stroke-width="2"/>
+<ellipse
+cx="70"
+cy="48"
+rx="7"
+ry="5"
+fill="#050505"
+stroke="#d4af37"
+stroke-width="2"/>
 
-          <circle
-            cx="31"
-            cy="35"
-            r="5"
-            fill="#d4af37"/>
+<circle cx="31" cy="35" r="5" fill="#d4af37"/>
+<circle cx="47" cy="27" r="4" fill="#f5d76e"/>
+<circle cx="59" cy="38" r="4" fill="#a67c00"/>
+<circle cx="35" cy="54" r="4" fill="#f5d76e"/>
 
-          <circle
-            cx="47"
-            cy="27"
-            r="4"
-            fill="#f5d76e"/>
+<path
+d="M43 72 L75 32"
+stroke="#d4af37"
+stroke-width="5"
+stroke-linecap="round"/>
 
-          <circle
-            cx="59"
-            cy="38"
-            r="4"
-            fill="#a67c00"/>
+<path
+d="M72 34 L79 25"
+stroke="#f5d76e"
+stroke-width="7"
+stroke-linecap="round"/>
 
-          <circle
-            cx="35"
-            cy="54"
-            r="4"
-            fill="#f5d76e"/>
+<path
+d="M40 75
+C34 78 31 83 34 85
+C39 88 45 82 47 76Z"
+fill="#d4af37"/>
 
-          <path
-            d="M43 72 L75 32"
-            stroke="#d4af37"
-            stroke-width="5"
-            stroke-linecap="round"/>
+</svg>
 
-          <path
-            d="M72 34 L79 25"
-            stroke="#f5d76e"
-            stroke-width="7"
-            stroke-linecap="round"/>
+<span>
 
-          <path
-            d="M40 75
-               C34 78 31 83 34 85
-               C39 88 45 82 47 76Z"
-            fill="#d4af37"/>
+<span class="brand-name">
+MJ ARTS
+</span>
 
-        </svg>
+<span class="brand-sub">
+CREATIVE STUDIO
+</span>
 
-        <span>
+</span>
 
-          <span class="brand-name">
-            MJ ARTS
-          </span>
+</a>
 
-          <span class="brand-sub">
-            CREATIVE STUDIO
-          </span>
+<p class="footer-copy">
+Creating digital experiences that stand out.
+</p>
 
-        </span>
-
-      </a>
+</div>
 
 
-      <p class="footer-copy">
-        Creating digital experiences that stand out.
-      </p>
+<div class="socials">
 
-    </div>
+<a
+href="https://www.instagram.com/m_j_theartist/"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Instagram">
 
+IG
 
-    <div class="socials">
+</a>
 
-      <a
-        href="https://www.instagram.com/m_j_theartist/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Instagram">
+<a
+href="https://wa.me/918822477442"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="WhatsApp">
 
-        IG
+WA
 
-      </a>
+</a>
 
+<a
+href="mailto:mjthecustomizer@gmail.com"
+aria-label="Email">
 
-      <a
-        href="https://wa.me/918822477442"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="WhatsApp">
+@
 
-        WA
+</a>
 
-      </a>
-
-
-      <a
-        href="mailto:mjthecustomizer@gmail.com"
-        aria-label="Email">
-
-        @
-
-      </a>
-
-    </div>
+</div>
 
 
-    <div>
+<div>
 
-      <p class="footer-copy">
-        © <span id="year"></span>
-        MJ ARTS. All rights reserved.
-      </p>
+<p class="footer-copy">
+© <span id="year"></span>
+MJ ARTS. All rights reserved.
+</p>
 
-      <p class="footer-copy">
-        +91 88224 77442
-      </p>
+<p class="footer-copy">
++91 88224 77442
+</p>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </footer>
 
 
+<!-- =====================================================
+     ORDER MODAL
+===================================================== -->
+
+<div
+class="modal"
+id="orderModal"
+aria-hidden="true">
+
+<div class="modal-box">
+
+<button
+class="modal-close"
+id="closeOrder"
+type="button"
+aria-label="Close">
+
+✕
+
+</button>
+
+
+<div class="modal-title">
+MJ ARTS ORDER
+</div>
+
+<h2>
+Start Your Project
+</h2>
+
+<p class="modal-description">
+Choose your package, enter your details and send
+the order directly to MJ ARTS.
+</p>
+
+
+<div class="order-summary">
+
+<div class="order-summary-row">
+
+<span>
+Package
+</span>
+
+<strong id="selectedPackage">
+—
+</strong>
+
+</div>
+
+
+<div class="order-summary-row order-total">
+
+<span>
+Starting Price
+</span>
+
+<strong id="selectedPrice">
+₹0
+</strong>
+
+</div>
+
+</div>
+
+
+<form
+class="order-form"
+id="orderForm">
+
+<input
+type="hidden"
+id="packageInput"
+name="package">
+
+<input
+type="hidden"
+id="priceInput"
+name="price">
+
+
+<label for="customerName">
+Your Name *
+</label>
+
+<input
+id="customerName"
+name="name"
+type="text"
+placeholder="Enter your name"
+required>
+
+
+<label for="customerPhone">
+WhatsApp Number *
+</label>
+
+<input
+id="customerPhone"
+name="phone"
+type="tel"
+placeholder="+91 XXXXX XXXXX"
+required>
+
+
+<label for="customerEmail">
+Email
+</label>
+
+<input
+id="customerEmail"
+name="email"
+type="email"
+placeholder="you@example.com">
+
+
+<label for="projectType">
+What do you need?
+</label>
+
+<select
+id="projectType"
+name="project">
+
+<option value="Website">
+Website
+</option>
+
+<option value="Branding">
+Branding
+</option>
+
+<option value="Menu Design">
+Menu Design
+</option>
+
+<option value="Social Media">
+Social Media
+</option>
+
+<option value="Poster">
+Poster / Advertisement
+</option>
+
+<option value="Custom Project">
+Custom Project
+</option>
+
+</select>
+
+
+<label for="requirements">
+Project Details
+</label>
+
+<textarea
+id="requirements"
+name="requirements"
+placeholder="Tell us briefly what you want..."></textarea>
+
+
+<div class="payment-box">
+
+<h3>
+💳 Payment
+</h3>
+
+<p>
+After submitting your details, use the UPI option
+below to make your payment.
+</p>
+
+<!-- =================================================
+     IMPORTANT:
+     CHANGE THIS TO YOUR REAL UPI ID
+================================================= -->
+
+<span class="payment-upi">
+YOUR-UPI-ID@upi
+</span>
+
+<p>
+Payment verification will be confirmed manually
+until a payment gateway is connected.
+</p>
+
+</div>
+
+
+<button
+class="btn btn-primary order-submit"
+type="submit">
+
+Send Order To MJ ARTS →
+
+</button>
+
+<div class="order-note">
+Your selected package, price and project details
+will be included in the WhatsApp message.
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
-/* =====================================
+/* =====================================================
    MOBILE MENU
-===================================== */
+===================================================== */
 
 const menuToggle =
-  document.getElementById("menuToggle");
+document.getElementById("menuToggle");
 
 const navLinks =
-  document.getElementById("navLinks");
+document.getElementById("navLinks");
 
 
-menuToggle.addEventListener("click", () => {
+menuToggle.addEventListener(
+"click",
+() => {
 
-  const opened =
-    navLinks.classList.toggle("active");
+const opened =
+navLinks.classList.toggle("active");
 
-  menuToggle.setAttribute(
-    "aria-expanded",
-    String(opened)
-  );
+menuToggle.setAttribute(
+"aria-expanded",
+String(opened)
+);
 
-  menuToggle.textContent =
-    opened ? "✕" : "☰";
+menuToggle.textContent =
+opened ? "✕" : "☰";
 
 });
 
 
-/* =====================================
-   CLOSE MOBILE MENU
-===================================== */
-
 document
-  .querySelectorAll("#navLinks a")
-  .forEach(link => {
+.querySelectorAll("#navLinks a")
+.forEach(link => {
 
-    link.addEventListener("click", () => {
+link.addEventListener(
+"click",
+() => {
 
-      navLinks.classList.remove("active");
+navLinks.classList.remove("active");
 
-      menuToggle.setAttribute(
-        "aria-expanded",
-        "false"
-      );
+menuToggle.setAttribute(
+"aria-expanded",
+"false"
+);
 
-      menuToggle.textContent = "☰";
+menuToggle.textContent = "☰";
 
-    });
+});
 
-  });
+});
 
 
-/* =====================================
+/* =====================================================
    CURRENT YEAR
-===================================== */
+===================================================== */
 
 document.getElementById("year").textContent =
-  new Date().getFullYear();
+new Date().getFullYear();
 
 
-/* =====================================
+/* =====================================================
    SCROLL REVEAL
-===================================== */
+===================================================== */
 
 const observer =
-  new IntersectionObserver(
+new IntersectionObserver(
 
-    entries => {
+entries => {
 
-      entries.forEach(entry => {
+entries.forEach(entry => {
 
-        if(entry.isIntersecting){
+if(entry.isIntersecting){
 
-          entry.target.classList.add("show");
+entry.target.classList.add("show");
 
-          observer.unobserve(entry.target);
+observer.unobserve(entry.target);
 
-        }
+}
 
-      });
+});
 
-    },
+},
 
-    {
-      threshold:.12
-    }
+{
+threshold:.12
+}
 
-  );
+);
 
 
 document
-  .querySelectorAll(".reveal")
-  .forEach(element => {
+.querySelectorAll(".reveal")
+.forEach(element => {
 
-    observer.observe(element);
+observer.observe(element);
 
-  });
+});
 
 
-/* =====================================
+/* =====================================================
+   ORDER SYSTEM
+===================================================== */
+
+const orderModal =
+document.getElementById("orderModal");
+
+const closeOrder =
+document.getElementById("closeOrder");
+
+const orderForm =
+document.getElementById("orderForm");
+
+const selectedPackage =
+document.getElementById("selectedPackage");
+
+const selectedPrice =
+document.getElementById("selectedPrice");
+
+const packageInput =
+document.getElementById("packageInput");
+
+const priceInput =
+document.getElementById("priceInput");
+
+
+/* =====================================================
+   OPEN ORDER MODAL
+===================================================== */
+
+document
+.querySelectorAll(".order-btn")
+.forEach(button => {
+
+button.addEventListener(
+"click",
+() => {
+
+const packageName =
+button.dataset.package;
+
+const price =
+Number(button.dataset.price);
+
+
+selectedPackage.textContent =
+packageName;
+
+selectedPrice.textContent =
+"₹" +
+price.toLocaleString("en-IN") +
+"+";
+
+
+packageInput.value =
+packageName;
+
+priceInput.value =
+price;
+
+
+orderModal.classList.add("active");
+
+orderModal.setAttribute(
+"aria-hidden",
+"false"
+);
+
+document.body.style.overflow =
+"hidden";
+
+
+});
+
+});
+
+
+/* =====================================================
+   CLOSE ORDER MODAL
+===================================================== */
+
+function closeOrderModal(){
+
+orderModal.classList.remove(
+"active"
+);
+
+orderModal.setAttribute(
+"aria-hidden",
+"true"
+);
+
+document.body.style.overflow =
+"";
+
+}
+
+
+closeOrder.addEventListener(
+"click",
+closeOrderModal
+);
+
+
+/* =====================================================
+   CLICK OUTSIDE MODAL
+===================================================== */
+
+orderModal.addEventListener(
+"click",
+event => {
+
+if(event.target === orderModal){
+
+closeOrderModal();
+
+}
+
+});
+
+
+/* =====================================================
+   ESCAPE KEY
+===================================================== */
+
+document.addEventListener(
+"keydown",
+event => {
+
+if(
+event.key === "Escape" &&
+orderModal.classList.contains("active")
+){
+
+closeOrderModal();
+
+}
+
+});
+
+
+/* =====================================================
+   SUBMIT ORDER
+===================================================== */
+
+orderForm.addEventListener(
+"submit",
+event => {
+
+event.preventDefault();
+
+
+const name =
+document
+.getElementById("customerName")
+.value
+.trim();
+
+
+const phone =
+document
+.getElementById("customerPhone")
+.value
+.trim();
+
+
+const email =
+document
+.getElementById("customerEmail")
+.value
+.trim();
+
+
+const project =
+document
+.getElementById("projectType")
+.value;
+
+
+const requirements =
+document
+.getElementById("requirements")
+.value
+.trim();
+
+
+const packageName =
+packageInput.value;
+
+
+const price =
+priceInput.value;
+
+
+/* =================================================
+   ORDER ID
+================================================= */
+
+const orderId =
+"MJ-" +
+Date.now()
+.toString()
+.slice(-7);
+
+
+/* =================================================
+   WHATSAPP MESSAGE
+================================================= */
+
+const message =
+
+`🔥 NEW MJ ARTS ORDER
+
+Order ID:
+${orderId}
+
+👤 Customer:
+${name}
+
+📱 WhatsApp:
+${phone}
+
+📧 Email:
+${email || "Not provided"}
+
+📦 Package:
+${packageName}
+
+💰 Starting Price:
+₹${Number(price).toLocaleString("en-IN")}+
+
+🎨 Project:
+${project}
+
+📝 Requirements:
+${requirements || "Not provided"}
+
+Please contact me to confirm the project and payment.`;
+
+
+/* =================================================
+   WHATSAPP URL
+================================================= */
+
+const whatsappURL =
+"https://wa.me/918822477442?text=" +
+encodeURIComponent(message);
+
+
+/* =================================================
+   SAVE LAST ORDER LOCALLY
+================================================= */
+
+localStorage.setItem(
+
+"mjLastOrder",
+
+JSON.stringify({
+
+orderId,
+
+name,
+
+phone,
+
+email,
+
+packageName,
+
+price,
+
+project,
+
+requirements,
+
+createdAt:
+new Date().toISOString()
+
+})
+
+);
+
+
+/* =================================================
+   SEND TO WHATSAPP
+================================================= */
+
+window.open(
+whatsappURL,
+"_blank",
+"noopener,noreferrer"
+);
+
+
+/* =================================================
+   RESET
+================================================= */
+
+orderForm.reset();
+
+closeOrderModal();
+
+});
+
+
+/* =====================================================
    PREVENT EMPTY HASH LINKS
-===================================== */
+===================================================== */
 
 document
-  .querySelectorAll('a[href="#"]')
-  .forEach(link => {
+.querySelectorAll('a[href="#"]')
+.forEach(link => {
 
-    link.addEventListener("click", event => {
-      event.preventDefault();
-    });
+link.addEventListener(
+"click",
+event => {
 
-  });
+event.preventDefault();
+
+});
+
+});
+
 
 </script>
 
 </body>
 </html>
+```
