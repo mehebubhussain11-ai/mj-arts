@@ -61,7 +61,10 @@ a{
   text-decoration:none;
 }
 
-button{
+button,
+input,
+textarea,
+select{
   font:inherit;
 }
 
@@ -886,10 +889,6 @@ nav li a:hover{
   margin-right:9px;
 }
 
-.order-btn{
-  width:100%;
-}
-
 
 /* =====================================================
    REVIEWS
@@ -1166,8 +1165,8 @@ footer{
   background:
     rgba(0,0,0,.84);
 
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
 }
 
 .modal.active{
@@ -1175,9 +1174,9 @@ footer{
 }
 
 .modal-box{
-  width:min(570px,100%);
+  width:min(560px,100%);
 
-  max-height:92vh;
+  max-height:90vh;
 
   overflow-y:auto;
 
@@ -1221,13 +1220,6 @@ footer{
   cursor:pointer;
 
   font-size:18px;
-
-  transition:.25s;
-}
-
-.modal-close:hover{
-  background:var(--gold);
-  color:#000;
 }
 
 .modal-title{
@@ -1255,11 +1247,6 @@ footer{
 
   margin-bottom:25px;
 }
-
-
-/* =====================================================
-   ORDER SUMMARY
-===================================================== */
 
 .order-summary{
   padding:18px;
@@ -1306,11 +1293,6 @@ footer{
   font-size:20px;
 }
 
-
-/* =====================================================
-   FORM
-===================================================== */
-
 .order-form label{
   display:block;
 
@@ -1347,6 +1329,11 @@ footer{
   transition:.25s;
 }
 
+.order-form input::placeholder,
+.order-form textarea::placeholder{
+  color:#666;
+}
+
 .order-form input:focus,
 .order-form textarea:focus,
 .order-form select:focus{
@@ -1357,142 +1344,56 @@ footer{
     rgba(212,175,55,.08);
 }
 
+.order-form input:invalid:not(:placeholder-shown){
+  border-color:#8f3030;
+}
+
 .order-form textarea{
   min-height:90px;
 
   resize:vertical;
 }
 
-
-/* =====================================================
-   POLISHED PAYMENT BOX
-===================================================== */
-
 .payment-box{
-  margin-top:22px;
+  margin-top:20px;
 
-  padding:20px;
+  padding:18px;
 
-  border:1px solid
-    rgba(212,175,55,.35);
+  border:1px dashed
+    rgba(212,175,55,.4);
 
-  border-radius:18px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(212,175,55,.07),
-      rgba(212,175,55,.025)
-    );
-
-  position:relative;
-
-  overflow:hidden;
-}
-
-.payment-box::before{
-  content:"";
-
-  position:absolute;
-
-  width:130px;
-  height:130px;
-
-  right:-65px;
-  top:-65px;
-
-  border-radius:50%;
-
-  border:1px solid
-    rgba(212,175,55,.14);
-
-  box-shadow:
-    0 0 0 25px rgba(212,175,55,.025),
-    0 0 0 50px rgba(212,175,55,.015);
-
-  pointer-events:none;
-}
-
-.payment-heading{
-  display:flex;
-
-  align-items:center;
-
-  gap:10px;
-
-  margin-bottom:7px;
-
-  position:relative;
-
-  z-index:1;
-}
-
-.payment-heading-icon{
-  width:38px;
-  height:38px;
-
-  display:grid;
-
-  place-items:center;
-
-  border-radius:12px;
+  border-radius:16px;
 
   background:
-    rgba(212,175,55,.13);
-
-  font-size:18px;
+    rgba(212,175,55,.04);
 }
 
 .payment-box h3{
   color:var(--gold);
 
-  font-size:17px;
+  font-size:15px;
 
-  margin:0;
+  margin-bottom:7px;
 }
 
-.payment-box-description{
+.payment-box p{
   color:#999;
 
   font-size:12px;
 
   line-height:1.7;
-
-  margin-bottom:14px;
-
-  position:relative;
-
-  z-index:1;
-}
-
-.payment-upi-row{
-  display:flex;
-
-  align-items:center;
-
-  gap:8px;
-
-  margin:12px 0;
-
-  position:relative;
-
-  z-index:1;
 }
 
 .payment-upi{
-  flex:1;
-
-  min-width:0;
-
   display:block;
 
-  padding:13px 12px;
+  margin:12px 0;
 
-  border-radius:11px;
+  padding:13px;
+
+  border-radius:10px;
 
   background:#050505;
-
-  border:1px solid #252525;
 
   color:#fff;
 
@@ -1500,176 +1401,24 @@ footer{
 
   font-weight:bold;
 
-  font-size:13px;
+  border:1px solid #222;
 
-  word-break:break-all;
+  user-select:all;
 }
 
-.copy-upi{
-  flex:none;
+.payment-upi-link{
+  display:block;
 
-  padding:12px 13px;
+  margin-top:10px;
 
-  border:1px solid #333;
-
-  border-radius:11px;
-
-  background:#0a0a0a;
+  text-align:center;
 
   color:var(--gold);
-
-  cursor:pointer;
-
-  font-size:11px;
-
-  font-weight:bold;
-
-  transition:.25s;
-}
-
-.copy-upi:hover{
-  border-color:var(--gold);
-
-  background:rgba(212,175,55,.08);
-}
-
-.copy-upi.copied{
-  background:var(--gold);
-
-  color:#000;
-
-  border-color:var(--gold);
-}
-
-.payment-actions{
-  display:grid;
-
-  grid-template-columns:1fr 1fr;
-
-  gap:10px;
-
-  margin-top:12px;
-
-  position:relative;
-
-  z-index:1;
-}
-
-.pay-upi-btn,
-.whatsapp-order-btn{
-  min-height:46px;
-
-  border-radius:12px;
-
-  cursor:pointer;
-
-  font-weight:800;
 
   font-size:12px;
 
-  transition:.25s;
+  font-weight:bold;
 }
-
-.pay-upi-btn{
-  border:0;
-
-  color:#000;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--gold-light),
-      var(--gold)
-    );
-}
-
-.pay-upi-btn:hover{
-  transform:translateY(-2px);
-
-  box-shadow:
-    0 8px 25px rgba(212,175,55,.2);
-}
-
-.whatsapp-order-btn{
-  border:1px solid #333;
-
-  color:#ccc;
-
-  background:#090909;
-}
-
-.whatsapp-order-btn:hover{
-  border-color:var(--gold);
-
-  color:var(--gold);
-}
-
-.payment-status{
-  display:flex;
-
-  align-items:flex-start;
-
-  gap:10px;
-
-  margin-top:15px;
-
-  padding-top:14px;
-
-  border-top:1px solid #242424;
-
-  position:relative;
-
-  z-index:1;
-}
-
-.payment-status input{
-  width:18px;
-
-  height:18px;
-
-  flex:none;
-
-  margin-top:2px;
-
-  accent-color:var(--gold);
-
-  cursor:pointer;
-}
-
-.payment-status label{
-  margin:0;
-
-  color:#aaa;
-
-  font-size:11px;
-
-  line-height:1.6;
-
-  cursor:pointer;
-}
-
-.payment-status label strong{
-  color:#eee;
-}
-
-.payment-note{
-  margin-top:12px;
-
-  color:#666;
-
-  font-size:10px;
-
-  line-height:1.6;
-
-  position:relative;
-
-  z-index:1;
-}
-
-
-/* =====================================================
-   MAIN ORDER BUTTON
-===================================================== */
 
 .order-submit{
   width:100%;
@@ -1682,13 +1431,9 @@ footer{
 }
 
 .order-submit:disabled{
-  opacity:.45;
-
-  cursor:not-allowed;
-
+  opacity:.65;
+  cursor:wait;
   transform:none!important;
-
-  box-shadow:none!important;
 }
 
 .order-note{
@@ -1703,55 +1448,40 @@ footer{
   line-height:1.6;
 }
 
+.form-message{
+  display:none;
 
-/* =====================================================
-   TOAST
-===================================================== */
+  margin-top:14px;
 
-.toast{
-  position:fixed;
+  padding:12px;
 
-  left:50%;
-
-  bottom:24px;
-
-  z-index:9000;
-
-  width:min(420px,90%);
-
-  padding:14px 18px;
-
-  border:1px solid
-    rgba(212,175,55,.45);
-
-  border-radius:14px;
-
-  background:#111;
-
-  color:#eee;
+  border-radius:10px;
 
   text-align:center;
 
   font-size:12px;
 
-  box-shadow:
-    0 15px 40px rgba(0,0,0,.5);
-
-  opacity:0;
-
-  pointer-events:none;
-
-  transform:
-    translate(-50%,20px);
-
-  transition:.3s;
+  line-height:1.5;
 }
 
-.toast.show{
-  opacity:1;
+.form-message.show{
+  display:block;
+}
 
-  transform:
-    translate(-50%,0);
+.form-message.error{
+  color:#ffb0b0;
+
+  border:1px solid rgba(255,80,80,.25);
+
+  background:rgba(255,50,50,.06);
+}
+
+.form-message.success{
+  color:#dfffc1;
+
+  border:1px solid rgba(150,220,80,.25);
+
+  background:rgba(150,220,80,.06);
 }
 
 
@@ -1903,22 +1633,22 @@ footer{
     text-align:center;
   }
 
+  .modal{
+    padding:10px;
+  }
+
   .modal-box{
-    padding:25px;
+    padding:25px 20px;
+
+    max-height:94vh;
+
+    border-radius:20px;
   }
 
-  .payment-actions{
-    grid-template-columns:1fr;
-  }
+  .modal-box h2{
+    font-size:29px;
 
-  .payment-upi-row{
-    align-items:stretch;
-
-    flex-direction:column;
-  }
-
-  .copy-upi{
-    width:100%;
+    padding-right:35px;
   }
 }
 
@@ -1929,7 +1659,8 @@ footer{
   }
 
   *,
-  *::before{
+  *::before,
+  *::after{
     animation:none!important;
 
     transition:none!important;
@@ -2054,17 +1785,29 @@ aria-expanded="false">
 
 <ul id="navLinks">
 
-<li><a href="#home">Home</a></li>
+<li>
+<a href="#home">Home</a>
+</li>
 
-<li><a href="#services">Services</a></li>
+<li>
+<a href="#services">Services</a>
+</li>
 
-<li><a href="#work">Work</a></li>
+<li>
+<a href="#work">Work</a>
+</li>
 
-<li><a href="#about">About</a></li>
+<li>
+<a href="#about">About</a>
+</li>
 
-<li><a href="#pricing">Pricing</a></li>
+<li>
+<a href="#pricing">Pricing</a>
+</li>
 
-<li><a href="#reviews">Reviews</a></li>
+<li>
+<a href="#reviews">Reviews</a>
+</li>
 
 <li>
 <a class="nav-cta" href="#contact">
@@ -2150,7 +1893,9 @@ DIGITAL ART ✦ POSTERS ✦ CREATIVE SOLUTIONS ✦
      SERVICES
 ===================================================== -->
 
-<section class="dark-section" id="services">
+<section
+class="dark-section"
+id="services">
 
 <div class="container">
 
@@ -2173,6 +1918,7 @@ Tap any service to discuss it directly with MJ ARTS.
 
 <div class="service-grid">
 
+
 <a
 class="service-card reveal"
 href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20Website%20Design."
@@ -2181,7 +1927,9 @@ rel="noopener noreferrer">
 
 <div class="icon">⌘</div>
 
-<h3>Website Design</h3>
+<h3>
+Website Design
+</h3>
 
 <p>
 Modern, responsive and premium websites designed
@@ -2199,7 +1947,9 @@ rel="noopener noreferrer">
 
 <div class="icon">✦</div>
 
-<h3>Brand Identity</h3>
+<h3>
+Brand Identity
+</h3>
 
 <p>
 Logos, visual identity and creative direction
@@ -2217,7 +1967,9 @@ rel="noopener noreferrer">
 
 <div class="icon">▣</div>
 
-<h3>Menu Design</h3>
+<h3>
+Menu Design
+</h3>
 
 <p>
 Elegant restaurant menus and promotional designs
@@ -2235,7 +1987,9 @@ rel="noopener noreferrer">
 
 <div class="icon">◈</div>
 
-<h3>Social Media</h3>
+<h3>
+Social Media
+</h3>
 
 <p>
 Creative posts, promotional graphics and visual
@@ -2253,7 +2007,9 @@ rel="noopener noreferrer">
 
 <div class="icon">◎</div>
 
-<h3>Digital Posters</h3>
+<h3>
+Digital Posters
+</h3>
 
 <p>
 Eye-catching posters and advertisements for
@@ -2271,7 +2027,9 @@ rel="noopener noreferrer">
 
 <div class="icon">↗</div>
 
-<h3>Custom Projects</h3>
+<h3>
+Custom Projects
+</h3>
 
 <p>
 Have something different in mind?
@@ -2402,7 +2160,9 @@ Work With Us
      WORK
 ===================================================== -->
 
-<section class="dark-section" id="work">
+<section
+class="dark-section"
+id="work">
 
 <div class="container">
 
@@ -2425,6 +2185,7 @@ A glimpse of the visual direction MJ ARTS can create.
 
 <div class="work-grid">
 
+
 <a
 class="work-card reveal"
 href="https://wa.me/918822477442?text=Hi%20MJ%20ARTS%2C%20I%27m%20interested%20in%20a%20premium%20website."
@@ -2440,9 +2201,13 @@ loading="lazy">
 
 <div class="work-info">
 
-<span>WEB DESIGN</span>
+<span>
+WEB DESIGN
+</span>
 
-<h3>Luxury Business</h3>
+<h3>
+Luxury Business
+</h3>
 
 <div class="work-hint">
 Tap to discuss →
@@ -2468,9 +2233,13 @@ loading="lazy">
 
 <div class="work-info">
 
-<span>BRANDING</span>
+<span>
+BRANDING
+</span>
 
-<h3>Golden Identity</h3>
+<h3>
+Golden Identity
+</h3>
 
 <div class="work-hint">
 Tap to discuss →
@@ -2496,9 +2265,13 @@ loading="lazy">
 
 <div class="work-info">
 
-<span>MENU DESIGN</span>
+<span>
+MENU DESIGN
+</span>
 
-<h3>Modern Restaurant</h3>
+<h3>
+Modern Restaurant
+</h3>
 
 <div class="work-hint">
 Tap to discuss →
@@ -2541,11 +2314,16 @@ Impact
 
 <div class="process-grid">
 
+
 <div class="process reveal">
 
-<div class="number">01</div>
+<div class="number">
+01
+</div>
 
-<h3>Discuss</h3>
+<h3>
+Discuss
+</h3>
 
 <p>
 We understand your idea,
@@ -2557,9 +2335,13 @@ business and goals.
 
 <div class="process reveal">
 
-<div class="number">02</div>
+<div class="number">
+02
+</div>
 
-<h3>Design</h3>
+<h3>
+Design
+</h3>
 
 <p>
 We create a visual direction
@@ -2571,9 +2353,13 @@ that fits your brand.
 
 <div class="process reveal">
 
-<div class="number">03</div>
+<div class="number">
+03
+</div>
 
-<h3>Build</h3>
+<h3>
+Build
+</h3>
 
 <p>
 Your project is developed
@@ -2585,9 +2371,13 @@ and refined.
 
 <div class="process reveal">
 
-<div class="number">04</div>
+<div class="number">
+04
+</div>
 
-<h3>Launch</h3>
+<h3>
+Launch
+</h3>
 
 <p>
 Your finished project goes
@@ -2607,7 +2397,9 @@ out into the world.
      PRICING
 ===================================================== -->
 
-<section class="dark-section" id="pricing">
+<section
+class="dark-section"
+id="pricing">
 
 <div class="container">
 
@@ -2634,9 +2426,14 @@ Final pricing depends on project requirements.
 
 <div class="price-grid">
 
+
+<!-- STARTER -->
+
 <div class="price-card reveal">
 
-<h3>Starter</h3>
+<h3>
+Starter
+</h3>
 
 <div class="price">
 ₹5K <small>+</small>
@@ -2644,18 +2441,33 @@ Final pricing depends on project requirements.
 
 <ul class="features">
 
-<li>Professional landing page</li>
-<li>Mobile responsive design</li>
-<li>Basic business sections</li>
-<li>Contact / WhatsApp CTA</li>
-<li>Basic deployment</li>
+<li>
+Professional landing page
+</li>
+
+<li>
+Mobile responsive design
+</li>
+
+<li>
+Basic business sections
+</li>
+
+<li>
+Contact / WhatsApp CTA
+</li>
+
+<li>
+Basic deployment
+</li>
 
 </ul>
 
 <button
 class="btn btn-outline order-btn"
 data-package="Starter"
-data-price="5000">
+data-price="5000"
+type="button">
 
 Choose Starter
 
@@ -2664,13 +2476,17 @@ Choose Starter
 </div>
 
 
+<!-- PROFESSIONAL -->
+
 <div class="price-card featured reveal">
 
 <div class="popular">
 POPULAR
 </div>
 
-<h3>Professional</h3>
+<h3>
+Professional
+</h3>
 
 <div class="price">
 ₹10K <small>+</small>
@@ -2678,19 +2494,37 @@ POPULAR
 
 <ul class="features">
 
-<li>Premium website design</li>
-<li>Multiple sections/pages</li>
-<li>Custom animations</li>
-<li>Portfolio / services</li>
-<li>Contact integration</li>
-<li>Deployment assistance</li>
+<li>
+Premium website design
+</li>
+
+<li>
+Multiple sections/pages
+</li>
+
+<li>
+Custom animations
+</li>
+
+<li>
+Portfolio / services
+</li>
+
+<li>
+Contact integration
+</li>
+
+<li>
+Deployment assistance
+</li>
 
 </ul>
 
 <button
 class="btn btn-primary order-btn"
 data-package="Professional"
-data-price="10000">
+data-price="10000"
+type="button">
 
 Choose Professional
 
@@ -2699,9 +2533,13 @@ Choose Professional
 </div>
 
 
+<!-- PREMIUM -->
+
 <div class="price-card reveal">
 
-<h3>Premium</h3>
+<h3>
+Premium
+</h3>
 
 <div class="price">
 ₹15K <small>+</small>
@@ -2709,19 +2547,37 @@ Choose Professional
 
 <ul class="features">
 
-<li>Fully customized website</li>
-<li>Advanced visual design</li>
-<li>Custom sections & features</li>
-<li>Advanced interactions</li>
-<li>Branding integration</li>
-<li>Priority project support</li>
+<li>
+Fully customized website
+</li>
+
+<li>
+Advanced visual design
+</li>
+
+<li>
+Custom sections & features
+</li>
+
+<li>
+Advanced interactions
+</li>
+
+<li>
+Branding integration
+</li>
+
+<li>
+Priority project support
+</li>
 
 </ul>
 
 <button
 class="btn btn-outline order-btn"
 data-package="Premium"
-data-price="15000">
+data-price="15000"
+type="button">
 
 Choose Premium
 
@@ -2868,6 +2724,7 @@ We'll turn the idea into something people remember.
 
 <div class="contact-grid">
 
+
 <a
 class="contact-card reveal"
 href="https://wa.me/918822477442"
@@ -2878,7 +2735,9 @@ rel="noopener noreferrer">
 WA
 </div>
 
-<small>WhatsApp</small>
+<small>
+WhatsApp
+</small>
 
 <strong>
 +91 88224 77442
@@ -2897,7 +2756,9 @@ rel="noopener noreferrer">
 IG
 </div>
 
-<small>Instagram</small>
+<small>
+Instagram
+</small>
 
 <strong>
 @m_j_theartist
@@ -2914,7 +2775,9 @@ href="mailto:mjthecustomizer@gmail.com">
 @
 </div>
 
-<small>Email</small>
+<small>
+Email
+</small>
 
 <strong>
 mjthecustomizer@gmail.com
@@ -3076,7 +2939,9 @@ href="https://www.instagram.com/m_j_theartist/"
 target="_blank"
 rel="noopener noreferrer"
 aria-label="Instagram">
+
 IG
+
 </a>
 
 <a
@@ -3084,13 +2949,17 @@ href="https://wa.me/918822477442"
 target="_blank"
 rel="noopener noreferrer"
 aria-label="WhatsApp">
+
 WA
+
 </a>
 
 <a
 href="mailto:mjthecustomizer@gmail.com"
 aria-label="Email">
+
 @
+
 </a>
 
 </div>
@@ -3121,7 +2990,10 @@ MJ ARTS. All rights reserved.
 <div
 class="modal"
 id="orderModal"
-aria-hidden="true">
+aria-hidden="true"
+role="dialog"
+aria-modal="true"
+aria-labelledby="orderTitle">
 
 <div class="modal-box">
 
@@ -3129,8 +3001,10 @@ aria-hidden="true">
 class="modal-close"
 id="closeOrder"
 type="button"
-aria-label="Close">
+aria-label="Close order form">
+
 ✕
+
 </button>
 
 
@@ -3138,17 +3012,19 @@ aria-label="Close">
 MJ ARTS ORDER
 </div>
 
-<h2>
+<h2 id="orderTitle">
 Start Your Project
 </h2>
 
 <p class="modal-description">
-Choose your package, enter your details and complete
-your payment through UPI.
+Choose your package, enter your details and send
+the order directly to MJ ARTS.
 </p>
 
 
-<!-- ORDER SUMMARY -->
+<!-- =================================================
+     SELECTED PACKAGE
+================================================= -->
 
 <div class="order-summary">
 
@@ -3180,9 +3056,14 @@ Starting Price
 </div>
 
 
+<!-- =================================================
+     ORDER FORM
+================================================= -->
+
 <form
 class="order-form"
-id="orderForm">
+id="orderForm"
+novalidate>
 
 <input
 type="hidden"
@@ -3195,18 +3076,23 @@ id="priceInput"
 name="price">
 
 
+<!-- CLIENT NAME -->
+
 <label for="customerName">
-Your Name *
+Client Name *
 </label>
 
 <input
 id="customerName"
 name="name"
 type="text"
-placeholder="Enter your name"
+placeholder="Enter your full name"
 autocomplete="name"
+maxlength="80"
 required>
 
+
+<!-- CLIENT WHATSAPP -->
 
 <label for="customerPhone">
 WhatsApp Number *
@@ -3218,8 +3104,11 @@ name="phone"
 type="tel"
 placeholder="+91 XXXXX XXXXX"
 autocomplete="tel"
+maxlength="20"
 required>
 
+
+<!-- CLIENT EMAIL -->
 
 <label for="customerEmail">
 Email
@@ -3230,8 +3119,11 @@ id="customerEmail"
 name="email"
 type="email"
 placeholder="you@example.com"
-autocomplete="email">
+autocomplete="email"
+maxlength="120">
 
+
+<!-- PROJECT TYPE -->
 
 <label for="projectType">
 What do you need?
@@ -3268,6 +3160,8 @@ Custom Project
 </select>
 
 
+<!-- PROJECT DETAILS -->
+
 <label for="requirements">
 Project Details
 </label>
@@ -3275,7 +3169,8 @@ Project Details
 <textarea
 id="requirements"
 name="requirements"
-placeholder="Tell us briefly what you want..."></textarea>
+placeholder="Tell us briefly what you want..."
+maxlength="1000"></textarea>
 
 
 <!-- =================================================
@@ -3284,100 +3179,57 @@ placeholder="Tell us briefly what you want..."></textarea>
 
 <div class="payment-box">
 
-<div class="payment-heading">
-
-<div class="payment-heading-icon">
-💳
-</div>
-
 <h3>
-Secure UPI Payment
+💳 Payment
 </h3>
 
-</div>
-
-
-<p class="payment-box-description">
-
-Pay the selected starting amount directly through
-your preferred UPI app. Your order will be sent to
-MJ ARTS separately through WhatsApp.
-
+<p>
+After submitting your details, use the UPI option
+below to make your payment.
 </p>
 
-
-<div class="payment-upi-row">
+<!-- CHANGE THIS TO YOUR REAL UPI ID -->
 
 <span
 class="payment-upi"
-id="paymentUpi">
+id="upiId">
+
 YOUR-UPI-ID@upi
+
 </span>
 
-<button
-type="button"
-class="copy-upi"
-id="copyUpi">
+<a
+class="payment-upi-link"
+id="upiPayLink"
+href="#"
+style="display:none;">
 
-COPY
+Open UPI Payment App →
 
-</button>
+</a>
 
-</div>
-
-
-<div class="payment-actions">
-
-<button
-type="button"
-class="pay-upi-btn"
-id="payUpi">
-
-💳 Pay ₹0 via UPI
-
-</button>
-
-
-<button
-type="button"
-class="whatsapp-order-btn"
-id="sendWhatsAppDirect">
-
-📲 Send Without Payment
-
-</button>
-
-</div>
-
-
-<div class="payment-status">
-
-<input
-type="checkbox"
-id="paymentConfirmed"
-name="paymentConfirmed">
-
-<label for="paymentConfirmed">
-
-<strong>I have completed the UPI payment.</strong><br>
-
-I understand that payment will be manually
-checked and confirmed by MJ ARTS.
-
-</label>
-
-</div>
-
-
-<p class="payment-note">
-
-⚠️ Do not mark this checkbox unless you have
-actually completed the payment.
-
+<p>
+Payment verification will be confirmed manually
+until a payment gateway is connected.
 </p>
 
 </div>
 
+
+<!-- =================================================
+     FORM MESSAGE
+================================================= -->
+
+<div
+class="form-message"
+id="formMessage"
+role="alert">
+</div>
+
+
+<!-- =================================================
+     SUBMIT
+================================================= -->
 
 <button
 class="btn btn-primary order-submit"
@@ -3388,11 +3240,10 @@ Send Order To MJ ARTS →
 
 </button>
 
-
 <div class="order-note">
 
-Your selected package, price and project details
-will be included in the WhatsApp message.
+Your selected package, client name, price and
+project details will be included in the WhatsApp message.
 
 </div>
 
@@ -3403,17 +3254,6 @@ will be included in the WhatsApp message.
 </div>
 
 
-<!-- TOAST -->
-
-<div
-class="toast"
-id="toast"
-role="status"
-aria-live="polite">
-Done.
-</div>
-
-
 <!-- =====================================================
      JAVASCRIPT
 ===================================================== -->
@@ -3421,33 +3261,7 @@ Done.
 <script>
 
 /* =====================================================
-   MJ ARTS PAYMENT SETTINGS
-===================================================== */
-
-/*
-   IMPORTANT:
-   Replace ONLY the value inside the quotes below
-   with your REAL UPI ID.
-
-   Example:
-   const UPI_ID = "yourname@oksbi";
-
-   DO NOT put your bank account number here.
-   Use your actual UPI ID.
-*/
-
-const UPI_ID = "YOUR-UPI-ID@upi";
-
-
-/* =====================================================
-   MJ ARTS WHATSAPP
-===================================================== */
-
-const WHATSAPP_NUMBER = "918822477442";
-
-
-/* =====================================================
-   ELEMENTS
+   MOBILE MENU
 ===================================================== */
 
 const menuToggle =
@@ -3455,6 +3269,98 @@ document.getElementById("menuToggle");
 
 const navLinks =
 document.getElementById("navLinks");
+
+menuToggle.addEventListener(
+"click",
+function(){
+
+const opened =
+navLinks.classList.toggle("active");
+
+menuToggle.setAttribute(
+"aria-expanded",
+String(opened)
+);
+
+menuToggle.textContent =
+opened ? "✕" : "☰";
+
+});
+
+
+document
+.querySelectorAll("#navLinks a")
+.forEach(function(link){
+
+link.addEventListener(
+"click",
+function(){
+
+navLinks.classList.remove("active");
+
+menuToggle.setAttribute(
+"aria-expanded",
+"false"
+);
+
+menuToggle.textContent =
+"☰";
+
+});
+
+});
+
+
+/* =====================================================
+   CURRENT YEAR
+===================================================== */
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const observer =
+new IntersectionObserver(
+
+function(entries){
+
+entries.forEach(function(entry){
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+observer.unobserve(entry.target);
+
+}
+
+});
+
+},
+
+{
+threshold:.12
+}
+
+);
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(function(element){
+
+observer.observe(element);
+
+});
+
+
+/* =====================================================
+   ORDER SYSTEM
+===================================================== */
 
 const orderModal =
 document.getElementById("orderModal");
@@ -3477,243 +3383,54 @@ document.getElementById("packageInput");
 const priceInput =
 document.getElementById("priceInput");
 
-const paymentUpi =
-document.getElementById("paymentUpi");
+const customerName =
+document.getElementById("customerName");
 
-const payUpi =
-document.getElementById("payUpi");
+const customerPhone =
+document.getElementById("customerPhone");
 
-const copyUpi =
-document.getElementById("copyUpi");
+const customerEmail =
+document.getElementById("customerEmail");
 
-const paymentConfirmed =
-document.getElementById("paymentConfirmed");
+const projectType =
+document.getElementById("projectType");
+
+const requirements =
+document.getElementById("requirements");
 
 const orderSubmit =
 document.getElementById("orderSubmit");
 
-const sendWhatsAppDirect =
-document.getElementById("sendWhatsAppDirect");
-
-const toast =
-document.getElementById("toast");
+const formMessage =
+document.getElementById("formMessage");
 
 
 /* =====================================================
-   SET PAYMENT UPI ID
+   SHOW FORM MESSAGE
 ===================================================== */
 
-paymentUpi.textContent = UPI_ID;
+function showFormMessage(message,type){
 
+formMessage.textContent =
+message;
 
-/* =====================================================
-   TOAST
-===================================================== */
-
-let toastTimer;
-
-function showToast(message){
-
-  toast.textContent = message;
-
-  toast.classList.add("show");
-
-  clearTimeout(toastTimer);
-
-  toastTimer =
-  setTimeout(() => {
-
-    toast.classList.remove("show");
-
-  },3000);
+formMessage.className =
+"form-message show " + type;
 
 }
 
 
 /* =====================================================
-   MOBILE MENU
+   CLEAR FORM MESSAGE
 ===================================================== */
 
-menuToggle.addEventListener(
-"click",
-() => {
+function clearFormMessage(){
 
-  const opened =
-  navLinks.classList.toggle("active");
+formMessage.textContent =
+"";
 
-  menuToggle.setAttribute(
-    "aria-expanded",
-    String(opened)
-  );
-
-  menuToggle.textContent =
-  opened ? "✕" : "☰";
-
-});
-
-
-document
-.querySelectorAll("#navLinks a")
-.forEach(link => {
-
-  link.addEventListener(
-  "click",
-  () => {
-
-    navLinks.classList.remove("active");
-
-    menuToggle.setAttribute(
-      "aria-expanded",
-      "false"
-    );
-
-    menuToggle.textContent = "☰";
-
-  });
-
-});
-
-
-/* =====================================================
-   CURRENT YEAR
-===================================================== */
-
-document.getElementById("year").textContent =
-new Date().getFullYear();
-
-
-/* =====================================================
-   SCROLL REVEAL
-===================================================== */
-
-if(
-  "IntersectionObserver" in window
-){
-
-  const observer =
-  new IntersectionObserver(
-
-    entries => {
-
-      entries.forEach(entry => {
-
-        if(entry.isIntersecting){
-
-          entry.target.classList.add("show");
-
-          observer.unobserve(entry.target);
-
-        }
-
-      });
-
-    },
-
-    {
-      threshold:.12
-    }
-
-  );
-
-
-  document
-  .querySelectorAll(".reveal")
-  .forEach(element => {
-
-    observer.observe(element);
-
-  });
-
-}else{
-
-  document
-  .querySelectorAll(".reveal")
-  .forEach(element => {
-
-    element.classList.add("show");
-
-  });
-
-}
-
-
-/* =====================================================
-   FORMAT PRICE
-===================================================== */
-
-function formatPrice(price){
-
-  return "₹" +
-  Number(price).toLocaleString("en-IN");
-
-}
-
-
-/* =====================================================
-   CHECK WHETHER REAL UPI ID EXISTS
-===================================================== */
-
-function hasRealUpi(){
-
-  return (
-    UPI_ID &&
-    !UPI_ID.includes("YOUR-UPI-ID") &&
-    UPI_ID.includes("@")
-  );
-
-}
-
-
-/* =====================================================
-   GET CURRENT ORDER DATA
-===================================================== */
-
-function getOrderData(){
-
-  const name =
-  document
-  .getElementById("customerName")
-  .value
-  .trim();
-
-  const phone =
-  document
-  .getElementById("customerPhone")
-  .value
-  .trim();
-
-  const email =
-  document
-  .getElementById("customerEmail")
-  .value
-  .trim();
-
-  const project =
-  document
-  .getElementById("projectType")
-  .value;
-
-  const requirements =
-  document
-  .getElementById("requirements")
-  .value
-  .trim();
-
-  const packageName =
-  packageInput.value;
-
-  const price =
-  Number(priceInput.value || 0);
-
-  return {
-    name,
-    phone,
-    email,
-    project,
-    requirements,
-    packageName,
-    price
-  };
+formMessage.className =
+"form-message";
 
 }
 
@@ -3724,67 +3441,58 @@ function getOrderData(){
 
 document
 .querySelectorAll(".order-btn")
-.forEach(button => {
+.forEach(function(button){
 
-  button.addEventListener(
-  "click",
-  () => {
+button.addEventListener(
+"click",
+function(){
 
-    const packageName =
-    button.dataset.package;
+const packageName =
+button.dataset.package;
 
-    const price =
-    Number(button.dataset.price);
-
-
-    selectedPackage.textContent =
-    packageName;
-
-    selectedPrice.textContent =
-    formatPrice(price) + "+";
+const price =
+Number(button.dataset.price);
 
 
-    packageInput.value =
-    packageName;
+selectedPackage.textContent =
+packageName;
 
-    priceInput.value =
-    price;
-
-
-    paymentConfirmed.checked =
-    false;
+selectedPrice.textContent =
+"₹" +
+price.toLocaleString("en-IN") +
+"+";
 
 
-    payUpi.textContent =
-    "💳 Pay " +
-    formatPrice(price) +
-    " via UPI";
+packageInput.value =
+packageName;
+
+priceInput.value =
+price;
 
 
-    orderSubmit.disabled = true;
+clearFormMessage();
+
+orderModal.classList.add("active");
+
+orderModal.setAttribute(
+"aria-hidden",
+"false"
+);
+
+document.body.classList.add(
+"modal-open"
+);
 
 
-    orderModal.classList.add("active");
+/* Focus client name */
 
-    orderModal.setAttribute(
-      "aria-hidden",
-      "false"
-    );
+setTimeout(function(){
 
-    document.body.classList.add(
-      "modal-open"
-    );
+customerName.focus();
 
+},100);
 
-    setTimeout(() => {
-
-      document
-      .getElementById("customerName")
-      .focus();
-
-    },100);
-
-  });
+});
 
 });
 
@@ -3795,18 +3503,18 @@ document
 
 function closeOrderModal(){
 
-  orderModal.classList.remove(
-    "active"
-  );
+orderModal.classList.remove(
+"active"
+);
 
-  orderModal.setAttribute(
-    "aria-hidden",
-    "true"
-  );
+orderModal.setAttribute(
+"aria-hidden",
+"true"
+);
 
-  document.body.classList.remove(
-    "modal-open"
-  );
+document.body.classList.remove(
+"modal-open"
+);
 
 }
 
@@ -3822,18 +3530,18 @@ closeOrderModal
 
 
 /* =====================================================
-   CLICK OUTSIDE
+   CLICK OUTSIDE MODAL
 ===================================================== */
 
 orderModal.addEventListener(
 "click",
-event => {
+function(event){
 
-  if(event.target === orderModal){
+if(event.target === orderModal){
 
-    closeOrderModal();
+closeOrderModal();
 
-  }
+}
 
 });
 
@@ -3844,402 +3552,50 @@ event => {
 
 document.addEventListener(
 "keydown",
-event => {
+function(event){
 
-  if(
-    event.key === "Escape" &&
-    orderModal.classList.contains("active")
-  ){
+if(
+event.key === "Escape" &&
+orderModal.classList.contains("active")
+){
 
-    closeOrderModal();
+closeOrderModal();
 
-  }
-
-});
-
-
-/* =====================================================
-   COPY UPI ID
-===================================================== */
-
-copyUpi.addEventListener(
-"click",
-async () => {
-
-  if(!hasRealUpi()){
-
-    showToast(
-      "Please add your real UPI ID in the code first."
-    );
-
-    return;
-
-  }
-
-
-  try{
-
-    await navigator.clipboard.writeText(
-      UPI_ID
-    );
-
-    copyUpi.textContent =
-    "COPIED ✓";
-
-    copyUpi.classList.add(
-      "copied"
-    );
-
-
-    setTimeout(() => {
-
-      copyUpi.textContent =
-      "COPY";
-
-      copyUpi.classList.remove(
-        "copied"
-      );
-
-    },2000);
-
-
-  }catch(error){
-
-    showToast(
-      "Copy failed. Please copy the UPI ID manually."
-    );
-
-  }
+}
 
 });
 
 
 /* =====================================================
-   PAY VIA UPI
+   PHONE VALIDATION
 ===================================================== */
 
-payUpi.addEventListener(
-"click",
-() => {
+function validPhone(phone){
 
-  if(!hasRealUpi()){
+const digits =
+phone.replace(/\D/g,"");
 
-    showToast(
-      "Add your real UPI ID in the code before taking payments."
-    );
-
-    return;
-
-  }
-
-
-  const price =
-  Number(priceInput.value || 0);
-
-  const packageName =
-  packageInput.value || "MJ ARTS Project";
-
-
-  if(price <= 0){
-
-    showToast(
-      "Please select a package first."
-    );
-
-    return;
-
-  }
-
-
-  /*
-    UPI deep-link.
-
-    This works on supported mobile devices
-    and opens the installed UPI app/chooser.
-  */
-
-  const params =
-  new URLSearchParams({
-
-    pa:UPI_ID,
-
-    pn:"MJ ARTS",
-
-    am:price.toFixed(2),
-
-    cu:"INR",
-
-    tn:
-    "MJ ARTS - " +
-    packageName +
-    " Package"
-
-  });
-
-
-  const upiURL =
-  "upi://pay?" +
-  params.toString();
-
-
-  window.location.href =
-  upiURL;
-
-
-  /*
-    The checkbox is intentionally NOT
-    automatically checked.
-
-    Customer must return after paying
-    and manually confirm.
-  */
-
-});
-
-
-/* =====================================================
-   PAYMENT CHECKBOX
-===================================================== */
-
-paymentConfirmed.addEventListener(
-"change",
-() => {
-
-  orderSubmit.disabled =
-  !paymentConfirmed.checked;
-
-});
-
-
-/* =====================================================
-   CREATE WHATSAPP MESSAGE
-===================================================== */
-
-function createWhatsAppMessage(){
-
-  const data =
-  getOrderData();
-
-
-  const orderId =
-  "MJ-" +
-  Date.now()
-  .toString()
-  .slice(-7);
-
-
-  const paymentState =
-  paymentConfirmed.checked
-  ? "Customer says payment completed — PLEASE VERIFY."
-  : "Payment not confirmed.";
-
-
-  const message =
-
-`🔥 NEW MJ ARTS ORDER
-
-Order ID:
-${orderId}
-
-👤 Customer:
-${data.name}
-
-📱 WhatsApp:
-${data.phone}
-
-📧 Email:
-${data.email || "Not provided"}
-
-📦 Package:
-${data.packageName}
-
-💰 Starting Price:
-${formatPrice(data.price)}+
-
-🎨 Project:
-${data.project}
-
-📝 Requirements:
-${data.requirements || "Not provided"}
-
-💳 Payment:
-${paymentState}
-
-Please contact the customer to confirm the project and verify payment.`;
-
-
-  return {
-    orderId,
-    message,
-    data
-  };
+return digits.length >= 10 &&
+digits.length <= 15;
 
 }
 
 
 /* =====================================================
-   SAVE ORDER
+   CLIENT NAME VALIDATION
 ===================================================== */
 
-function saveOrder(order){
+function validName(name){
 
-  try{
+/*
+  Allows normal names with spaces,
+  dots, apostrophes and hyphens.
+*/
 
-    localStorage.setItem(
-
-      "mjLastOrder",
-
-      JSON.stringify({
-
-        orderId:
-        order.orderId,
-
-        name:
-        order.data.name,
-
-        phone:
-        order.data.phone,
-
-        email:
-        order.data.email,
-
-        packageName:
-        order.data.packageName,
-
-        price:
-        order.data.price,
-
-        project:
-        order.data.project,
-
-        requirements:
-        order.data.requirements,
-
-        paymentConfirmed:
-        paymentConfirmed.checked,
-
-        createdAt:
-        new Date().toISOString()
-
-      })
-
-    );
-
-  }catch(error){
-
-    console.log(
-      "Local storage unavailable."
-    );
-
-  }
+return /^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ .'-]{1,79}$/
+.test(name);
 
 }
-
-
-/* =====================================================
-   SEND WHATSAPP
-===================================================== */
-
-function sendWhatsApp(){
-
-  const order =
-  createWhatsAppMessage();
-
-
-  saveOrder(order);
-
-
-  const whatsappURL =
-  "https://wa.me/" +
-  WHATSAPP_NUMBER +
-  "?text=" +
-  encodeURIComponent(
-    order.message
-  );
-
-
-  window.open(
-    whatsappURL,
-    "_blank",
-    "noopener,noreferrer"
-  );
-
-
-  return order;
-
-}
-
-
-/* =====================================================
-   SEND WITHOUT PAYMENT
-=====================================================
-
-   This is useful when you want customers to
-   discuss the project before paying.
-
-===================================================== */
-
-sendWhatsAppDirect.addEventListener(
-"click",
-() => {
-
-  const data =
-  getOrderData();
-
-
-  if(!data.name){
-
-    showToast(
-      "Please enter your name first."
-    );
-
-    document
-    .getElementById("customerName")
-    .focus();
-
-    return;
-
-  }
-
-
-  if(!data.phone){
-
-    showToast(
-      "Please enter your WhatsApp number."
-    );
-
-    document
-    .getElementById("customerPhone")
-    .focus();
-
-    return;
-
-  }
-
-
-  const order =
-  createWhatsAppMessage();
-
-
-  saveOrder(order);
-
-
-  const whatsappURL =
-  "https://wa.me/" +
-  WHATSAPP_NUMBER +
-  "?text=" +
-  encodeURIComponent(
-    order.message
-  );
-
-
-  window.open(
-    whatsappURL,
-    "_blank",
-    "noopener,noreferrer"
-  );
-
-});
 
 
 /* =====================================================
@@ -4248,70 +3604,317 @@ sendWhatsAppDirect.addEventListener(
 
 orderForm.addEventListener(
 "submit",
-event => {
+function(event){
 
-  event.preventDefault();
+event.preventDefault();
 
-
-  if(!paymentConfirmed.checked){
-
-    showToast(
-      "Please complete the payment or use 'Send Without Payment'."
-    );
-
-    return;
-
-  }
+clearFormMessage();
 
 
-  const data =
-  getOrderData();
+/* =================================================
+   GET CLIENT DETAILS
+================================================= */
+
+const name =
+customerName.value.trim();
+
+const phone =
+customerPhone.value.trim();
+
+const email =
+customerEmail.value.trim();
+
+const project =
+projectType.value;
+
+const details =
+requirements.value.trim();
+
+const packageName =
+packageInput.value;
+
+const price =
+priceInput.value;
 
 
-  if(!data.name){
+/* =================================================
+   VALIDATE CLIENT NAME
+================================================= */
 
-    showToast(
-      "Please enter your name."
-    );
+if(!name){
 
-    return;
+showFormMessage(
+"Please enter your name.",
+"error"
+);
 
-  }
+customerName.focus();
 
+return;
 
-  if(!data.phone){
-
-    showToast(
-      "Please enter your WhatsApp number."
-    );
-
-    return;
-
-  }
+}
 
 
-  const order =
-  sendWhatsApp();
+if(!validName(name)){
+
+showFormMessage(
+"Please enter a valid client name.",
+"error"
+);
+
+customerName.focus();
+
+return;
+
+}
 
 
-  showToast(
-    "Order prepared. WhatsApp is opening..."
-  );
+/* =================================================
+   VALIDATE PHONE
+================================================= */
+
+if(!phone){
+
+showFormMessage(
+"Please enter your WhatsApp number.",
+"error"
+);
+
+customerPhone.focus();
+
+return;
+
+}
 
 
-  setTimeout(() => {
+if(!validPhone(phone)){
 
-    orderForm.reset();
+showFormMessage(
+"Please enter a valid WhatsApp number.",
+"error"
+);
 
-    paymentConfirmed.checked =
-    false;
+customerPhone.focus();
 
-    orderSubmit.disabled =
-    true;
+return;
 
-    closeOrderModal();
+}
 
-  },700);
+
+/* =================================================
+   VALIDATE EMAIL
+================================================= */
+
+if(
+email &&
+!/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+.test(email)
+){
+
+showFormMessage(
+"Please enter a valid email address.",
+"error"
+);
+
+customerEmail.focus();
+
+return;
+
+}
+
+
+/* =================================================
+   MAKE SURE PACKAGE EXISTS
+================================================= */
+
+if(!packageName || !price){
+
+showFormMessage(
+"Please choose a package first.",
+"error"
+);
+
+return;
+
+}
+
+
+/* =================================================
+   ORDER ID
+================================================= */
+
+const orderId =
+"MJ-" +
+Date.now()
+.toString()
+.slice(-7);
+
+
+/* =================================================
+   WHATSAPP MESSAGE
+================================================= */
+
+const message =
+
+`🔥 NEW MJ ARTS ORDER
+
+━━━━━━━━━━━━━━━━━━
+📋 ORDER DETAILS
+━━━━━━━━━━━━━━━━━━
+
+🆔 Order ID:
+${orderId}
+
+👤 CLIENT NAME:
+${name}
+
+📱 CLIENT WHATSAPP:
+${phone}
+
+📧 CLIENT EMAIL:
+${email || "Not provided"}
+
+📦 PACKAGE:
+${packageName}
+
+💰 STARTING PRICE:
+₹${Number(price).toLocaleString("en-IN")}+
+
+🎨 PROJECT TYPE:
+${project}
+
+📝 PROJECT DETAILS:
+${details || "Not provided"}
+
+━━━━━━━━━━━━━━━━━━
+
+Please contact the client to confirm
+the project, requirements and payment.
+
+— MJ ARTS`;
+
+
+/* =================================================
+   SAVE LAST ORDER LOCALLY
+===================================================== */
+
+try{
+
+localStorage.setItem(
+
+"mjLastOrder",
+
+JSON.stringify({
+
+orderId:orderId,
+
+clientName:name,
+
+clientPhone:phone,
+
+clientEmail:email,
+
+packageName:packageName,
+
+price:price,
+
+project:project,
+
+requirements:details,
+
+createdAt:
+new Date().toISOString()
+
+})
+
+);
+
+}catch(error){
+
+console.warn(
+"Local order storage unavailable:",
+error
+);
+
+}
+
+
+/* =================================================
+   CREATE WHATSAPP URL
+===================================================== */
+
+const whatsappURL =
+"https://wa.me/918822477442?text=" +
+encodeURIComponent(message);
+
+
+/* =================================================
+   PREPARE BUTTON
+===================================================== */
+
+orderSubmit.disabled =
+true;
+
+orderSubmit.textContent =
+"Opening WhatsApp...";
+
+
+/* =================================================
+   OPEN WHATSAPP
+===================================================== */
+
+const whatsappWindow =
+window.open(
+whatsappURL,
+"_blank"
+);
+
+
+/*
+  Some mobile browsers may block popup windows.
+*/
+
+if(!whatsappWindow){
+
+window.location.href =
+whatsappURL;
+
+}
+
+
+/* =================================================
+   SUCCESS MESSAGE
+===================================================== */
+
+showFormMessage(
+"Order prepared successfully. WhatsApp is opening with your details.",
+"success"
+);
+
+
+/* =================================================
+   RESET AFTER SHORT DELAY
+===================================================== */
+
+setTimeout(function(){
+
+orderForm.reset();
+
+packageInput.value =
+packageName;
+
+priceInput.value =
+price;
+
+orderSubmit.disabled =
+false;
+
+orderSubmit.textContent =
+"Send Order To MJ ARTS →";
+
+closeOrderModal();
+
+},700);
 
 });
 
@@ -4322,17 +3925,111 @@ event => {
 
 document
 .querySelectorAll('a[href="#"]')
-.forEach(link => {
+.forEach(function(link){
 
-  link.addEventListener(
-    "click",
-    event => {
+link.addEventListener(
+"click",
+function(event){
 
-      event.preventDefault();
-
-    });
+event.preventDefault();
 
 });
+
+});
+
+
+/* =====================================================
+   OPTIONAL UPI PAYMENT LINK
+=====================================================
+
+   IMPORTANT:
+
+   Change this:
+
+   YOUR-UPI-ID@upi
+
+   to your REAL UPI ID above.
+
+   Example:
+
+   mjarts@oksbi
+
+   The UPI payment button will automatically use
+   the selected package price.
+
+===================================================== */
+
+const REAL_UPI_ID =
+"YOUR-UPI-ID@upi";
+
+const upiPayLink =
+document.getElementById("upiPayLink");
+
+const upiId =
+document.getElementById("upiId");
+
+
+/* Display UPI ID */
+
+upiId.textContent =
+REAL_UPI_ID;
+
+
+/* Only enable payment link if a real ID is entered */
+
+if(
+REAL_UPI_ID &&
+REAL_UPI_ID !== "YOUR-UPI-ID@upi"
+){
+
+upiPayLink.style.display =
+"block";
+
+upiPayLink.href =
+"upi://pay?pa=" +
+encodeURIComponent(REAL_UPI_ID) +
+"&pn=" +
+encodeURIComponent("MJ ARTS") +
+"&cu=INR";
+
+}
+
+
+/* =====================================================
+   UPDATE UPI PAYMENT WHEN PACKAGE CHANGES
+===================================================== */
+
+document
+.querySelectorAll(".order-btn")
+.forEach(function(button){
+
+button.addEventListener(
+"click",
+function(){
+
+const price =
+Number(button.dataset.price);
+
+if(
+REAL_UPI_ID &&
+REAL_UPI_ID !== "YOUR-UPI-ID@upi"
+){
+
+upiPayLink.href =
+"upi://pay?pa=" +
+encodeURIComponent(REAL_UPI_ID) +
+"&pn=" +
+encodeURIComponent("MJ ARTS") +
+"&am=" +
+encodeURIComponent(price) +
+"&cu=INR";
+
+}
+
+});
+
+});
+
 
 </script>
 
